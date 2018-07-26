@@ -1,32 +1,35 @@
-﻿using System;
+﻿using ProyectoFinal.DAL;
+using ProyectoFinal.Entidades;
+using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
+using System.Linq.Expressions;
 using System.Text;
 
 namespace ProyectoFinal.BLL
 {
    public class InventarioBLL
     {
-        public static bool Guardar(Mantenimiento mantenimiento)
+        public static bool Guardar(Inventario inventario)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
 
-            Vehiculos vehiculos = new Vehiculos();
+           
             try
             {
-                if (contexto.Mantenimiento.Add(mantenimiento) != null)
+                if (contexto.Inventario.Add(inventario) != null)
                 {
 
-                    foreach (var item in mantenimiento.Detalle)
+                    foreach (var item in inventario.Detalle)
                     {
-                        contexto.Articulos.Find(item.ArticulosID).Inventario -= item.Cantidad;
+                        contexto.Articulos.Find(item.ArticuloID).PrecioCompra += item.PrecioCompra;
+                        contexto.Articulos.Find(item.ArticuloID).PrecioVenta += item.PrecioVenta;
+                        contexto.Articulos.Find(item.ArticuloID).Ganancia += item.Ganancia;
+
                     }
-
-
-                    contexto.Vehiculo.Find(mantenimiento.VehiculoID).TotalMantenimiento += mantenimiento.Total;
-
                     contexto.SaveChanges();
                     paso = true;
                 }
@@ -43,17 +46,18 @@ namespace ProyectoFinal.BLL
             Contexto contexto = new Contexto();
             try
             {
-                Mantenimiento mantenimiento = contexto.Mantenimiento.Find(id);
+                Inventario inventario = contexto.Inventario.Find(id);
 
-                foreach (var item in mantenimiento.Detalle)
+                foreach (var item in inventario.Detalle)
                 {
-                    var articulo = contexto.Articulos.Find(item.ArticulosID);
-                    articulo.Inventario += item.Cantidad;
+                    var articulo = contexto.Articulos.Find(item.ArticuloID);
+                    articulo.PrecioCompra += item.PrecioCompra;
+                    articulo.PrecioVenta += item.PrecioVenta;
+                    articulo.Ganancia += item.Ganancia;
+
                 }
 
-                contexto.Mantenimiento.Remove(mantenimiento);
-
-                contexto.Vehiculo.Find(mantenimiento.VehiculoID).TotalMantenimiento -= mantenimiento.Total;
+                contexto.Inventario.Remove(inventario);
 
                 if (contexto.SaveChanges() > 0)
                 {
@@ -69,25 +73,23 @@ namespace ProyectoFinal.BLL
             return paso;
         }
 
-        public static Mantenimiento Buscar(int id)
+        public static Inventario Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Mantenimiento mantenimiento = new Mantenimiento();
+            Inventario inventario = new Inventario();
             try
             {
-                mantenimiento = contexto.Mantenimiento.Find(id);
-                if (mantenimiento != null)
+                inventario = contexto.Inventario.Find(id);
+                if (inventario != null)
                 {
-                    //Cargar la lista en este punto porque
-                    //luego de hacer Dispose() el Contexto 
-                    //no sera posible leer la lista
-                    mantenimiento.Detalle.Count();
+                    
+                    inventario.Detalle.Count();
 
-                    //Cargar los nombres de las ciudades
-                    foreach (var item in mantenimiento.Detalle)
+                    
+                    foreach (var item in inventario.Detalle)
                     {
-                        //forzando la ciudad a cargarse
-                        string s = item.Articulos.Descripcion;
+                        //forzando el articulo a cargarse
+                        string s = item.Articulos.Nombre;
                     }
 
                     contexto.Dispose();
@@ -99,20 +101,20 @@ namespace ProyectoFinal.BLL
                 throw;
             }
 
-            return mantenimiento;
+            return inventario;
         }
 
 
 
 
 
-        public static List<Mantenimiento> GetList(Expression<Func<Mantenimiento, bool>> expression)
+        public static List<Inventario> GetList(Expression<Func<Inventario, bool>> expression)
         {
-            List<Mantenimiento> mantenimientos = new List<Mantenimiento>();
+            List<Inventario> inventario = new List<Inventario>();
             Contexto contexto = new Contexto();
             try
             {
-                mantenimientos = contexto.Mantenimiento.Where(expression).ToList();
+                inventario = contexto.Inventario.Where(expression).ToList();
                 contexto.Dispose();
             }
             catch (Exception)
@@ -121,25 +123,27 @@ namespace ProyectoFinal.BLL
                 throw;
             }
 
-            return mantenimientos;
+            return inventario;
         }
 
-        public static bool Modificar(Mantenimiento mantenimiento)
+        public static bool Modificar(Inventario inventario)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
             try
             {
                 //todo: buscar las entidades que no estan para removerlas
-                var visitaant = MantenimientoBLL.Buscar(mantenimiento.MantenimientoID);
+                var inve = InventarioBLL.Buscar(inventario.InventarioID);
 
-                foreach (var item in visitaant.Detalle)//recorrer el detalle aterior
+                foreach (var item in inve.Detalle)//recorrer el detalle aterior
                 {
                     //restar todas las visitas
-                    contexto.Articulos.Find(item.ArticulosID).Inventario += item.Cantidad;
+                    contexto.Articulos.Find(item.ArticuloID).PrecioCompra += item.PrecioCompra;
+                    contexto.Articulos.Find(item.ArticuloID).PrecioVenta += item.PrecioVenta;
+                    contexto.Articulos.Find(item.ArticuloID).Ganancia  += item.Ganancia;
 
                     //determinar si el item no esta en el detalle actual
-                    if (!mantenimiento.Detalle.ToList().Exists(v => v.ID == item.ID))
+                    if (!inventario.Detalle.ToList().Exists(v => v.InventarioID == item.InventarioID))
                     {
                         //   contexto.Articulos.Find(item.ArticulosID).Inventario -= item.Cantidad;
                         item.Articulos = null; //quitar la ciudad para que EF no intente hacerle nada
@@ -147,33 +151,25 @@ namespace ProyectoFinal.BLL
                     }
                 }
 
-                //recorrer el detalle
-                foreach (var item in mantenimiento.Detalle)
+              
+                foreach (var item in inventario.Detalle)
                 {
                     //Sumar todas las visitas
-                    contexto.Articulos.Find(item.ArticulosID).Inventario -= item.Cantidad;
+                    contexto.Articulos.Find(item.ArticuloID).PrecioCompra += item.PrecioCompra;
+                    contexto.Articulos.Find(item.ArticuloID).PrecioVenta += item.PrecioVenta;
+                    contexto.Articulos.Find(item.ArticuloID).Ganancia += item.Ganancia;
 
                     //Muy importante indicar que pasara con la entidad del detalle
-                    var estado = item.ID > 0 ? EntityState.Modified : EntityState.Added;
+                    var estado = item.InventarioID > 0 ? EntityState.Modified : EntityState.Added;
                     contexto.Entry(item).State = estado;
                 }
 
-                Mantenimiento EntradaAnterior = BLL.MantenimientoBLL.Buscar(mantenimiento.MantenimientoID);
-
-
-                //identificar la diferencia ya sea restada o sumada
-                decimal diferencia;
-
-                diferencia = mantenimiento.Total - EntradaAnterior.Total;
-
-                //aplicar diferencia al inventario
-                Vehiculos vehiculos = BLL.VehiculosBLL.Buscar(mantenimiento.VehiculoID);
-                vehiculos.TotalMantenimiento += diferencia;
-                BLL.VehiculosBLL.Modificar(vehiculos);
-
+                Inventario EntradaAnterior = BLL.InventarioBLL.Buscar(inventario.InventarioID);
+                
+               
 
                 //Idicar que se esta modificando el encabezado
-                contexto.Entry(mantenimiento).State = EntityState.Modified;
+                contexto.Entry(inventario).State = EntityState.Modified;
 
                 if (contexto.SaveChanges() > 0)
                 {

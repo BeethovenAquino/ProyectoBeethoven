@@ -14,7 +14,7 @@ namespace ProyectoFinal.Entidades
         public string Nombre { get; set; }
         public string Marca { get; set; }
         public DateTime Fecha { get; set; }
-        public int CantidadRestante { get; set; }
+        public int Vigencia { get; set; }
         public string PrecioCompra { get; set; }
         public string PrecioVenta { get; set; }
         public string Ganancia { get; set; }
@@ -30,16 +30,16 @@ namespace ProyectoFinal.Entidades
             Nombre= string.Empty;
             Marca= string.Empty;
             Fecha = DateTime.Now;
-            CantidadRestante = 0;
+            Vigencia = string.Empty;
             PrecioCompra = string.Empty;
             PrecioVenta= string.Empty;
             Ganancia= string.Empty;
 
         }
 
-        public void AgregarDetalle(int InventarioID, DateTime Fecha, string Articulo, int PrecioCompra, int PrecioVenta, string Ganancia)
+        public void AgregarDetalle(int InventarioID, string Articulo, int PrecioCompra, int PrecioVenta, string Ganancia)
         {
-            this.Detalle.Add(new Inventario(InventarioID, Fecha, Articulo, PrecioCompra, PrecioVenta, Ganancia));
+            this.Detalle.Add(new Inventario(InventarioID, Articulo, PrecioCompra, PrecioVenta, Ganancia));
         }
     }
 }
