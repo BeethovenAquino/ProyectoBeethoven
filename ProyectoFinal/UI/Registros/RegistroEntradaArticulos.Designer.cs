@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,8 +39,10 @@
             this.EntradaArticuloIDnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.ArticulocomboBox = new System.Windows.Forms.ComboBox();
             this.CantidadArticulonumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.EntradaerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.EntradaArticuloIDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadArticulonumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EntradaerrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -77,6 +80,7 @@
             this.Guardarbutton.TabIndex = 11;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
             // Buscarbutton
             // 
@@ -86,6 +90,7 @@
             this.Buscarbutton.TabIndex = 12;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // Eliminarbutton
             // 
@@ -95,6 +100,7 @@
             this.Eliminarbutton.TabIndex = 13;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
             // Nuevobutton
             // 
@@ -104,6 +110,7 @@
             this.Nuevobutton.TabIndex = 10;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
             // EntradaArticuloIDnumericUpDown
             // 
@@ -127,6 +134,10 @@
             this.CantidadArticulonumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.CantidadArticulonumericUpDown.TabIndex = 16;
             // 
+            // EntradaerrorProvider
+            // 
+            this.EntradaerrorProvider.ContainerControl = this;
+            // 
             // RegistroEntradaArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -146,6 +157,7 @@
             this.Text = "RegistroEntradaArticulos";
             ((System.ComponentModel.ISupportInitialize)(this.EntradaArticuloIDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadArticulonumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.EntradaerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -163,5 +175,6 @@
         private System.Windows.Forms.NumericUpDown EntradaArticuloIDnumericUpDown;
         private System.Windows.Forms.ComboBox ArticulocomboBox;
         private System.Windows.Forms.NumericUpDown CantidadArticulonumericUpDown;
+        private System.Windows.Forms.ErrorProvider EntradaerrorProvider;
     }
 }

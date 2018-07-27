@@ -183,5 +183,12 @@ namespace ProyectoFinal.BLL
             }
             return paso;
         }
+
+        public static decimal CalcularGanancia(int precioCompra, int precioVenta)
+        {
+
+            return ((Convert.ToInt32(precioVenta) - Convert.ToInt32(precioCompra)));
+
+        }
     }
 }

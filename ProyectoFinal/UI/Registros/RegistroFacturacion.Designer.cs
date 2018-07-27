@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -44,7 +45,7 @@
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.SubtotaltextBox = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Removerbutton = new System.Windows.Forms.Button();
             this.Agregarbutton = new System.Windows.Forms.Button();
             this.FacturaciondataGridView = new System.Windows.Forms.DataGridView();
             this.label9 = new System.Windows.Forms.Label();
@@ -57,11 +58,15 @@
             this.MontonumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
             this.DevueltatextBox = new System.Windows.Forms.TextBox();
+            this.FacturacionerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label12 = new System.Windows.Forms.Label();
+            this.ImportetextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaIDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecionumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaciondataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MontonumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FacturacionerrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -133,6 +138,7 @@
             this.VentacomboBox.Name = "VentacomboBox";
             this.VentacomboBox.Size = new System.Drawing.Size(121, 21);
             this.VentacomboBox.TabIndex = 7;
+            this.VentacomboBox.SelectedIndexChanged += new System.EventHandler(this.VentacomboBox_SelectedIndexChanged);
             // 
             // ArticulocomboBox
             // 
@@ -157,6 +163,7 @@
             this.PrecionumericUpDown.Name = "PrecionumericUpDown";
             this.PrecionumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.PrecionumericUpDown.TabIndex = 76;
+            this.PrecionumericUpDown.ValueChanged += new System.EventHandler(this.PrecionumericUpDown_ValueChanged);
             // 
             // CantidadnumericUpDown
             // 
@@ -164,6 +171,7 @@
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
             this.CantidadnumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.CantidadnumericUpDown.TabIndex = 75;
+            this.CantidadnumericUpDown.ValueChanged += new System.EventHandler(this.CantidadnumericUpDown_ValueChanged);
             // 
             // label6
             // 
@@ -199,15 +207,16 @@
             this.SubtotaltextBox.Size = new System.Drawing.Size(118, 20);
             this.SubtotaltextBox.TabIndex = 78;
             // 
-            // button1
+            // Removerbutton
             // 
-            this.button1.Image = global::ProyectoFinal.Properties.Resources.restar_16;
-            this.button1.Location = new System.Drawing.Point(772, 153);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 30);
-            this.button1.TabIndex = 80;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.Removerbutton.Image = global::ProyectoFinal.Properties.Resources.restar_16;
+            this.Removerbutton.Location = new System.Drawing.Point(772, 153);
+            this.Removerbutton.Name = "Removerbutton";
+            this.Removerbutton.Size = new System.Drawing.Size(74, 30);
+            this.Removerbutton.TabIndex = 80;
+            this.Removerbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Removerbutton.UseVisualStyleBackColor = true;
+            this.Removerbutton.Click += new System.EventHandler(this.Removerbutton_Click);
             // 
             // Agregarbutton
             // 
@@ -218,6 +227,7 @@
             this.Agregarbutton.TabIndex = 79;
             this.Agregarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Agregarbutton.UseVisualStyleBackColor = true;
+            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
             // 
             // FacturaciondataGridView
             // 
@@ -251,6 +261,7 @@
             this.Guardarbutton.TabIndex = 85;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
             // Buscarbutton
             // 
@@ -260,6 +271,7 @@
             this.Buscarbutton.TabIndex = 86;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // Eliminarbutton
             // 
@@ -269,6 +281,7 @@
             this.Eliminarbutton.TabIndex = 87;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
             // Nuevobutton
             // 
@@ -278,11 +291,12 @@
             this.Nuevobutton.TabIndex = 84;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(435, 156);
+            this.label10.Location = new System.Drawing.Point(20, 375);
             this.label10.Name = "label10";
             this.label10.Size = new System.Drawing.Size(37, 13);
             this.label10.TabIndex = 88;
@@ -290,15 +304,16 @@
             // 
             // MontonumericUpDown
             // 
-            this.MontonumericUpDown.Location = new System.Drawing.Point(479, 156);
+            this.MontonumericUpDown.Location = new System.Drawing.Point(64, 375);
             this.MontonumericUpDown.Name = "MontonumericUpDown";
             this.MontonumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.MontonumericUpDown.TabIndex = 89;
+            this.MontonumericUpDown.ValueChanged += new System.EventHandler(this.MontonumericUpDown_ValueChanged);
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(606, 159);
+            this.label11.Location = new System.Drawing.Point(191, 378);
             this.label11.Name = "label11";
             this.label11.Size = new System.Drawing.Size(50, 13);
             this.label11.TabIndex = 90;
@@ -306,16 +321,39 @@
             // 
             // DevueltatextBox
             // 
-            this.DevueltatextBox.Location = new System.Drawing.Point(662, 156);
+            this.DevueltatextBox.Location = new System.Drawing.Point(247, 375);
             this.DevueltatextBox.Name = "DevueltatextBox";
             this.DevueltatextBox.Size = new System.Drawing.Size(100, 20);
             this.DevueltatextBox.TabIndex = 91;
+            this.DevueltatextBox.TextChanged += new System.EventHandler(this.DevueltatextBox_TextChanged);
+            // 
+            // FacturacionerrorProvider
+            // 
+            this.FacturacionerrorProvider.ContainerControl = this;
+            // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(491, 139);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(42, 13);
+            this.label12.TabIndex = 92;
+            this.label12.Text = "Importe";
+            // 
+            // ImportetextBox
+            // 
+            this.ImportetextBox.Location = new System.Drawing.Point(470, 155);
+            this.ImportetextBox.Name = "ImportetextBox";
+            this.ImportetextBox.Size = new System.Drawing.Size(100, 20);
+            this.ImportetextBox.TabIndex = 93;
             // 
             // RegistroFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(847, 521);
+            this.Controls.Add(this.ImportetextBox);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.DevueltatextBox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.MontonumericUpDown);
@@ -327,7 +365,7 @@
             this.Controls.Add(this.TotaltextBox);
             this.Controls.Add(this.label9);
             this.Controls.Add(this.FacturaciondataGridView);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Removerbutton);
             this.Controls.Add(this.Agregarbutton);
             this.Controls.Add(this.SubtotaltextBox);
             this.Controls.Add(this.label8);
@@ -352,6 +390,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaciondataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MontonumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.FacturacionerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -375,7 +414,7 @@
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox SubtotaltextBox;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Removerbutton;
         private System.Windows.Forms.Button Agregarbutton;
         private System.Windows.Forms.DataGridView FacturaciondataGridView;
         private System.Windows.Forms.Label label9;
@@ -388,5 +427,8 @@
         private System.Windows.Forms.NumericUpDown MontonumericUpDown;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox DevueltatextBox;
+        private System.Windows.Forms.ErrorProvider FacturacionerrorProvider;
+        private System.Windows.Forms.TextBox ImportetextBox;
+        private System.Windows.Forms.Label label12;
     }
 }

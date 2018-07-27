@@ -21,7 +21,7 @@ namespace ProyectoFinal.BLL
                 if (contexto.EntradaArticulos.Add(entradaAriticulos) != null)
                 {
                     Articulos articulo = BLL.ArticulosBLL.Buscar(entradaAriticulos.ArticuloID);
-                    articulo.CantidadRestante += entradaAriticulos.Cantidad;
+                    articulo.Vigencia += entradaAriticulos.Cantidad;
                     BLL.ArticulosBLL.Modificar(articulo);
 
 
@@ -55,7 +55,7 @@ namespace ProyectoFinal.BLL
 
                 //aplicar diferencia al inventario
                 Articulos articulo = BLL.ArticulosBLL.Buscar(entradaAriticulos.ArticuloID);
-                articulo.CantidadRestante += Restar;
+                articulo.Vigencia += Restar;
                 BLL.ArticulosBLL.Modificar(articulo);
 
                 contexto.Entry(entradaAriticulos).State = EntityState.Modified;
@@ -90,7 +90,7 @@ namespace ProyectoFinal.BLL
                 if (entradaAriticulos != null)
                 {
                     Articulos articulo = BLL.ArticulosBLL.Buscar(entradaAriticulos.ArticuloID);
-                    articulo.CantidadRestante -= entradaAriticulos.Cantidad;
+                    articulo.Vigencia -= entradaAriticulos.Cantidad;
                     BLL.ArticulosBLL.Modificar(articulo);
 
                     contexto.Entry(entradaAriticulos).State = EntityState.Deleted;

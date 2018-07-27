@@ -184,5 +184,17 @@ namespace ProyectoFinal.BLL
             }
             return paso;
         }
+
+        public static decimal CalcularImporte(int precio, int cantidad)
+        {
+            return Convert.ToDecimal(precio) * Convert.ToInt32(cantidad);
+        }
+
+        public static decimal CalcularDevuelta(int precio, int Monto)
+        {
+            return Convert.ToInt32(precio) - Convert.ToInt32(Monto);
+        }
+
+
     }
 }

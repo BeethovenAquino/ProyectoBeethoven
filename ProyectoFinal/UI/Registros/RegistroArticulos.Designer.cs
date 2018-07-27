@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -41,16 +42,18 @@
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.label5 = new System.Windows.Forms.Label();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.NombretextBox = new System.Windows.Forms.TextBox();
             this.VigenciatextBox = new System.Windows.Forms.TextBox();
             this.label = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
-            this.textBox3 = new System.Windows.Forms.TextBox();
-            this.textBox4 = new System.Windows.Forms.TextBox();
+            this.PrecioCompratextBox = new System.Windows.Forms.TextBox();
+            this.PrecioVentatextBox = new System.Windows.Forms.TextBox();
+            this.GananciatextBox = new System.Windows.Forms.TextBox();
+            this.ArticuloerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.ArticuloIDnumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ArticuloerrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -129,6 +132,7 @@
             this.Nuevobutton.TabIndex = 8;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
             // Eliminarbutton
             // 
@@ -138,6 +142,7 @@
             this.Eliminarbutton.TabIndex = 9;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
             // Buscarbutton
             // 
@@ -147,6 +152,7 @@
             this.Buscarbutton.TabIndex = 9;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // Guardarbutton
             // 
@@ -156,6 +162,7 @@
             this.Guardarbutton.TabIndex = 9;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
             // label5
             // 
@@ -166,12 +173,12 @@
             this.label5.TabIndex = 10;
             this.label5.Text = "Nombre Del Articulo";
             // 
-            // textBox1
+            // NombretextBox
             // 
-            this.textBox1.Location = new System.Drawing.Point(162, 115);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(120, 20);
-            this.textBox1.TabIndex = 11;
+            this.NombretextBox.Location = new System.Drawing.Point(162, 115);
+            this.NombretextBox.Name = "NombretextBox";
+            this.NombretextBox.Size = new System.Drawing.Size(120, 20);
+            this.NombretextBox.TabIndex = 11;
             // 
             // VigenciatextBox
             // 
@@ -217,44 +224,48 @@
             this.label8.TabIndex = 22;
             this.label8.Text = "Ganancia";
             // 
-            // textBox2
+            // PrecioCompratextBox
             // 
-            this.textBox2.Location = new System.Drawing.Point(162, 229);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.ReadOnly = true;
-            this.textBox2.Size = new System.Drawing.Size(120, 20);
-            this.textBox2.TabIndex = 23;
+            this.PrecioCompratextBox.Location = new System.Drawing.Point(162, 229);
+            this.PrecioCompratextBox.Name = "PrecioCompratextBox";
+            this.PrecioCompratextBox.ReadOnly = true;
+            this.PrecioCompratextBox.Size = new System.Drawing.Size(120, 20);
+            this.PrecioCompratextBox.TabIndex = 23;
             // 
-            // textBox3
+            // PrecioVentatextBox
             // 
-            this.textBox3.Location = new System.Drawing.Point(162, 261);
-            this.textBox3.Name = "textBox3";
-            this.textBox3.ReadOnly = true;
-            this.textBox3.Size = new System.Drawing.Size(120, 20);
-            this.textBox3.TabIndex = 24;
+            this.PrecioVentatextBox.Location = new System.Drawing.Point(162, 261);
+            this.PrecioVentatextBox.Name = "PrecioVentatextBox";
+            this.PrecioVentatextBox.ReadOnly = true;
+            this.PrecioVentatextBox.Size = new System.Drawing.Size(120, 20);
+            this.PrecioVentatextBox.TabIndex = 24;
             // 
-            // textBox4
+            // GananciatextBox
             // 
-            this.textBox4.Location = new System.Drawing.Point(162, 295);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.ReadOnly = true;
-            this.textBox4.Size = new System.Drawing.Size(120, 20);
-            this.textBox4.TabIndex = 25;
+            this.GananciatextBox.Location = new System.Drawing.Point(162, 295);
+            this.GananciatextBox.Name = "GananciatextBox";
+            this.GananciatextBox.ReadOnly = true;
+            this.GananciatextBox.Size = new System.Drawing.Size(120, 20);
+            this.GananciatextBox.TabIndex = 25;
+            // 
+            // ArticuloerrorProvider
+            // 
+            this.ArticuloerrorProvider.ContainerControl = this;
             // 
             // RegistroArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(484, 469);
-            this.Controls.Add(this.textBox4);
-            this.Controls.Add(this.textBox3);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.GananciatextBox);
+            this.Controls.Add(this.PrecioVentatextBox);
+            this.Controls.Add(this.PrecioCompratextBox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.VigenciatextBox);
             this.Controls.Add(this.label);
-            this.Controls.Add(this.textBox1);
+            this.Controls.Add(this.NombretextBox);
             this.Controls.Add(this.label5);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Buscarbutton);
@@ -271,6 +282,7 @@
             this.Name = "RegistroArticulos";
             this.Text = "RegistroArticulos";
             ((System.ComponentModel.ISupportInitialize)(this.ArticuloIDnumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.ArticuloerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -291,14 +303,15 @@
         private System.Windows.Forms.Button Buscarbutton;
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.TextBox NombretextBox;
         private System.Windows.Forms.TextBox VigenciatextBox;
         private System.Windows.Forms.Label label;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
-        private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.TextBox textBox4;
+        private System.Windows.Forms.TextBox PrecioCompratextBox;
+        private System.Windows.Forms.TextBox PrecioVentatextBox;
+        private System.Windows.Forms.TextBox GananciatextBox;
+        private System.Windows.Forms.ErrorProvider ArticuloerrorProvider;
     }
 }

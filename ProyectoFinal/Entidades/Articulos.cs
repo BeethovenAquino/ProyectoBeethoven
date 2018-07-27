@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 using System.Linq;
 using System.Text;
 
@@ -19,6 +20,9 @@ namespace ProyectoFinal.Entidades
         public string PrecioVenta { get; set; }
         public string Ganancia { get; set; }
 
+        [ForeignKey("ArticuloID")]
+        public virtual Articulos Articulo { get; set; }
+
         public virtual ICollection<Inventario> Detalle { get; set; }
 
         public Articulos()
@@ -26,14 +30,14 @@ namespace ProyectoFinal.Entidades
             this.Detalle = new List<Inventario>();
 
             ArticuloID = 0;
-            CodigoArticulo= string.Empty;
-            Nombre= string.Empty;
-            Marca= string.Empty;
+            CodigoArticulo = string.Empty;
+            Nombre = string.Empty;
+            Marca = string.Empty;
             Fecha = DateTime.Now;
-            Vigencia = string.Empty;
+            Vigencia = 0;
             PrecioCompra = string.Empty;
-            PrecioVenta= string.Empty;
-            Ganancia= string.Empty;
+            PrecioVenta = string.Empty;
+            Ganancia = string.Empty;
 
         }
 

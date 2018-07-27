@@ -21,7 +21,7 @@ namespace ProyectoFinal.Entidades
 
         public virtual ICollection<Inventario> Detalle { get; set; }
 
-        [ForeignKey("ArticulosID")]
+        [ForeignKey("ArticuloID")]
         public virtual Articulos Articulos { get; set; }
 
 
@@ -36,24 +36,29 @@ namespace ProyectoFinal.Entidades
             Ganancia = string.Empty;
         }
 
-        public Inventario(int inventarioID, int articuloID, DateTime fecha, string articulo, int precioCompra, int precioVenta, string ganancia)
+        public Inventario(int inventarioID, DateTime fecha, string articulo, int precioCompra, int precioVenta, string ganancia)
         {
             InventarioID = inventarioID;
-            ArticuloID = articuloID;
+          
             Fecha = fecha;
-            Articulo = articulo;
+            Articulo = Articulo;
             PrecioCompra = precioCompra;
             PrecioVenta = precioVenta;
             Ganancia = ganancia;
         }
 
-        public Inventario(int articuloID, string articulo, int precioCompra, int precioVenta, string ganancia)
+        public Inventario(int articuloID,string articulo, int precioCompra, int precioVenta, string ganancia)
         {
             ArticuloID = articuloID;
-            Articulo = articulo;
+            Articulo = Articulo;
             PrecioCompra = precioCompra;
             PrecioVenta = precioVenta;
             Ganancia = ganancia;
+        }
+
+        public void AgregarDetalle(int InventarioID,string Articulo, int PrecioCompra, int PrecioVenta, string Ganancia)
+        {
+            this.Detalle.Add(new Inventario(InventarioID, Articulo, PrecioCompra, PrecioVenta, Ganancia));
         }
     }
 }

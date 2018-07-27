@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
@@ -38,19 +39,21 @@
             this.ArticulocomboBox = new System.Windows.Forms.ComboBox();
             this.PrecioCompranumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.PrecioVentanumericUpDown = new System.Windows.Forms.NumericUpDown();
-            this.dataGridView1 = new System.Windows.Forms.DataGridView();
+            this.InventariodataGridView = new System.Windows.Forms.DataGridView();
             this.Agregarbutton = new System.Windows.Forms.Button();
-            this.button1 = new System.Windows.Forms.Button();
+            this.Removerbutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.label6 = new System.Windows.Forms.Label();
             this.GananciatextBox = new System.Windows.Forms.TextBox();
+            this.InventarioerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             ((System.ComponentModel.ISupportInitialize)(this.InventarioIDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioCompranumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioVentanumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InventariodataGridView)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InventarioerrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -135,13 +138,13 @@
             this.PrecioVentanumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.PrecioVentanumericUpDown.TabIndex = 9;
             // 
-            // dataGridView1
+            // InventariodataGridView
             // 
-            this.dataGridView1.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
-            this.dataGridView1.Location = new System.Drawing.Point(13, 157);
-            this.dataGridView1.Name = "dataGridView1";
-            this.dataGridView1.Size = new System.Drawing.Size(703, 273);
-            this.dataGridView1.TabIndex = 10;
+            this.InventariodataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            this.InventariodataGridView.Location = new System.Drawing.Point(13, 157);
+            this.InventariodataGridView.Name = "InventariodataGridView";
+            this.InventariodataGridView.Size = new System.Drawing.Size(703, 273);
+            this.InventariodataGridView.TabIndex = 10;
             // 
             // Agregarbutton
             // 
@@ -152,16 +155,18 @@
             this.Agregarbutton.TabIndex = 11;
             this.Agregarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Agregarbutton.UseVisualStyleBackColor = true;
+            this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
             // 
-            // button1
+            // Removerbutton
             // 
-            this.button1.Image = global::ProyectoFinal.Properties.Resources.restar_16;
-            this.button1.Location = new System.Drawing.Point(714, 129);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(74, 30);
-            this.button1.TabIndex = 12;
-            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
-            this.button1.UseVisualStyleBackColor = true;
+            this.Removerbutton.Image = global::ProyectoFinal.Properties.Resources.restar_16;
+            this.Removerbutton.Location = new System.Drawing.Point(714, 129);
+            this.Removerbutton.Name = "Removerbutton";
+            this.Removerbutton.Size = new System.Drawing.Size(74, 30);
+            this.Removerbutton.TabIndex = 12;
+            this.Removerbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
+            this.Removerbutton.UseVisualStyleBackColor = true;
+            this.Removerbutton.Click += new System.EventHandler(this.Removerbutton_Click);
             // 
             // Guardarbutton
             // 
@@ -171,6 +176,7 @@
             this.Guardarbutton.TabIndex = 14;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.UseVisualStyleBackColor = true;
+            this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
             // Buscarbutton
             // 
@@ -180,6 +186,7 @@
             this.Buscarbutton.TabIndex = 15;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.UseVisualStyleBackColor = true;
+            this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // Eliminarbutton
             // 
@@ -189,6 +196,7 @@
             this.Eliminarbutton.TabIndex = 16;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.UseVisualStyleBackColor = true;
+            this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
             // Nuevobutton
             // 
@@ -198,6 +206,7 @@
             this.Nuevobutton.TabIndex = 13;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.UseVisualStyleBackColor = true;
+            this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
             // label6
             // 
@@ -215,6 +224,11 @@
             this.GananciatextBox.ReadOnly = true;
             this.GananciatextBox.Size = new System.Drawing.Size(120, 20);
             this.GananciatextBox.TabIndex = 18;
+            this.GananciatextBox.TextChanged += new System.EventHandler(this.GananciatextBox_TextChanged);
+            // 
+            // InventarioerrorProvider
+            // 
+            this.InventarioerrorProvider.ContainerControl = this;
             // 
             // RegistroInventario
             // 
@@ -227,9 +241,9 @@
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.Eliminarbutton);
             this.Controls.Add(this.Nuevobutton);
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.Removerbutton);
             this.Controls.Add(this.Agregarbutton);
-            this.Controls.Add(this.dataGridView1);
+            this.Controls.Add(this.InventariodataGridView);
             this.Controls.Add(this.PrecioVentanumericUpDown);
             this.Controls.Add(this.PrecioCompranumericUpDown);
             this.Controls.Add(this.ArticulocomboBox);
@@ -245,7 +259,8 @@
             ((System.ComponentModel.ISupportInitialize)(this.InventarioIDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioCompranumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecioVentanumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InventariodataGridView)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.InventarioerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -263,14 +278,15 @@
         private System.Windows.Forms.ComboBox ArticulocomboBox;
         private System.Windows.Forms.NumericUpDown PrecioCompranumericUpDown;
         private System.Windows.Forms.NumericUpDown PrecioVentanumericUpDown;
-        private System.Windows.Forms.DataGridView dataGridView1;
+        private System.Windows.Forms.DataGridView InventariodataGridView;
         private System.Windows.Forms.Button Agregarbutton;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button Removerbutton;
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button Buscarbutton;
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.Button Nuevobutton;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.TextBox GananciatextBox;
+        private System.Windows.Forms.ErrorProvider InventarioerrorProvider;
     }
 }
