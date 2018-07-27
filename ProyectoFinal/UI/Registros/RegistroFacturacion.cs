@@ -420,7 +420,11 @@ namespace ProyectoFinal.UI.Registros
 
         private void VentacomboBox_SelectedIndexChanged(object sender, EventArgs e)
         {
-            
+            if (VentacomboBox.SelectedIndex == 0)
+            {
+                ClientecomboBox.Enabled = false;
+            }
+            else { ClientecomboBox.Enabled = true; }
         }
     }
 }

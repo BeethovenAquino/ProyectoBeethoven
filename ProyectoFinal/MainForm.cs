@@ -1,4 +1,5 @@
-﻿using ProyectoFinal.UI.Registros;
+﻿using ProyectoFinal.UI.Consultas;
+using ProyectoFinal.UI.Registros;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -45,6 +46,36 @@ namespace ProyectoFinal
         {
             RegistroFacturacion registroFacturacion = new RegistroFacturacion();
             registroFacturacion.Show();
+        }
+
+        private void articulosToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ConsultaArticulos consulta = new ConsultaArticulos();
+            consulta.Show();
+        }
+
+        private void entradaDeArticulosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaEntradaArticulos consultaEntrada = new ConsultaEntradaArticulos();
+            consultaEntrada.Show();
+        }
+
+        private void inventarioToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ConsultaInventario inventario = new ConsultaInventario();
+            inventario.Show();
+        }
+
+        private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ConsultaClientes clientes = new ConsultaClientes();
+            clientes.Show();
+        }
+
+        private void facturacionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ConsultaFacturacion facturacion = new ConsultaFacturacion();
+            facturacion.Show();
         }
     }
 }
