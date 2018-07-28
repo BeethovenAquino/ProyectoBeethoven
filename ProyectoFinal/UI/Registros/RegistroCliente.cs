@@ -99,9 +99,11 @@ namespace ProyectoFinal.UI.Registros
                     {
                         paso = BLL.ClienteBLL.Modificar(cliente);
                     }
+                }
 
                     if (paso)
                     {
+                    
 
                         MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                         ClienteIDnumericUpDown.Value = 0;
@@ -112,11 +114,11 @@ namespace ProyectoFinal.UI.Registros
                         ClienteerrorProvider.Clear();
 
                     }
-                    else
-                        MessageBox.Show("No se pudo guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    else{ MessageBox.Show("No se pudo guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                        
                 }
            
-            }
+            
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)

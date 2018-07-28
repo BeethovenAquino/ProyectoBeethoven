@@ -40,9 +40,18 @@
             this.ArticulocomboBox = new System.Windows.Forms.ComboBox();
             this.CantidadArticulonumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.EntradaerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.label6 = new System.Windows.Forms.Label();
+            this.PrecioVentanumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.PrecioCompranumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.GanancianumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.EntradaArticuloIDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadArticulonumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.EntradaerrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrecioVentanumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrecioCompranumericUpDown)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GanancianumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -66,7 +75,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(36, 113);
+            this.label3.Location = new System.Drawing.Point(37, 234);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
             this.label3.TabIndex = 2;
@@ -74,7 +83,7 @@
             // 
             // Guardarbutton
             // 
-            this.Guardarbutton.Location = new System.Drawing.Point(137, 165);
+            this.Guardarbutton.Location = new System.Drawing.Point(133, 265);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(84, 46);
             this.Guardarbutton.TabIndex = 11;
@@ -94,7 +103,7 @@
             // 
             // Eliminarbutton
             // 
-            this.Eliminarbutton.Location = new System.Drawing.Point(246, 165);
+            this.Eliminarbutton.Location = new System.Drawing.Point(242, 265);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(84, 46);
             this.Eliminarbutton.TabIndex = 13;
@@ -104,7 +113,7 @@
             // 
             // Nuevobutton
             // 
-            this.Nuevobutton.Location = new System.Drawing.Point(42, 165);
+            this.Nuevobutton.Location = new System.Drawing.Point(38, 265);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(84, 46);
             this.Nuevobutton.TabIndex = 10;
@@ -129,7 +138,12 @@
             // 
             // CantidadArticulonumericUpDown
             // 
-            this.CantidadArticulonumericUpDown.Location = new System.Drawing.Point(190, 108);
+            this.CantidadArticulonumericUpDown.Location = new System.Drawing.Point(191, 229);
+            this.CantidadArticulonumericUpDown.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.CantidadArticulonumericUpDown.Name = "CantidadArticulonumericUpDown";
             this.CantidadArticulonumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.CantidadArticulonumericUpDown.TabIndex = 16;
@@ -138,11 +152,82 @@
             // 
             this.EntradaerrorProvider.ContainerControl = this;
             // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(42, 188);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(53, 13);
+            this.label6.TabIndex = 23;
+            this.label6.Text = "Ganancia";
+            // 
+            // PrecioVentanumericUpDown
+            // 
+            this.PrecioVentanumericUpDown.Location = new System.Drawing.Point(191, 144);
+            this.PrecioVentanumericUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.PrecioVentanumericUpDown.Name = "PrecioVentanumericUpDown";
+            this.PrecioVentanumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.PrecioVentanumericUpDown.TabIndex = 22;
+            this.PrecioVentanumericUpDown.ValueChanged += new System.EventHandler(this.PrecioVentanumericUpDown_ValueChanged);
+            // 
+            // PrecioCompranumericUpDown
+            // 
+            this.PrecioCompranumericUpDown.Location = new System.Drawing.Point(190, 107);
+            this.PrecioCompranumericUpDown.Maximum = new decimal(new int[] {
+            99999,
+            0,
+            0,
+            0});
+            this.PrecioCompranumericUpDown.Name = "PrecioCompranumericUpDown";
+            this.PrecioCompranumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.PrecioCompranumericUpDown.TabIndex = 21;
+            this.PrecioCompranumericUpDown.ValueChanged += new System.EventHandler(this.PrecioCompranumericUpDown_ValueChanged);
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(44, 151);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(83, 13);
+            this.label4.TabIndex = 20;
+            this.label4.Text = "Precio de Venta";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(36, 109);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(91, 13);
+            this.label5.TabIndex = 19;
+            this.label5.Text = "Precio de Compra";
+            // 
+            // GanancianumericUpDown
+            // 
+            this.GanancianumericUpDown.Location = new System.Drawing.Point(190, 188);
+            this.GanancianumericUpDown.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
+            this.GanancianumericUpDown.Name = "GanancianumericUpDown";
+            this.GanancianumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.GanancianumericUpDown.TabIndex = 24;
+            // 
             // RegistroEntradaArticulos
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(490, 226);
+            this.ClientSize = new System.Drawing.Size(638, 334);
+            this.Controls.Add(this.GanancianumericUpDown);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.PrecioVentanumericUpDown);
+            this.Controls.Add(this.PrecioCompranumericUpDown);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.CantidadArticulonumericUpDown);
             this.Controls.Add(this.ArticulocomboBox);
             this.Controls.Add(this.EntradaArticuloIDnumericUpDown);
@@ -158,6 +243,9 @@
             ((System.ComponentModel.ISupportInitialize)(this.EntradaArticuloIDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadArticulonumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.EntradaerrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrecioVentanumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.PrecioCompranumericUpDown)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.GanancianumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -176,5 +264,11 @@
         private System.Windows.Forms.ComboBox ArticulocomboBox;
         private System.Windows.Forms.NumericUpDown CantidadArticulonumericUpDown;
         private System.Windows.Forms.ErrorProvider EntradaerrorProvider;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.NumericUpDown PrecioVentanumericUpDown;
+        private System.Windows.Forms.NumericUpDown PrecioCompranumericUpDown;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.NumericUpDown GanancianumericUpDown;
     }
 }

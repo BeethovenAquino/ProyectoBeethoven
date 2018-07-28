@@ -36,7 +36,6 @@ namespace ProyectoFinal.UI.Registros
 
 
             FacturaIDnumericUpDown.Value = facturacion.FacturaID;
-            VentacomboBox.Text = facturacion.Venta;
             FechadateTimePicker.Value = facturacion.Fecha;
             SubtotaltextBox.Text = facturacion.Subtotal.ToString();
             TotaltextBox.Text = facturacion.Total.ToString();
@@ -48,10 +47,11 @@ namespace ProyectoFinal.UI.Registros
 
             //Cargar el detalle al Grid
             FacturacionerrorProvider.DataSource = facturacion.Detalle;
+
             FacturaciondataGridView.Columns["ID"].Visible = false;
             FacturaciondataGridView.Columns["FacturaID"].Visible = false;
             FacturaciondataGridView.Columns["ClienteID"].Visible = false;
-            FacturaciondataGridView.Columns["ArticulosID"].Visible = false;
+            FacturaciondataGridView.Columns["ArticuloID"].Visible = false;
             FacturaciondataGridView.Columns["Articulos"].Visible = false;
         }
 
@@ -62,7 +62,7 @@ namespace ProyectoFinal.UI.Registros
 
             ArticulocomboBox.DataSource = repositorio.GetList(c => true);
             ArticulocomboBox.ValueMember = "ArticuloID";
-            ArticulocomboBox.DisplayMember = "NombreCliente";
+            ArticulocomboBox.DisplayMember = "Nombre";
 
             ClientecomboBox.DataSource = repositori.GetList(c => true);
             ClientecomboBox.ValueMember = "ClienteID";
@@ -130,14 +130,9 @@ namespace ProyectoFinal.UI.Registros
             Facturacion facturacion = new Facturacion();
 
             facturacion.FacturaID = Convert.ToInt32(FacturaIDnumericUpDown.Value);
-            facturacion.Venta = Convert.ToString(VentacomboBox.SelectedValue);
             facturacion.Fecha = FechadateTimePicker.Value;
             facturacion.Subtotal = SubtotaltextBox.Text;
             facturacion.Total = TotaltextBox.Text;
-
-
-
-
 
             foreach (DataGridViewRow item in FacturaciondataGridView.Rows)
             {
@@ -145,6 +140,7 @@ namespace ProyectoFinal.UI.Registros
                 facturacion.AgregarDetalle
                     (Convert.ToInt32(item.Cells["ID"].Value),
                     Convert.ToInt32(item.Cells["FacturaID"].Value),
+                    Convert.ToString(item.Cells["Venta"].Value),
                     Convert.ToInt32(item.Cells["ClienteID"].Value),
                     Convert.ToString(item.Cells["Cliente"].Value),
                     Convert.ToInt32(item.Cells["ArticuloID"].Value),
@@ -158,6 +154,7 @@ namespace ProyectoFinal.UI.Registros
                   );
             }
             return facturacion;
+
         }
 
         private void Agregarbutton_Click(object sender, EventArgs e)
@@ -182,6 +179,7 @@ namespace ProyectoFinal.UI.Registros
                 detalle.Add(
                     new FacturacionDetalle(iD: 0,
                     facturaID: (int)Convert.ToInt32(FacturaIDnumericUpDown.Value),
+                    venta:(string)VentacomboBox.Text,
                     clienteID: (int)ClientecomboBox.SelectedValue,
                        cliente: (string)ClientecomboBox.Text,
                             articuloID: (int)ArticulocomboBox.SelectedIndex,
@@ -204,7 +202,7 @@ namespace ProyectoFinal.UI.Registros
                 FacturaciondataGridView.Columns["ID"].Visible = false;
                 FacturaciondataGridView.Columns["FacturaID"].Visible = false;
                 FacturaciondataGridView.Columns["ClienteID"].Visible = false;
-                FacturaciondataGridView.Columns["ArticulosID"].Visible = false;
+                FacturaciondataGridView.Columns["ArticuloID"].Visible = false;
                 FacturaciondataGridView.Columns["Articulos"].Visible = false;
 
                 int subtotal = 0;
@@ -282,10 +280,11 @@ namespace ProyectoFinal.UI.Registros
                 FacturaciondataGridView.DataSource = detalle;
 
 
+
                 FacturaciondataGridView.Columns["ID"].Visible = false;
                 FacturaciondataGridView.Columns["FacturaID"].Visible = false;
                 FacturaciondataGridView.Columns["ClienteID"].Visible = false;
-                FacturaciondataGridView.Columns["ArticulosID"].Visible = false;
+                FacturaciondataGridView.Columns["ArticuloID"].Visible = false;
                 FacturaciondataGridView.Columns["Articulos"].Visible = false;
 
             }
@@ -302,7 +301,7 @@ namespace ProyectoFinal.UI.Registros
             int monto = Convert.ToInt32(MontonumericUpDown.Value);
 
 
-            DevueltatextBox.Text = BLL.FacturacionBLL.CalcularDevuelta(precio, monto).ToString();
+            DevueltatextBox.Text = BLL.FacturacionBLL.CalcularDevuelta(monto, precio).ToString();
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -366,9 +365,11 @@ namespace ProyectoFinal.UI.Registros
                 FacturacionerrorProvider.Clear();
                 FacturaciondataGridView.DataSource = null;
             }
-            else
+            else {
                 MessageBox.Show("No se pudo guardar!!", "Fallo",
-                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+                
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
@@ -425,6 +426,16 @@ namespace ProyectoFinal.UI.Registros
                 ClientecomboBox.Enabled = false;
             }
             else { ClientecomboBox.Enabled = true; }
+        }
+
+        private void ArticulocomboBox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            foreach (var item in BLL.ArticulosBLL.GetList(x => x.Nombre == ArticulocomboBox.Text))
+
+            {
+                PrecionumericUpDown.Value = item.PrecioVenta;
+
+            }
         }
     }
 }

@@ -16,34 +16,24 @@ namespace ProyectoFinal.Entidades
         public string Marca { get; set; }
         public DateTime Fecha { get; set; }
         public int Vigencia { get; set; }
-        public string PrecioCompra { get; set; }
-        public string PrecioVenta { get; set; }
+        public int PrecioCompra { get; set; }
+        public int PrecioVenta { get; set; }
         public string Ganancia { get; set; }
-
-        [ForeignKey("ArticuloID")]
-        public virtual Articulos Articulo { get; set; }
-
-        public virtual ICollection<Inventario> Detalle { get; set; }
-
+        
         public Articulos()
         {
-            this.Detalle = new List<Inventario>();
-
             ArticuloID = 0;
             CodigoArticulo = string.Empty;
             Nombre = string.Empty;
             Marca = string.Empty;
             Fecha = DateTime.Now;
             Vigencia = 0;
-            PrecioCompra = string.Empty;
-            PrecioVenta = string.Empty;
+            PrecioCompra = 0;
+            PrecioVenta = 0;
             Ganancia = string.Empty;
 
         }
 
-        public void AgregarDetalle(int InventarioID, string Articulo, int PrecioCompra, int PrecioVenta, string Ganancia)
-        {
-            this.Detalle.Add(new Inventario(InventarioID, Articulo, PrecioCompra, PrecioVenta, Ganancia));
-        }
+       
     }
 }

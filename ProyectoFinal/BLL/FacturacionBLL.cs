@@ -190,9 +190,9 @@ namespace ProyectoFinal.BLL
             return Convert.ToDecimal(precio) * Convert.ToInt32(cantidad);
         }
 
-        public static decimal CalcularDevuelta(int precio, int Monto)
+        public static decimal CalcularDevuelta(int Monto, int Precio)
         {
-            return Convert.ToInt32(precio) - Convert.ToInt32(Monto);
+            return Convert.ToInt32(Monto) - Convert.ToInt32(Precio);
         }
 
 

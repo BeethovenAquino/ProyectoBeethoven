@@ -147,6 +147,7 @@
             this.ArticulocomboBox.Name = "ArticulocomboBox";
             this.ArticulocomboBox.Size = new System.Drawing.Size(121, 21);
             this.ArticulocomboBox.TabIndex = 8;
+            this.ArticulocomboBox.SelectedIndexChanged += new System.EventHandler(this.ArticulocomboBox_SelectedIndexChanged);
             // 
             // label5
             // 
@@ -160,6 +161,11 @@
             // PrecionumericUpDown
             // 
             this.PrecionumericUpDown.Location = new System.Drawing.Point(292, 156);
+            this.PrecionumericUpDown.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.PrecionumericUpDown.Name = "PrecionumericUpDown";
             this.PrecionumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.PrecionumericUpDown.TabIndex = 76;
@@ -168,6 +174,11 @@
             // CantidadnumericUpDown
             // 
             this.CantidadnumericUpDown.Location = new System.Drawing.Point(145, 156);
+            this.CantidadnumericUpDown.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
             this.CantidadnumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.CantidadnumericUpDown.TabIndex = 75;
@@ -178,9 +189,9 @@
             this.label6.AutoSize = true;
             this.label6.Location = new System.Drawing.Point(310, 140);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(37, 13);
+            this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 74;
-            this.label6.Text = "Precio";
+            this.label6.Text = "Precio Venta";
             // 
             // label7
             // 
@@ -305,6 +316,11 @@
             // MontonumericUpDown
             // 
             this.MontonumericUpDown.Location = new System.Drawing.Point(64, 375);
+            this.MontonumericUpDown.Maximum = new decimal(new int[] {
+            9999,
+            0,
+            0,
+            0});
             this.MontonumericUpDown.Name = "MontonumericUpDown";
             this.MontonumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.MontonumericUpDown.TabIndex = 89;

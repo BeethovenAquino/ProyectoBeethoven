@@ -12,6 +12,7 @@ namespace ProyectoFinal.Entidades
         [Key]
         public int ID { get; set; }
         public int FacturaID { get; set; }
+        public string  Venta { get; set; }
         public int ClienteID { get; set; }
         public string Cliente { get; set;}
         public int ArticuloID { get; set; }
@@ -25,10 +26,11 @@ namespace ProyectoFinal.Entidades
         [ForeignKey("ArticuloID")]
         public virtual Articulos Articulos { get; set; }
 
-        public FacturacionDetalle(int iD, int facturaID, int clienteID, string cliente, int articuloID, string articulo, int cantidad, int precio, int importe, int monto, string devuelta)
+        public FacturacionDetalle(int iD, int facturaID, string venta, int clienteID, string cliente, int articuloID, string articulo, int cantidad, int precio, int importe, int monto, string devuelta)
         {
             ID = iD;
             FacturaID = facturaID;
+            Venta = venta;
             ClienteID = clienteID;
             Cliente = cliente;
             ArticuloID = articuloID;
@@ -42,7 +44,9 @@ namespace ProyectoFinal.Entidades
 
 
 
-        //public FacturacionDetalle(int facturaID, int articuloID, string articulo, int cantidad,decimal precio)
+
+
+        //public FacturacionDetalle(int facturaID, int articuloID, string articulo, int cantidad, int precio)
         //{
         //    FacturaID = facturaID;
         //    ArticuloID = articuloID;

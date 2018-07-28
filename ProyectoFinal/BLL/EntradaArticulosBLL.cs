@@ -22,6 +22,9 @@ namespace ProyectoFinal.BLL
                 {
                     Articulos articulo = BLL.ArticulosBLL.Buscar(entradaAriticulos.ArticuloID);
                     articulo.Vigencia += entradaAriticulos.Cantidad;
+                    articulo.PrecioCompra += entradaAriticulos.PrecioCompra;
+                    articulo.PrecioVenta += entradaAriticulos.PrecioVenta;
+                    articulo.Ganancia += entradaAriticulos.Ganancia;
                     BLL.ArticulosBLL.Modificar(articulo);
 
 
@@ -50,12 +53,20 @@ namespace ProyectoFinal.BLL
 
                 //identificar la diferencia ya sea restada o sumada
                 int Restar;
+                int c;
+                int v;
+                int g;
 
                 Restar = entradaAriticulos.Cantidad - EntradaAnterior.Cantidad;
+                c = entradaAriticulos.PrecioCompra - EntradaAnterior.PrecioCompra;
+                v= entradaAriticulos.PrecioVenta - EntradaAnterior.PrecioVenta;
+                g= entradaAriticulos.Ganancia - EntradaAnterior.Ganancia;
 
                 //aplicar diferencia al inventario
                 Articulos articulo = BLL.ArticulosBLL.Buscar(entradaAriticulos.ArticuloID);
                 articulo.Vigencia += Restar;
+                articulo.PrecioCompra += c;
+                articulo.Ganancia += g;
                 BLL.ArticulosBLL.Modificar(articulo);
 
                 contexto.Entry(entradaAriticulos).State = EntityState.Modified;
@@ -153,6 +164,14 @@ namespace ProyectoFinal.BLL
             }
 
             return Articulo;
+        }
+
+
+        public static decimal CalcularGanancia(int precioVenta, int precioCompra)
+        {
+
+            return ((Convert.ToInt32(precioVenta) - Convert.ToInt32(precioCompra)));
+
         }
     }
 }

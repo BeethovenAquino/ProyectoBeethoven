@@ -20,17 +20,19 @@ namespace ProyectoFinal.UI.Registros
         {
 
             Articulos articulos = new Articulos();
-            
+
             articulos.ArticuloID = Convert.ToInt32(ArticuloIDnumericUpDown.Value);
             VigenciatextBox.Text = 0.ToString();
+            PrecioCompratextBox.Text = 0.ToString();
+            PrecioVentatextBox.Text = 0.ToString();
             articulos.CodigoArticulo = CodigoArticulotextBox.Text;
             articulos.Nombre = NombretextBox.Text;
             articulos.Marca = MarcatextBox.Text;
             articulos.Fecha = FechaEntradadateTimePicker.Value = DateTime.Now;
-            articulos.PrecioCompra = PrecioCompratextBox.Text;
-            articulos.PrecioVenta = PrecioVentatextBox.Text;
+            articulos.PrecioCompra =Convert.ToInt32( PrecioCompratextBox.Text);
+            articulos.PrecioVenta =Convert.ToInt32( PrecioVentatextBox.Text);
             articulos.Ganancia = GananciatextBox.Text;
-            articulos.Vigencia =Convert.ToInt32(VigenciatextBox.Text);
+            articulos.Vigencia = Convert.ToInt32(VigenciatextBox.Text);
             return articulos;
         }
 
@@ -93,26 +95,28 @@ namespace ProyectoFinal.UI.Registros
                 {
                     paso = BLL.ArticulosBLL.Modificar(articulos);
                 }
-
-                if (paso)
-                {
-
-                    MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ArticuloIDnumericUpDown.Value = 0;
-                    CodigoArticulotextBox.Clear();
-                    NombretextBox.Clear();
-                    MarcatextBox.Clear();
-                    FechaEntradadateTimePicker.Value = DateTime.Now;
-                    PrecioCompratextBox.Clear();
-                    PrecioVentatextBox.Clear();
-                    VigenciatextBox.Clear();
-                    ArticuloerrorProvider.Clear();
-
-                }
-                else
-                    MessageBox.Show("No se pudo guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
+            if (paso)
+            {
+
+                MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                ArticuloIDnumericUpDown.Value = 0;
+                CodigoArticulotextBox.Clear();
+                NombretextBox.Clear();
+                MarcatextBox.Clear();
+                FechaEntradadateTimePicker.Value = DateTime.Now;
+                PrecioCompratextBox.Clear();
+                PrecioVentatextBox.Clear();
+                VigenciatextBox.Clear();
+                ArticuloerrorProvider.Clear();
+
+            }
+            else { MessageBox.Show("No se pudo guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+               
+        
+    
         }
+
 
         private void Nuevobutton_Click(object sender, EventArgs e)
         {
@@ -173,8 +177,9 @@ namespace ProyectoFinal.UI.Registros
                 NombretextBox.Text = articulos.Nombre;
                 MarcatextBox.Text = articulos.Marca;
                 FechaEntradadateTimePicker.Value = articulos.Fecha;
-                PrecioCompratextBox.Text = articulos.PrecioCompra;
-                PrecioVentatextBox.Text = articulos.PrecioVenta;
+                PrecioCompratextBox.Text = articulos.PrecioCompra.ToString();
+                PrecioVentatextBox.Text = articulos.PrecioVenta.ToString();
+                GananciatextBox.Text = articulos.Ganancia.ToString();
                 VigenciatextBox.Text = articulos.Vigencia.ToString();
 
             }

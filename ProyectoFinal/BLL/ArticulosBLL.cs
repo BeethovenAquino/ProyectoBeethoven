@@ -116,5 +116,17 @@ namespace ProyectoFinal.BLL
             }
             return articulos;
         }
+
+        public static string RetornarNombre(string descripcio)
+        {
+            string nombre = string.Empty;
+            var lista = GetList(x => x.Nombre.Equals(nombre));
+            foreach (var item in lista)
+            {
+                nombre = item.Nombre;
+            }
+
+            return nombre;
+        }
     }
 }

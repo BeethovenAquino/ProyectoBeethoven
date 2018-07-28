@@ -1,2 +1,2 @@
-CREATE DATABASE ProyectoFinal
+create DATABASE ProyectoFinal
 

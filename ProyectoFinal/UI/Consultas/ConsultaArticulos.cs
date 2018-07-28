@@ -24,9 +24,6 @@ namespace ProyectoFinal.UI.Consultas
 
             int id;
 
-
-
-
             switch (TipocomboBox.SelectedIndex)
             {
                 //ID

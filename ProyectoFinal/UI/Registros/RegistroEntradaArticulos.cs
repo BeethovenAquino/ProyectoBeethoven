@@ -37,6 +37,9 @@ namespace ProyectoFinal.UI.Registros
             articulo.Articulo = ArticulocomboBox.Text;
             articulo.Cantidad = Convert.ToInt32(CantidadArticulonumericUpDown.Value);
             articulo.ArticuloID = Convert.ToInt32(ArticulocomboBox.SelectedValue);
+            articulo.PrecioCompra = Convert.ToInt32(PrecioCompranumericUpDown.Value);
+            articulo.PrecioVenta = Convert.ToInt32(PrecioVentanumericUpDown.Value);
+            articulo.Ganancia = Convert.ToInt32(GanancianumericUpDown.Value);
 
             return articulo;
         }
@@ -59,9 +62,24 @@ namespace ProyectoFinal.UI.Registros
             if (validar == 2 && CantidadArticulonumericUpDown.Value == 0)
             {
 
-                EntradaerrorProvider.SetError(CantidadArticulonumericUpDown, "Ingrese un Costo");
+                EntradaerrorProvider.SetError(CantidadArticulonumericUpDown, "Ingrese una Cantidad");
                 paso = true;
             }
+
+            if (validar == 2 && PrecioCompranumericUpDown.Value == 0)
+            {
+
+                EntradaerrorProvider.SetError(PrecioCompranumericUpDown, "Ingrese un Precio de compra");
+                paso = true;
+            }
+
+            if (validar == 2 && PrecioVentanumericUpDown.Value == 0)
+            {
+
+                EntradaerrorProvider.SetError(PrecioVentanumericUpDown, "Ingrese un Precio de Venta");
+                paso = true;
+            }
+
 
 
             return paso;
@@ -73,6 +91,9 @@ namespace ProyectoFinal.UI.Registros
             EntradaArticuloIDnumericUpDown.Value = 0;
             CantidadArticulonumericUpDown.Value = 0;
             ArticulocomboBox.Text.ToString();
+            PrecioCompranumericUpDown.Value = 0;
+            PrecioVentanumericUpDown.Value = 0;
+            GanancianumericUpDown.Value=0;
             EntradaerrorProvider.Clear();
 
         }
@@ -103,19 +124,23 @@ namespace ProyectoFinal.UI.Registros
                 {
                     paso = BLL.EntradaArticulosBLL.Modificar(entradaArticulos);
                 }
+            }
 
                 if (paso)
                 {
 
                     MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    EntradaArticuloIDnumericUpDown.Value = 0;
-                    CantidadArticulonumericUpDown.Value = 0;
-                    ArticulocomboBox.Text.ToString();
-                    EntradaerrorProvider.Clear();
-                }
-                else
-                    MessageBox.Show("No se pudo guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                EntradaArticuloIDnumericUpDown.Value = 0;
+                CantidadArticulonumericUpDown.Value = 0;
+                ArticulocomboBox.Text.ToString();
+                PrecioCompranumericUpDown.Value = 0;
+                PrecioVentanumericUpDown.Value = 0;
+                GanancianumericUpDown.Value = 0;
+                EntradaerrorProvider.Clear();
             }
+            else { MessageBox.Show("No se pudo guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error); }
+                    
+            
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
@@ -134,6 +159,9 @@ namespace ProyectoFinal.UI.Registros
                 EntradaArticuloIDnumericUpDown.Value = 0;
                 CantidadArticulonumericUpDown.Value = 0;
                 ArticulocomboBox.Text.ToString();
+                PrecioCompranumericUpDown.Value = 0;
+                PrecioVentanumericUpDown.Value = 0;
+                GanancianumericUpDown.Value = 0;
                 EntradaerrorProvider.Clear();
 
             }
@@ -157,13 +185,43 @@ namespace ProyectoFinal.UI.Registros
             if (articulo != null)
             {
 
-                
-                ArticulocomboBox.Text = articulo.Articulo;
-                CantidadArticulonumericUpDown.Value = articulo.Cantidad;
+
+                EntradaArticuloIDnumericUpDown.Value = 0;
+                CantidadArticulonumericUpDown.Value = 0;
+                ArticulocomboBox.Text.ToString();
+                PrecioCompranumericUpDown.Value = 0;
+                PrecioVentanumericUpDown.Value = 0;
+                GanancianumericUpDown.Value = 0;
+                EntradaerrorProvider.Clear();
 
             }
             else
                 MessageBox.Show("No se encontro", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
+
+        private void PrecioCompranumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            int precioVenta = Convert.ToInt32(PrecioVentanumericUpDown.Value);
+            int precioCompra = Convert.ToInt32(PrecioCompranumericUpDown.Value);
+
+            if (PrecioCompranumericUpDown.Value != 0 && PrecioVentanumericUpDown.Value != 0)
+            {
+                GanancianumericUpDown.Value = BLL.EntradaArticulosBLL.CalcularGanancia(precioVenta, precioCompra);
+
+            }
+        }
+
+        private void PrecioVentanumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            int precioVenta = Convert.ToInt32(PrecioVentanumericUpDown.Value);
+            int precioCompra = Convert.ToInt32(PrecioCompranumericUpDown.Value);
+
+            if (PrecioCompranumericUpDown.Value != 0 && PrecioVentanumericUpDown.Value != 0)
+            {
+                GanancianumericUpDown.Value = BLL.EntradaArticulosBLL.CalcularGanancia(precioVenta, precioCompra);
+
+            }
+        }
+        }
     }
-}
+

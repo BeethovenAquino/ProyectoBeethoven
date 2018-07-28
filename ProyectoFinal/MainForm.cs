@@ -30,12 +30,6 @@ namespace ProyectoFinal
             registroEntradaArticulos.Show();
         }
 
-        private void inventarioToolStripMenuItem_Click(object sender, EventArgs e)
-        {
-            RegistroInventario registroInventario = new RegistroInventario();
-            registroInventario.Show();
-        }
-
         private void clienteToolStripMenuItem_Click(object sender, EventArgs e)
         {
             RegistroCliente registroCliente = new RegistroCliente();
@@ -60,12 +54,7 @@ namespace ProyectoFinal
             consultaEntrada.Show();
         }
 
-        private void inventarioToolStripMenuItem1_Click(object sender, EventArgs e)
-        {
-            ConsultaInventario inventario = new ConsultaInventario();
-            inventario.Show();
-        }
-
+    
         private void clienteToolStripMenuItem1_Click(object sender, EventArgs e)
         {
             ConsultaClientes clientes = new ConsultaClientes();
