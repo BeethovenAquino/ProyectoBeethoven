@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProyectoFinal.UI.Reportes {
+namespace ProyectoFinal.UI.Reportes.Reporte_Entrada_Articulos {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace ProyectoFinal.UI.Reportes {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class ReporteFacturacion : ReportClass {
+    public class Entrada : ReportClass {
         
-        public ReporteFacturacion() {
+        public Entrada() {
         }
         
         public override string ResourceName {
             get {
-                return "ReporteFacturacion.rpt";
+                return "Entrada.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ProyectoFinal.UI.Reportes {
         
         public override string FullResourceName {
             get {
-                return "ProyectoFinal.UI.Reportes.ReporteFacturacion.rpt";
+                return "ProyectoFinal.UI.Reportes.Reporte Entrada Articulos.Entrada.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace ProyectoFinal.UI.Reportes {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedReporteFacturacion : Component, ICachedReport {
+    public class CachedEntrada : Component, ICachedReport {
         
-        public CachedReporteFacturacion() {
+        public CachedEntrada() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace ProyectoFinal.UI.Reportes {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            ReporteFacturacion rpt = new ReporteFacturacion();
+            Entrada rpt = new Entrada();
             rpt.Site = this.Site;
             return rpt;
         }

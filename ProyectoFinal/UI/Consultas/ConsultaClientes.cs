@@ -1,4 +1,5 @@
 ﻿using ProyectoFinal.Entidades;
+using ProyectoFinal.UI.Reportes.Reporte_Clientes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -115,6 +116,20 @@ namespace ProyectoFinal.UI.Consultas
         private void LimpiarError()
         {
             ClienteerrorProvider.Clear();
+        }
+
+        private void ReporteButton_Click(object sender, EventArgs e)
+        {
+
+            List<Cliente> clientes = BLL.ClienteBLL.GetList(x => true);
+            if (clientes.Count == 0)
+            {
+                MessageBox.Show("No hay datos");
+                return;
+            }
+
+            ReporteClientess reporte = new ReporteClientess(clientes);
+            reporte.ShowDialog();
         }
     }
  }

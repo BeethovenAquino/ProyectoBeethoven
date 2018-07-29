@@ -130,41 +130,49 @@
             // 
             // Guardarbutton
             // 
+            this.Guardarbutton.Image = global::ProyectoFinal.Properties.Resources.save_32;
             this.Guardarbutton.Location = new System.Drawing.Point(118, 231);
             this.Guardarbutton.Name = "Guardarbutton";
-            this.Guardarbutton.Size = new System.Drawing.Size(89, 46);
+            this.Guardarbutton.Size = new System.Drawing.Size(89, 60);
             this.Guardarbutton.TabIndex = 11;
             this.Guardarbutton.Text = "Guardar";
+            this.Guardarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Guardarbutton.UseVisualStyleBackColor = true;
             this.Guardarbutton.Click += new System.EventHandler(this.Guardarbutton_Click);
             // 
             // Buscarbutton
             // 
+            this.Buscarbutton.Image = global::ProyectoFinal.Properties.Resources.search_32;
             this.Buscarbutton.Location = new System.Drawing.Point(284, -2);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(89, 46);
             this.Buscarbutton.TabIndex = 12;
             this.Buscarbutton.Text = "Buscar";
+            this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Buscarbutton.UseVisualStyleBackColor = true;
             this.Buscarbutton.Click += new System.EventHandler(this.Buscarbutton_Click);
             // 
             // Eliminarbutton
             // 
+            this.Eliminarbutton.Image = global::ProyectoFinal.Properties.Resources.delete_32;
             this.Eliminarbutton.Location = new System.Drawing.Point(227, 231);
             this.Eliminarbutton.Name = "Eliminarbutton";
-            this.Eliminarbutton.Size = new System.Drawing.Size(89, 46);
+            this.Eliminarbutton.Size = new System.Drawing.Size(89, 60);
             this.Eliminarbutton.TabIndex = 13;
             this.Eliminarbutton.Text = "Eliminar";
+            this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
             this.Eliminarbutton.Click += new System.EventHandler(this.Eliminarbutton_Click);
             // 
             // Nuevobutton
             // 
+            this.Nuevobutton.Image = global::ProyectoFinal.Properties.Resources.new_32;
             this.Nuevobutton.Location = new System.Drawing.Point(23, 231);
             this.Nuevobutton.Name = "Nuevobutton";
-            this.Nuevobutton.Size = new System.Drawing.Size(89, 46);
+            this.Nuevobutton.Size = new System.Drawing.Size(89, 60);
             this.Nuevobutton.TabIndex = 10;
             this.Nuevobutton.Text = "Nuevo";
+            this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Nuevobutton.UseVisualStyleBackColor = true;
             this.Nuevobutton.Click += new System.EventHandler(this.Nuevobutton_Click);
             // 
@@ -176,7 +184,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(422, 281);
+            this.BackgroundImage = global::ProyectoFinal.Properties.Resources.joyeria;
+            this.ClientSize = new System.Drawing.Size(422, 303);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.Eliminarbutton);

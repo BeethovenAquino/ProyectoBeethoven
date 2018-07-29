@@ -26,7 +26,7 @@ namespace ProyectoFinal.UI.Registros
 
             ArticulocomboBox.DataSource = repositori.GetList(c => true);
             ArticulocomboBox.ValueMember = "ArticuloId";
-            ArticulocomboBox.DisplayMember = "CodigoArticulo";
+            ArticulocomboBox.DisplayMember = "NombreArticulo";
         }
         private EntradaArticulos LlenarClase()
         {
@@ -129,15 +129,16 @@ namespace ProyectoFinal.UI.Registros
                 if (paso)
                 {
 
-                    MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                EntradaArticuloIDnumericUpDown.Value = 0;
-                CantidadArticulonumericUpDown.Value = 0;
-                ArticulocomboBox.Text.ToString();
-                PrecioCompranumericUpDown.Value = 0;
-                PrecioVentanumericUpDown.Value = 0;
-                GanancianumericUpDown.Value = 0;
-                EntradaerrorProvider.Clear();
-            }
+                     MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                
+                    EntradaArticuloIDnumericUpDown.Value = 0;
+                    CantidadArticulonumericUpDown.Value = 0;
+                    ArticulocomboBox.Text.ToString();
+                    PrecioCompranumericUpDown.Value = 0;
+                    PrecioVentanumericUpDown.Value = 0;
+                    GanancianumericUpDown.Value = 0;
+                    EntradaerrorProvider.Clear();
+                }
             else { MessageBox.Show("No se pudo guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                     
             

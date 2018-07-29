@@ -1,4 +1,5 @@
 ﻿using ProyectoFinal.Entidades;
+using ProyectoFinal.UI.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -110,6 +111,13 @@ namespace ProyectoFinal.UI.Consultas
         private void LimpiarError()
         {
             ArticuloerrorProvider.Clear();
+        }
+
+        private void ReporteButton_Click(object sender, EventArgs e)
+        {
+            
+            ReporteArticulos abrir = new ReporteArticulos(BLL.ArticulosBLL.GetList(filtrar));
+            abrir.Show();
         }
     }
     

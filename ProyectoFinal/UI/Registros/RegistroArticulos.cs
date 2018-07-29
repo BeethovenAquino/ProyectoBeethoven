@@ -117,19 +117,7 @@ namespace ProyectoFinal.UI.Registros
     
         }
 
-
-        private void Nuevobutton_Click(object sender, EventArgs e)
-        {
-            ArticuloIDnumericUpDown.Value = 0;
-            CodigoArticulotextBox.Clear();
-            NombretextBox.Clear();
-            MarcatextBox.Clear();
-            FechaEntradadateTimePicker.Value = DateTime.Now;
-            PrecioCompratextBox.Clear();
-            PrecioVentatextBox.Clear();
-            VigenciatextBox.Clear();
-            ArticuloerrorProvider.Clear();
-        }
+        
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
         {
@@ -185,6 +173,19 @@ namespace ProyectoFinal.UI.Registros
             }
             else
                 MessageBox.Show("No se encontro", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void Nuevobutton_Click_1(object sender, EventArgs e)
+        {
+            ArticuloIDnumericUpDown.Value = 0;
+            CodigoArticulotextBox.Clear();
+            NombretextBox.Clear();
+            MarcatextBox.Clear();
+            FechaEntradadateTimePicker.Value = DateTime.Now;
+            PrecioCompratextBox.Clear();
+            PrecioVentatextBox.Clear();
+            VigenciatextBox.Clear();
+            ArticuloerrorProvider.Clear();
         }
     }
 }
