@@ -42,7 +42,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(150, 44);
+            this.label1.Location = new System.Drawing.Point(173, 44);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // UsusariotextBox
             // 
-            this.UsusariotextBox.Location = new System.Drawing.Point(101, 60);
+            this.UsusariotextBox.Location = new System.Drawing.Point(124, 60);
             this.UsusariotextBox.Name = "UsusariotextBox";
             this.UsusariotextBox.Size = new System.Drawing.Size(149, 20);
             this.UsusariotextBox.TabIndex = 1;
@@ -58,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(150, 87);
+            this.label2.Location = new System.Drawing.Point(173, 87);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 2;
@@ -66,14 +66,14 @@
             // 
             // ContraseñatextBox
             // 
-            this.ContraseñatextBox.Location = new System.Drawing.Point(101, 103);
+            this.ContraseñatextBox.Location = new System.Drawing.Point(124, 103);
             this.ContraseñatextBox.Name = "ContraseñatextBox";
             this.ContraseñatextBox.Size = new System.Drawing.Size(149, 20);
             this.ContraseñatextBox.TabIndex = 3;
             // 
             // Loginbutton
             // 
-            this.Loginbutton.Location = new System.Drawing.Point(75, 129);
+            this.Loginbutton.Location = new System.Drawing.Point(98, 129);
             this.Loginbutton.Name = "Loginbutton";
             this.Loginbutton.Size = new System.Drawing.Size(75, 23);
             this.Loginbutton.TabIndex = 4;
@@ -83,7 +83,7 @@
             // 
             // Salirbutton
             // 
-            this.Salirbutton.Location = new System.Drawing.Point(175, 129);
+            this.Salirbutton.Location = new System.Drawing.Point(198, 129);
             this.Salirbutton.Name = "Salirbutton";
             this.Salirbutton.Size = new System.Drawing.Size(75, 23);
             this.Salirbutton.TabIndex = 5;
@@ -99,7 +99,8 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(285, 213);
+            this.BackgroundImage = global::ProyectoFinal.Properties.Resources.icono_login;
+            this.ClientSize = new System.Drawing.Size(385, 235);
             this.Controls.Add(this.Salirbutton);
             this.Controls.Add(this.Loginbutton);
             this.Controls.Add(this.ContraseñatextBox);

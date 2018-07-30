@@ -281,6 +281,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="DAL\Script\ProyectoFinalScrip.sql" />
+    <None Include="ImagenesProyecto\icono_login.png" />
     <None Include="ImagenesProyecto\new_32.png" />
     <None Include="ImagenesProyecto\delete_32.png" />
     <None Include="ImagenesProyecto\search_32.png" />
