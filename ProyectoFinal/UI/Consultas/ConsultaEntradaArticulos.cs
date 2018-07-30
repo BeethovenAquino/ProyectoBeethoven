@@ -1,4 +1,5 @@
 ﻿using ProyectoFinal.Entidades;
+using ProyectoFinal.UI.Reportes.Reporte_Entrada_Articulos;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +14,7 @@ namespace ProyectoFinal.UI.Consultas
 {
     public partial class ConsultaEntradaArticulos : Form
     {
+        List<EntradaArticulos> entradaArticulos = new List<EntradaArticulos>();
         public ConsultaEntradaArticulos()
         {
             InitializeComponent();
@@ -57,8 +59,9 @@ namespace ProyectoFinal.UI.Consultas
                     break;
             }
 
+            entradaArticulos= BLL.EntradaArticulosBLL.GetList(filtrar);
 
-            ConsultadataGridView.DataSource = BLL.EntradaArticulosBLL.GetList(filtrar);
+            ConsultadataGridView.DataSource = entradaArticulos;
         }
 
         private bool SetError(int error)
@@ -82,6 +85,19 @@ namespace ProyectoFinal.UI.Consultas
         private void LimpiarError()
         {
             EntradaerrorProvider.Clear();
+        }
+
+        private void ReporteButton_Click(object sender, EventArgs e)
+        {
+            if (entradaArticulos.Count == 0)
+            {
+                MessageBox.Show("No hay datos");
+                return;
+            }
+
+            ReporteEntrada reporte = new ReporteEntrada(entradaArticulos);
+            reporte.ShowDialog();
+
         }
     }
  }

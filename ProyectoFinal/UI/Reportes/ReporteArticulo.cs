@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProyectoFinal.UI.Reportes.Reporte_Facturacion {
+namespace ProyectoFinal.UI.Reportes {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace ProyectoFinal.UI.Reportes.Reporte_Facturacion {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Factura : ReportClass {
+    public class ReporteArticulo : ReportClass {
         
-        public Factura() {
+        public ReporteArticulo() {
         }
         
         public override string ResourceName {
             get {
-                return "Factura.rpt";
+                return "ReporteArticulo.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ProyectoFinal.UI.Reportes.Reporte_Facturacion {
         
         public override string FullResourceName {
             get {
-                return "ProyectoFinal.UI.Reportes.Reporte Facturacion.Factura.rpt";
+                return "ProyectoFinal.UI.Reportes.ReporteArticulo.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace ProyectoFinal.UI.Reportes.Reporte_Facturacion {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedFactura : Component, ICachedReport {
+    public class CachedReporteArticulo : Component, ICachedReport {
         
-        public CachedFactura() {
+        public CachedReporteArticulo() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace ProyectoFinal.UI.Reportes.Reporte_Facturacion {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Factura rpt = new Factura();
+            ReporteArticulo rpt = new ReporteArticulo();
             rpt.Site = this.Site;
             return rpt;
         }

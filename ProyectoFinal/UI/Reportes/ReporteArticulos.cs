@@ -1,5 +1,5 @@
 ﻿using ProyectoFinal.Entidades;
-using ProyectoFinal.UI.Reportes.Reporte_Articulos;
+
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,12 +13,12 @@ namespace ProyectoFinal.UI.Reportes
 {
     public partial class ReporteArticulos : Form
     {
-        List<Articulos> articulos = new List<Articulos>();
+        List<Articulos> articulos = null;
 
         public ReporteArticulos(List<Articulos> articulo)
         {
             InitializeComponent();
-            articulos = articulo;
+           this.articulos = articulo;
         }
 
         private void crystalReportViewer1_Load(object sender, EventArgs e)
@@ -26,7 +26,7 @@ namespace ProyectoFinal.UI.Reportes
             ReporteArticulo abrir = new ReporteArticulo();
             abrir.SetDataSource(articulos);
             ReporteArticulocrystalReportViewer.ReportSource = abrir;
-            ReporteArticulocrystalReportViewer.Refresh();
+            abrir.Refresh();
 
         }
     }

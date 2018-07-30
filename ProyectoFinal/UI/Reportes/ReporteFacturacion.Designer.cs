@@ -41,6 +41,7 @@
             this.FacturacioncrystalReportViewer.Name = "FacturacioncrystalReportViewer";
             this.FacturacioncrystalReportViewer.Size = new System.Drawing.Size(800, 450);
             this.FacturacioncrystalReportViewer.TabIndex = 0;
+            this.FacturacioncrystalReportViewer.Load += new System.EventHandler(this.FacturacioncrystalReportViewer_Load);
             // 
             // ReporteFacturacion
             // 

@@ -12,7 +12,7 @@ namespace ProyectoFinal.UI.Reportes.Reporte_Entrada_Articulos
 {
     public partial class ReporteEntrada : Form
     {
-        List<EntradaArticulos> datos = new List<EntradaArticulos>();
+        List<EntradaArticulos> datos = null;
         public ReporteEntrada(List<EntradaArticulos> entradas)
         {
             InitializeComponent();

@@ -172,21 +172,22 @@ namespace ProyectoFinal.UI.Registros
 
                 facturacion.AgregarDetalle
                     (ToInt(item.Cells["id"].Value),
-                    facturacion.FacturaID,
+                    //facturacion.FacturaID,
+                    Convert.ToInt32(item.Cells["FacturaID"].Value),
                     Convert.ToString(item.Cells["Venta"].Value),
                     Convert.ToInt32(item.Cells["ClienteID"].Value),
                     Convert.ToString(item.Cells["Cliente"].Value),
                     Convert.ToInt32(item.Cells["ArticuloID"].Value),
                     Convert.ToString(item.Cells["Articulo"].Value),
-                    Convert.ToInt32(item.Cells["Cantidad"].Value),
-                    Convert.ToInt32(item.Cells["Precio"].Value),
-                    Convert.ToInt32(item.Cells["Importe"].Value),
-                    Convert.ToInt32(item.Cells["Monto"].Value),
+                    Convert.ToInt32(item.Cells["cantidad"].Value),
+                    Convert.ToInt32(item.Cells["precio"].Value),
+                    Convert.ToInt32(item.Cells["importe"].Value),
+                    Convert.ToInt32(item.Cells["monto"].Value),
                     Convert.ToString(item.Cells["devuelta"].Value)
 
                   );
             }
-
+        
 
             return facturacion;
 
@@ -384,43 +385,49 @@ namespace ProyectoFinal.UI.Registros
         {
             Facturacion facturacion = LlenaClase();
             bool Paso = false;
-            if (VentacomboBox.SelectedIndex == 1)
-            {
-                MontonumericUpDown.Enabled = false;
-                DevueltatextBox.Enabled = false;
+            //if (VentacomboBox.SelectedIndex == 1)
+            //{
+            //    MontonumericUpDown.Enabled = false;
+            //    DevueltatextBox.Enabled = false;
 
-            }
-            else
-            {
-                if (Validar())
-                {
-                    MessageBox.Show("Favor revisar todos los campos", "Validación",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
-            }
-
+            //}
+            //else
+            //{
+            //    if (Validar())
+            //    {
+            //        MessageBox.Show("Favor revisar todos los campos", "Validación",
+            //            MessageBoxButtons.OK, MessageBoxIcon.Error);
+            //        return;
+            //    }
+            //}
             if (FacturaIDnumericUpDown.Value == 0)
             {
-                if (VentacomboBox.SelectedIndex == 1)
-                {
-                    MontonumericUpDown.Enabled = false;
-                    DevueltatextBox.Enabled = false;
-                    ClientecomboBox.Enabled = false;
-                }
-                else { ClientecomboBox.Enabled = true; }
-
                 Paso = BLL.FacturacionBLL.Guardar(facturacion);
                 FacturacionerrorProvider.Clear();
             }
+
+            //if (FacturaIDnumericUpDown.Value == 0)
+            //{
+            //    if (VentacomboBox.SelectedIndex == 1)
+            //    {
+            //        MontonumericUpDown.Enabled = false;
+            //        DevueltatextBox.Enabled = false;
+            //        ClientecomboBox.Enabled = false;
+            //    }
+            //    else
+            //    { ClientecomboBox.Enabled = true;
+            //    }
+
+
+
             else
             {
-                var M = BLL.FacturacionBLL.Buscar(Convert.ToInt32(FacturaIDnumericUpDown.Value));
+                //var M = BLL.FacturacionBLL.Buscar(Convert.ToInt32(FacturaIDnumericUpDown.Value));
 
-                if (M != null)
-                {
+                //if (M != null)
+                //{
                     Paso = BLL.FacturacionBLL.Modificar(facturacion);
-                }
+                //}
                 FacturacionerrorProvider.Clear();
             }
 

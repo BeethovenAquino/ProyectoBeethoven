@@ -23,8 +23,9 @@ namespace ProyectoFinal.Entidades
         public int Monto { get; set; }
         public string Devuelta { get; set; }
 
-        //[ForeignKey("ArticuloID")]
-        //public virtual Articulos Articulos { get; set; }
+        [ForeignKey("ArticuloID")]
+        public virtual Articulos Articulos { get; set; }
+
 
         public FacturacionDetalle()
         {

@@ -1,4 +1,5 @@
 ﻿using ProyectoFinal.Entidades;
+using ProyectoFinal.UI.Reportes.Reporte_Facturacion;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,7 +14,7 @@ namespace ProyectoFinal.UI.Consultas
 {
     public partial class ConsultaFacturacion : Form
     {
-        
+        List<Facturacion> facturacion = new List<Facturacion>();
         public ConsultaFacturacion()
         {
             InitializeComponent();
@@ -54,8 +55,8 @@ namespace ProyectoFinal.UI.Consultas
                     break;
             }
 
-
-            ConsultadataGridView.DataSource = BLL.FacturacionBLL.GetList(filtrar);
+            facturacion = BLL.FacturacionBLL.GetList(filtrar);
+            ConsultadataGridView.DataSource = facturacion;
         }
 
 
@@ -80,6 +81,17 @@ namespace ProyectoFinal.UI.Consultas
         private void LimpiarError()
         {
             FacturacionerrorProvider.Clear();
+        }
+
+        private void ReporteButton_Click(object sender, EventArgs e)
+        {
+            if (facturacion.Count() == 0)
+            {
+                MessageBox.Show("No existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ReporteFacturacion abrir = new ReporteFacturacion(facturacion);
+            abrir.ShowDialog();
+
         }
     }
 }

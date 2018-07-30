@@ -14,6 +14,8 @@ namespace ProyectoFinal.UI.Consultas
 {
     public partial class ConsultaArticulos : Form
     {
+
+        List<Articulos> articulos = new List<Articulos>();
         public ConsultaArticulos()
         {
             InitializeComponent();
@@ -84,8 +86,9 @@ namespace ProyectoFinal.UI.Consultas
                     break;
             }
 
+            articulos = BLL.ArticulosBLL.GetList(filtrar);
 
-            ConsultadataGridView.DataSource = BLL.ArticulosBLL.GetList(filtrar);
+            ConsultadataGridView.DataSource =articulos;
         }
 
         private bool SetError(int error)
@@ -113,9 +116,14 @@ namespace ProyectoFinal.UI.Consultas
 
         private void ReporteButton_Click(object sender, EventArgs e)
         {
+            if (articulos.Count() == 0)
+            {
+                MessageBox.Show("No existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+            ReporteArticulos abrir = new ReporteArticulos(articulos);
+            abrir.ShowDialog();
             
-            ReporteArticulos abrir = new ReporteArticulos(BLL.ArticulosBLL.GetList(filtrar));
-            abrir.Show();
+           
         }
     }
     

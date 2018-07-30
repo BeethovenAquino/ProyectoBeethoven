@@ -15,10 +15,7 @@ namespace ProyectoFinal.BLL
         {
             bool paso = false;
             Contexto contexto = new Contexto();
-            Cliente cliente = new Cliente();
-
-
-
+            
             try
             {
                 if (contexto.Facturacion.Add(facturacion) != null)

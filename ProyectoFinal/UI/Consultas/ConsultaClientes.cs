@@ -14,6 +14,7 @@ namespace ProyectoFinal.UI.Consultas
 {
     public partial class ConsultaClientes : Form
     {
+        List<Cliente> clientes = new List<Cliente>();
         public ConsultaClientes()
         {
             InitializeComponent();
@@ -91,8 +92,9 @@ namespace ProyectoFinal.UI.Consultas
                     break;
             }
 
+            clientes= BLL.ClienteBLL.GetList(filtrar);
 
-            ConsultadataGridView.DataSource = BLL.ClienteBLL.GetList(filtrar);
+            ConsultadataGridView.DataSource = clientes;
         }
 
         private bool SetError(int error)
@@ -120,8 +122,6 @@ namespace ProyectoFinal.UI.Consultas
 
         private void ReporteButton_Click(object sender, EventArgs e)
         {
-
-            List<Cliente> clientes = BLL.ClienteBLL.GetList(x => true);
             if (clientes.Count == 0)
             {
                 MessageBox.Show("No hay datos");

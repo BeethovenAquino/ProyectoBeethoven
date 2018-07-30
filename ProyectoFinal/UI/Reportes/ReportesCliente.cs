@@ -8,7 +8,7 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 
-namespace ProyectoFinal.UI.Reportes.Reporte_Entrada_Articulos {
+namespace ProyectoFinal.UI.Reportes {
     using System;
     using System.ComponentModel;
     using CrystalDecisions.Shared;
@@ -16,14 +16,14 @@ namespace ProyectoFinal.UI.Reportes.Reporte_Entrada_Articulos {
     using CrystalDecisions.CrystalReports.Engine;
     
     
-    public class Entrada : ReportClass {
+    public class ReportesCliente : ReportClass {
         
-        public Entrada() {
+        public ReportesCliente() {
         }
         
         public override string ResourceName {
             get {
-                return "Entrada.rpt";
+                return "ReportesCliente.rpt";
             }
             set {
                 // Do nothing
@@ -41,7 +41,7 @@ namespace ProyectoFinal.UI.Reportes.Reporte_Entrada_Articulos {
         
         public override string FullResourceName {
             get {
-                return "ProyectoFinal.UI.Reportes.Reporte Entrada Articulos.Entrada.rpt";
+                return "ProyectoFinal.UI.Reportes.ReportesCliente.rpt";
             }
             set {
                 // Do nothing
@@ -90,9 +90,9 @@ namespace ProyectoFinal.UI.Reportes.Reporte_Entrada_Articulos {
     }
     
     [System.Drawing.ToolboxBitmapAttribute(typeof(CrystalDecisions.Shared.ExportOptions), "report.bmp")]
-    public class CachedEntrada : Component, ICachedReport {
+    public class CachedReportesCliente : Component, ICachedReport {
         
-        public CachedEntrada() {
+        public CachedReportesCliente() {
         }
         
         [Browsable(false)]
@@ -129,7 +129,7 @@ namespace ProyectoFinal.UI.Reportes.Reporte_Entrada_Articulos {
         }
         
         public virtual CrystalDecisions.CrystalReports.Engine.ReportDocument CreateReport() {
-            Entrada rpt = new Entrada();
+            ReportesCliente rpt = new ReportesCliente();
             rpt.Site = this.Site;
             return rpt;
         }
