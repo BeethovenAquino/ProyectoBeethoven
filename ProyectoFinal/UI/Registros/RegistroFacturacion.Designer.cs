@@ -72,6 +72,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
+            this.label1.FlatStyle = System.Windows.Forms.FlatStyle.Popup;
             this.label1.Location = new System.Drawing.Point(25, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(54, 13);
@@ -142,6 +143,7 @@
             // 
             // ArticulocomboBox
             // 
+            this.ArticulocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ArticulocomboBox.FormattingEnabled = true;
             this.ArticulocomboBox.Location = new System.Drawing.Point(2, 155);
             this.ArticulocomboBox.Name = "ArticulocomboBox";
@@ -167,6 +169,7 @@
             0,
             0});
             this.PrecionumericUpDown.Name = "PrecionumericUpDown";
+            this.PrecionumericUpDown.ReadOnly = true;
             this.PrecionumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.PrecionumericUpDown.TabIndex = 76;
             this.PrecionumericUpDown.ValueChanged += new System.EventHandler(this.PrecionumericUpDown_ValueChanged);
@@ -215,6 +218,7 @@
             // 
             this.SubtotaltextBox.Location = new System.Drawing.Point(583, 372);
             this.SubtotaltextBox.Name = "SubtotaltextBox";
+            this.SubtotaltextBox.ReadOnly = true;
             this.SubtotaltextBox.Size = new System.Drawing.Size(118, 20);
             this.SubtotaltextBox.TabIndex = 78;
             // 
@@ -261,6 +265,7 @@
             // 
             this.TotaltextBox.Location = new System.Drawing.Point(583, 411);
             this.TotaltextBox.Name = "TotaltextBox";
+            this.TotaltextBox.ReadOnly = true;
             this.TotaltextBox.Size = new System.Drawing.Size(100, 20);
             this.TotaltextBox.TabIndex = 83;
             // 
@@ -347,6 +352,7 @@
             // 
             this.DevueltatextBox.Location = new System.Drawing.Point(247, 375);
             this.DevueltatextBox.Name = "DevueltatextBox";
+            this.DevueltatextBox.ReadOnly = true;
             this.DevueltatextBox.Size = new System.Drawing.Size(100, 20);
             this.DevueltatextBox.TabIndex = 91;
             this.DevueltatextBox.TextChanged += new System.EventHandler(this.DevueltatextBox_TextChanged);
@@ -368,6 +374,7 @@
             // 
             this.ImportetextBox.Location = new System.Drawing.Point(470, 155);
             this.ImportetextBox.Name = "ImportetextBox";
+            this.ImportetextBox.ReadOnly = true;
             this.ImportetextBox.Size = new System.Drawing.Size(100, 20);
             this.ImportetextBox.TabIndex = 93;
             // 

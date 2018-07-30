@@ -15,7 +15,10 @@ namespace ProyectoFinal.BLL
         {
             bool paso = false;
             Contexto contexto = new Contexto();
-            
+            Cliente cliente = new Cliente();
+
+
+
             try
             {
                 if (contexto.Facturacion.Add(facturacion) != null)
@@ -25,7 +28,9 @@ namespace ProyectoFinal.BLL
                     {
                         contexto.Articulos.Find(item.ArticuloID).Vigencia -= item.Cantidad;
                     }
-                    
+
+                    contexto.Cliente.Find(facturacion.ClienteID).Total += facturacion.Total;
+
                     contexto.SaveChanges();
                     paso = true;
                 }

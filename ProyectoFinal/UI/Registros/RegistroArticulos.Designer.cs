@@ -113,6 +113,7 @@
             this.CodigoArticulotextBox.Name = "CodigoArticulotextBox";
             this.CodigoArticulotextBox.Size = new System.Drawing.Size(120, 20);
             this.CodigoArticulotextBox.TabIndex = 5;
+
             // 
             // MarcatextBox
             // 

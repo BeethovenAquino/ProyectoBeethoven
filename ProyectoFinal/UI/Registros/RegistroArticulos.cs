@@ -38,7 +38,7 @@ namespace ProyectoFinal.UI.Registros
 
         private bool Validar(int validar)
         {
-
+            int ejem;
             bool paso = false;
             if (validar == 1 && ArticuloIDnumericUpDown.Value == 0)
             {
@@ -46,11 +46,20 @@ namespace ProyectoFinal.UI.Registros
                 paso = true;
 
             }
-            if (validar == 2 && CodigoArticulotextBox.Text == string.Empty)
+
+            if (validar == 1 && int.TryParse(CodigoArticulotextBox.Text, out ejem) == false)
             {
-                ArticuloerrorProvider.SetError(CodigoArticulotextBox, "Ingrese el Codigo Del Articulo");
+                ArticuloerrorProvider.SetError(CodigoArticulotextBox, "Debe de introducir un numero");
                 paso = true;
             }
+            else {
+                if (validar == 2 && CodigoArticulotextBox.Text == string.Empty)
+                {
+                    ArticuloerrorProvider.SetError(CodigoArticulotextBox, "Ingrese el Codigo Del Articulo");
+                    paso = true;
+                }
+            }
+           
 
             if (validar == 2 && NombretextBox.Text == string.Empty)
             {
@@ -187,5 +196,7 @@ namespace ProyectoFinal.UI.Registros
             VigenciatextBox.Clear();
             ArticuloerrorProvider.Clear();
         }
+
+     
     }
 }

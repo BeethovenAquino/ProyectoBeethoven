@@ -24,7 +24,7 @@ namespace ProyectoFinal.UI.Registros
 
             Repositorio<Articulos> repositori = new Repositorio<Articulos>(new Contexto());
 
-            ArticulocomboBox.DataSource = repositori.GetList(c => true);
+            ArticulocomboBox.DataSource = repositori.GetList(c => c.PrecioCompra == 0);
             ArticulocomboBox.ValueMember = "ArticuloId";
             ArticulocomboBox.DisplayMember = "NombreArticulo";
         }
@@ -140,8 +140,8 @@ namespace ProyectoFinal.UI.Registros
                     EntradaerrorProvider.Clear();
                 }
             else { MessageBox.Show("No se pudo guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error); }
-                    
-            
+
+            LlenarComboBox();
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
@@ -217,11 +217,19 @@ namespace ProyectoFinal.UI.Registros
             int precioVenta = Convert.ToInt32(PrecioVentanumericUpDown.Value);
             int precioCompra = Convert.ToInt32(PrecioCompranumericUpDown.Value);
 
-            if (PrecioCompranumericUpDown.Value != 0 && PrecioVentanumericUpDown.Value != 0)
+            if (precioVenta < precioCompra)
             {
-                GanancianumericUpDown.Value = BLL.EntradaArticulosBLL.CalcularGanancia(precioVenta, precioCompra);
-
+                MessageBox.Show("Va a Perder dinero", "Perdida", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
+            else {
+                if (PrecioCompranumericUpDown.Value != 0 && PrecioVentanumericUpDown.Value != 0)
+                {
+                    GanancianumericUpDown.Value = BLL.EntradaArticulosBLL.CalcularGanancia(precioVenta, precioCompra);
+
+                }
+               
+            }
+            
         }
         }
     }

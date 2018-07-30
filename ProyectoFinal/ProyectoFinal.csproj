@@ -125,6 +125,12 @@
     <Compile Include="UI\Registros\RegistroFacturacion.Designer.cs">
       <DependentUpon>RegistroFacturacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\Prueba.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Prueba.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\Reportes\Reporte Articulos\ReporteArticulo.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -209,6 +215,10 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistroFacturacion.resx">
       <DependentUpon>RegistroFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\Prueba.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Prueba.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\Reporte Articulos\ReporteArticulo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

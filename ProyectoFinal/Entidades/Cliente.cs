@@ -14,6 +14,9 @@ namespace ProyectoFinal.Entidades
         public string Cedula { get; set; }
         public string Direccion { get; set; }
         public string Telefono { get; set; }
+        public int Total { get; set; }
+        public int Pago { get; set; }
+
 
         public Cliente()
         {
@@ -22,6 +25,8 @@ namespace ProyectoFinal.Entidades
             Cedula= string.Empty;
             Direccion= string.Empty;
             Telefono= string.Empty;
+            Total =0;
+            Pago = 0;
         }
     }
 }

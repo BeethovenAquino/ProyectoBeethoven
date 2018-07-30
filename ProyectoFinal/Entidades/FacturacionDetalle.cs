@@ -23,12 +23,18 @@ namespace ProyectoFinal.Entidades
         public int Monto { get; set; }
         public string Devuelta { get; set; }
 
-        [ForeignKey("ArticuloID")]
-        public virtual Articulos Articulos { get; set; }
+        //[ForeignKey("ArticuloID")]
+        //public virtual Articulos Articulos { get; set; }
 
-        public FacturacionDetalle(int iD, int facturaID, string venta, int clienteID, string cliente, int articuloID, string articulo, int cantidad, int precio, int importe, int monto, string devuelta)
+        public FacturacionDetalle()
         {
-            ID = iD;
+            ID = 0;
+            FacturaID = 0;
+        }
+
+        public FacturacionDetalle(int id, int facturaID, string venta, int clienteID, string cliente, int articuloID, string articulo, int cantidad, int precio, int importe, int monto, string devuelta)
+        {
+            ID = id;
             FacturaID = facturaID;
             Venta = venta;
             ClienteID = clienteID;
@@ -42,17 +48,13 @@ namespace ProyectoFinal.Entidades
             Devuelta = devuelta;
         }
 
-
-
-
-
-        //public FacturacionDetalle(int facturaID, int articuloID, string articulo, int cantidad, int precio)
-        //{
-        //    FacturaID = facturaID;
-        //    ArticuloID = articuloID;
-        //    Articulo = articulo;
-        //    Cantidad = cantidad;
-        //    Precio = precio;
-        //}
+        public FacturacionDetalle(int facturaID, int articuloID, string articulo, int cantidad, int precio)
+        {
+            FacturaID = facturaID;
+            ArticuloID = articuloID;
+            Articulo = articulo;
+            Cantidad = cantidad;
+            Precio = precio;
+        }
     }
 }

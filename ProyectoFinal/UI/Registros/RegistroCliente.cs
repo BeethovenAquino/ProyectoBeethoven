@@ -22,12 +22,15 @@ namespace ProyectoFinal.UI.Registros
         {
 
             Cliente cliente = new Cliente();
-
+            TotalTextbox.Text = 0.ToString();
             cliente.ClienteID = Convert.ToInt32(ClienteIDnumericUpDown.Value);
             cliente.NombreCliente = NombretextBox.Text;
             cliente.Cedula = (CedulatextBox.Text);
             cliente.Direccion = (DirecciontextBox.Text);
             cliente.Telefono = (TelefonotextBox.Text);
+            cliente.Total = Convert.ToInt32(TotalTextbox.Text);
+            cliente.Pago = Convert.ToInt32(PagonumericUpDown.Value);
+
             return cliente;
         }
 
@@ -106,12 +109,14 @@ namespace ProyectoFinal.UI.Registros
                     
 
                         MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                        ClienteIDnumericUpDown.Value = 0;
-                        NombretextBox.Clear();
-                        CedulatextBox.Clear();
-                        DirecciontextBox.Clear();
-                        TelefonotextBox.Clear();
-                        ClienteerrorProvider.Clear();
+                    ClienteIDnumericUpDown.Value = 0;
+                    NombretextBox.Clear();
+                    CedulatextBox.Clear();
+                    DirecciontextBox.Clear();
+                    TelefonotextBox.Clear();
+                    TotalTextbox.Clear();
+                    PagonumericUpDown.Value = 0;
+                    ClienteerrorProvider.Clear(); ;
 
                     }
                     else{ MessageBox.Show("No se pudo guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error); }
@@ -128,6 +133,8 @@ namespace ProyectoFinal.UI.Registros
             CedulatextBox.Clear();
             DirecciontextBox.Clear();
             TelefonotextBox.Clear();
+            TotalTextbox.Clear();
+            PagonumericUpDown.Value = 0;
             ClienteerrorProvider.Clear();
 
         }
@@ -150,6 +157,8 @@ namespace ProyectoFinal.UI.Registros
                 CedulatextBox.Clear();
                 DirecciontextBox.Clear();
                 TelefonotextBox.Clear();
+                TotalTextbox.Clear();
+                PagonumericUpDown.Value = 0;
                 ClienteerrorProvider.Clear();
             }
 
@@ -176,6 +185,9 @@ namespace ProyectoFinal.UI.Registros
                 CedulatextBox.Text = cliente.Cedula;
                 DirecciontextBox.Text = cliente.Direccion;
                 TelefonotextBox.Text = cliente.Telefono;
+                TotalTextbox.Text = cliente.Total.ToString();
+                PagonumericUpDown.Value = cliente.Pago;
+
                 
             }
             else

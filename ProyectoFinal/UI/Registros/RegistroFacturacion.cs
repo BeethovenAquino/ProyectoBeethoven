@@ -13,15 +13,26 @@ namespace ProyectoFinal.UI.Registros
 {
     public partial class RegistroFacturacion : Form
     {
+        private List<Articulos> ArticulosStock;
+        private List<Articulos> ArticuloPerdido;
         public RegistroFacturacion()
         {
             InitializeComponent();
             LlenarComboBox();
         }
 
+        private int ToInt(object valor)
+        {
+            int retorno = 0;
+            int.TryParse(valor.ToString(), out retorno);
+            return retorno;
+
+        }
+
 
         private void LlenarCampos(Facturacion facturacion)
         {
+            FacturacionDetalle detalle = new FacturacionDetalle();
 
             FacturaIDnumericUpDown.Value = 0;
             FechadateTimePicker.Value = DateTime.Now;
@@ -46,13 +57,13 @@ namespace ProyectoFinal.UI.Registros
 
 
             //Cargar el detalle al Grid
-            FacturacionerrorProvider.DataSource = facturacion.Detalle;
+            FacturaciondataGridView.DataSource = facturacion.Detalle;
 
             FacturaciondataGridView.Columns["ID"].Visible = false;
             FacturaciondataGridView.Columns["FacturaID"].Visible = false;
             FacturaciondataGridView.Columns["ClienteID"].Visible = false;
             FacturaciondataGridView.Columns["ArticuloID"].Visible = false;
-            FacturaciondataGridView.Columns["Articulos"].Visible = false;
+            //FacturaciondataGridView.Columns["Articulos"].Visible = false;
         }
 
         private void LlenarComboBox()
@@ -60,7 +71,10 @@ namespace ProyectoFinal.UI.Registros
             Repositorio<Articulos> repositorio = new Repositorio<Articulos>(new Contexto());
             Repositorio<Cliente> repositori = new Repositorio<Cliente>(new Contexto());
 
-            ArticulocomboBox.DataSource = repositorio.GetList(c => true);
+            ArticulosStock = repositorio.GetList(c => c.Vigencia > 0);
+            ArticuloPerdido = repositorio.GetList(x => x.Vigencia < 0);
+
+            ArticulocomboBox.DataSource = ArticulosStock;
             ArticulocomboBox.ValueMember = "ArticuloID";
             ArticulocomboBox.DisplayMember = "Nombre";
 
@@ -69,6 +83,25 @@ namespace ProyectoFinal.UI.Registros
             ClientecomboBox.DisplayMember = "NombreCliente";
 
 
+
+        }
+        
+        private void ActualizarCombobox()
+        {
+            var listadoActualizado = ArticulosStock.Where(art => art.Vigencia > 0).ToList();
+
+            ArticulocomboBox.DataSource = null;
+
+            if (listadoActualizado != null && listadoActualizado.Count() > 0)
+            {
+                ArticulocomboBox.DataSource = listadoActualizado;
+                ArticulocomboBox.ValueMember = "ArticuloID";
+                ArticulocomboBox.DisplayMember = "Nombre";
+            }
+            else
+            {
+                ArticulocomboBox.DataSource = null;
+            }
 
         }
         private bool Validar()
@@ -128,18 +161,18 @@ namespace ProyectoFinal.UI.Registros
         private Facturacion LlenaClase()
         {
             Facturacion facturacion = new Facturacion();
-
+            TotaltextBox.Text = 0.ToString();
             facturacion.FacturaID = Convert.ToInt32(FacturaIDnumericUpDown.Value);
             facturacion.Fecha = FechadateTimePicker.Value;
             facturacion.Subtotal = SubtotaltextBox.Text;
-            facturacion.Total = TotaltextBox.Text;
+            facturacion.Total = Convert.ToInt32( TotaltextBox.Text);
 
             foreach (DataGridViewRow item in FacturaciondataGridView.Rows)
             {
 
                 facturacion.AgregarDetalle
-                    (Convert.ToInt32(item.Cells["ID"].Value),
-                    Convert.ToInt32(item.Cells["FacturaID"].Value),
+                    (ToInt(item.Cells["id"].Value),
+                    facturacion.FacturaID,
                     Convert.ToString(item.Cells["Venta"].Value),
                     Convert.ToInt32(item.Cells["ClienteID"].Value),
                     Convert.ToString(item.Cells["Cliente"].Value),
@@ -153,6 +186,8 @@ namespace ProyectoFinal.UI.Registros
 
                   );
             }
+
+
             return facturacion;
 
         }
@@ -167,8 +202,7 @@ namespace ProyectoFinal.UI.Registros
             {
                 detalle = (List<FacturacionDetalle>)FacturaciondataGridView.DataSource;
             }
-
-
+            
 
             if (string.IsNullOrEmpty(ImportetextBox.Text))
             {
@@ -177,33 +211,35 @@ namespace ProyectoFinal.UI.Registros
             else
             {
                 detalle.Add(
-                    new FacturacionDetalle(iD: 0,
+                    new FacturacionDetalle(id: 0,
                     facturaID: (int)Convert.ToInt32(FacturaIDnumericUpDown.Value),
-                    venta:(string)VentacomboBox.Text,
+                    venta: (string)VentacomboBox.Text,
                     clienteID: (int)ClientecomboBox.SelectedValue,
                        cliente: (string)ClientecomboBox.Text,
-                            articuloID: (int)ArticulocomboBox.SelectedIndex,
+                            articuloID: (int)ArticulocomboBox.SelectedValue,
                             articulo: (string)ArticulocomboBox.Text,
 
-                        cantidad: (int)Convert.ToInt32(CantidadnumericUpDown.Value),
-                        precio: (int)Convert.ToInt32(PrecionumericUpDown.Value),
-                        importe: (int)Convert.ToInt32(ImportetextBox.Text),
-                        monto: (int)Convert.ToInt32(MontonumericUpDown.Value),
-                        devuelta: (string)Convert.ToString(DevueltatextBox.Text)
-
+                        cantidad: Convert.ToInt32(CantidadnumericUpDown.Value),
+                        precio: Convert.ToInt32(PrecionumericUpDown.Value),
+                        importe: Convert.ToInt32(ImportetextBox.Text),
+                        monto: Convert.ToInt32(MontonumericUpDown.Value),
+                        devuelta: DevueltatextBox.Text
                     ));
 
 
                 FacturaciondataGridView.DataSource = null;
                 FacturaciondataGridView.DataSource = detalle;
 
+                this.ArticulosStock.Find(art => art.ArticuloID ==
+                    (int)ArticulocomboBox.SelectedValue).Vigencia -= Convert.ToInt32(CantidadnumericUpDown.Value);
 
+                ActualizarCombobox();
 
-                FacturaciondataGridView.Columns["ID"].Visible = false;
+                //FacturaciondataGridView.Columns["ID"].Visible = false;
                 FacturaciondataGridView.Columns["FacturaID"].Visible = false;
                 FacturaciondataGridView.Columns["ClienteID"].Visible = false;
                 FacturaciondataGridView.Columns["ArticuloID"].Visible = false;
-                FacturaciondataGridView.Columns["Articulos"].Visible = false;
+                //FacturaciondataGridView.Columns["Articulos"].Visible = false;
 
                 int subtotal = 0;
                 foreach (var item in detalle)
@@ -268,25 +304,23 @@ namespace ProyectoFinal.UI.Registros
                 total += Convert.ToInt32(SubtotaltextBox.Text);
 
                 TotaltextBox.Text = total.ToString();
-
-
-
-
-
-
-
-
+                
                 FacturaciondataGridView.DataSource = null;
                 FacturaciondataGridView.DataSource = detalle;
 
 
+                //this.ArticulosStock.Find(art => art.ArticuloID ==
+                //    CantidadnumericUpDown.Value).ArticuloID+= A ;
 
-                FacturaciondataGridView.Columns["ID"].Visible = false;
+                //ActualizarCombobox();
+
+
+                //FacturaciondataGridView.Columns["ID"].Visible = false;
                 FacturaciondataGridView.Columns["FacturaID"].Visible = false;
                 FacturaciondataGridView.Columns["ClienteID"].Visible = false;
                 FacturaciondataGridView.Columns["ArticuloID"].Visible = false;
-                FacturaciondataGridView.Columns["Articulos"].Visible = false;
-
+                //FacturaciondataGridView.Columns["Articulos"].Visible = false;
+             
             }
         }
 
@@ -300,8 +334,16 @@ namespace ProyectoFinal.UI.Registros
             int precio = Convert.ToInt32(PrecionumericUpDown.Value);
             int monto = Convert.ToInt32(MontonumericUpDown.Value);
 
+            if (monto < precio)
+            {
+                MessageBox.Show("le falta dinero para pagar el ariculo", "Page", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                DevueltatextBox.Text = BLL.FacturacionBLL.CalcularDevuelta(monto, precio).ToString();
+            }
 
-            DevueltatextBox.Text = BLL.FacturacionBLL.CalcularDevuelta(monto, precio).ToString();
+
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -365,11 +407,13 @@ namespace ProyectoFinal.UI.Registros
                 FacturacionerrorProvider.Clear();
                 FacturaciondataGridView.DataSource = null;
             }
-            else {
+            else
+            {
                 MessageBox.Show("No se pudo guardar!!", "Fallo",
                  MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-                
+            LlenarComboBox();
+
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
@@ -424,6 +468,7 @@ namespace ProyectoFinal.UI.Registros
             if (VentacomboBox.SelectedIndex == 0)
             {
                 ClientecomboBox.Enabled = false;
+                
             }
             else { ClientecomboBox.Enabled = true; }
         }
