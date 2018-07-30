@@ -417,6 +417,7 @@
             this.Controls.Add(this.label1);
             this.Name = "RegistroFacturacion";
             this.Text = "RegistroFacturacion";
+            this.Load += new System.EventHandler(this.RegistroFacturacion_Load);
             ((System.ComponentModel.ISupportInitialize)(this.FacturaIDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecionumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).EndInit();

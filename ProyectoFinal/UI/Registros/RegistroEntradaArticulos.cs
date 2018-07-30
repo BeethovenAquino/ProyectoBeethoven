@@ -185,15 +185,13 @@ namespace ProyectoFinal.UI.Registros
 
             if (articulo != null)
             {
+                ArticulocomboBox.SelectedValue = articulo.Articulo;
+                PrecioCompranumericUpDown.Value = articulo.PrecioCompra;
+                PrecioVentanumericUpDown.Value = articulo.PrecioVenta;
+                GanancianumericUpDown.Value = articulo.Ganancia;
+                CantidadArticulonumericUpDown.Value = articulo.Cantidad;
 
-
-                EntradaArticuloIDnumericUpDown.Value = 0;
-                CantidadArticulonumericUpDown.Value = 0;
-                ArticulocomboBox.Text.ToString();
-                PrecioCompranumericUpDown.Value = 0;
-                PrecioVentanumericUpDown.Value = 0;
-                GanancianumericUpDown.Value = 0;
-                EntradaerrorProvider.Clear();
+            
 
             }
             else

@@ -113,7 +113,7 @@ namespace ProyectoFinal.UI.Registros
                 paso = true;
             }
 
-            if (MontonumericUpDown.Value == 0)
+            if (MontonumericUpDown.Value == 0&&VentacomboBox.SelectedIndex==0)
             {
                 FacturacionerrorProvider.SetError(MontonumericUpDown,
                    "No debes dejar el monto Vacio ");
@@ -159,8 +159,7 @@ namespace ProyectoFinal.UI.Registros
         private Facturacion LlenaClase()
         {
             Facturacion facturacion = new Facturacion();
-            TotaltextBox.Text = 0.ToString();
-            SubtotaltextBox.Text = 0.ToString();
+            
             facturacion.FacturaID = Convert.ToInt32(FacturaIDnumericUpDown.Value);
             facturacion.Fecha = FechadateTimePicker.Value;
             facturacion.Subtotal = Convert.ToInt32(SubtotaltextBox.Text.ToString());
@@ -382,36 +381,23 @@ namespace ProyectoFinal.UI.Registros
         {
             Facturacion facturacion = LlenaClase();
             bool Paso = false;
-            if (VentacomboBox.SelectedIndex == 1)
-            {
-                MontonumericUpDown.Enabled = false;
-                DevueltatextBox.Enabled = false;
 
-            }
-            else
+            if (Validar())
             {
-                if (Validar())
-                {
-                    MessageBox.Show("Favor revisar todos los campos", "Validación",
-                        MessageBoxButtons.OK, MessageBoxIcon.Error);
-                    return;
-                }
+                MessageBox.Show("Favor revisar todos los campos", "Validación",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-           
+            
             if (FacturaIDnumericUpDown.Value == 0)
             {
                 if (VentacomboBox.SelectedIndex == 1)
-                {
-                    MontonumericUpDown.Enabled = false;
-                    DevueltatextBox.Enabled = false;
-                    ClientecomboBox.Enabled = false;
-                    Paso = BLL.FacturacionBLL.Guardar(facturacion);
-                    FacturacionerrorProvider.Clear();
-                }
-                else
-                {
-                    ClientecomboBox.Enabled = true;
-                }
+            {
+                MontonumericUpDown.Enabled = false;
+                DevueltatextBox.Enabled = false;
+            }
+                Paso = BLL.FacturacionBLL.Guardar(facturacion);
+                FacturacionerrorProvider.Clear();
             }
             else
             {
@@ -426,6 +412,7 @@ namespace ProyectoFinal.UI.Registros
 
             if (Paso)
             {
+
                 MessageBox.Show("Guardado!!", "Exito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
@@ -442,15 +429,10 @@ namespace ProyectoFinal.UI.Registros
                 FacturaciondataGridView.DataSource = null;
             }
             else
-            {
                 MessageBox.Show("No se pudo guardar!!", "Fallo",
-                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-            }
-            LlenarComboBox();
-
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
-
-        private void Eliminarbutton_Click(object sender, EventArgs e)
+            private void Eliminarbutton_Click(object sender, EventArgs e)
         {
             if (ValidarE())
             {
@@ -521,6 +503,12 @@ namespace ProyectoFinal.UI.Registros
                 PrecionumericUpDown.Value = item.PrecioVenta;
 
             }
+        }
+
+        private void RegistroFacturacion_Load(object sender, EventArgs e)
+        {
+            TotaltextBox.Text = 0.ToString();
+            SubtotaltextBox.Text = 0.ToString();
         }
     }
 }
