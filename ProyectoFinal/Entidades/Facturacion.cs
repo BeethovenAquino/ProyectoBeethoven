@@ -13,7 +13,7 @@ namespace ProyectoFinal.Entidades
         public int FacturaID { get; set; }
         public int ClienteID { get; set; }
         public DateTime Fecha { get; set; }
-        public string Subtotal { get; set; }
+        public int Subtotal { get; set; }
         public int Total { get; set; }
 
         public virtual ICollection<FacturacionDetalle> Detalle { get; set; }
@@ -23,7 +23,7 @@ namespace ProyectoFinal.Entidades
             this.Detalle = new List<FacturacionDetalle>();
             FacturaID = 0;
             Fecha = DateTime.Now;
-            Subtotal= string.Empty;
+            Subtotal= 0;
             Total= 0;
         }
 

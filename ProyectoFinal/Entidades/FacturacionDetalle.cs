@@ -49,13 +49,13 @@ namespace ProyectoFinal.Entidades
             Devuelta = devuelta;
         }
 
-        public FacturacionDetalle(int facturaID, int articuloID, string articulo, int cantidad, int precio)
-        {
-            FacturaID = facturaID;
-            ArticuloID = articuloID;
-            Articulo = articulo;
-            Cantidad = cantidad;
-            Precio = precio;
-        }
+        //public FacturacionDetalle(int facturaID, int articuloID, string articulo, int cantidad, int precio)
+        //{
+        //    FacturaID = facturaID;
+        //    ArticuloID = articuloID;
+        //    Articulo = articulo;
+        //    Cantidad = cantidad;
+        //    Precio = precio;
+        //}
     }
 }

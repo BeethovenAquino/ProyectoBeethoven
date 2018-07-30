@@ -26,7 +26,7 @@ namespace ProyectoFinal.BLL
                         contexto.Articulos.Find(item.ArticuloID).Vigencia -= item.Cantidad;
                     }
 
-                    contexto.Cliente.Find(facturacion.ClienteID).Total += facturacion.Total;
+                    //contexto.Cliente.Find(facturacion.ClienteID).Total += facturacion.Total;
 
                     contexto.SaveChanges();
                     paso = true;

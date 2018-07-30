@@ -81,9 +81,7 @@ namespace ProyectoFinal.UI.Registros
             ClientecomboBox.DataSource = repositori.GetList(c => true);
             ClientecomboBox.ValueMember = "ClienteID";
             ClientecomboBox.DisplayMember = "NombreCliente";
-
-
-
+            
         }
         
         private void ActualizarCombobox()
@@ -162,10 +160,11 @@ namespace ProyectoFinal.UI.Registros
         {
             Facturacion facturacion = new Facturacion();
             TotaltextBox.Text = 0.ToString();
+            SubtotaltextBox.Text = 0.ToString();
             facturacion.FacturaID = Convert.ToInt32(FacturaIDnumericUpDown.Value);
             facturacion.Fecha = FechadateTimePicker.Value;
-            facturacion.Subtotal = SubtotaltextBox.Text;
-            facturacion.Total = Convert.ToInt32( TotaltextBox.Text);
+            facturacion.Subtotal = Convert.ToInt32(SubtotaltextBox.Text.ToString());
+            facturacion.Total =Convert.ToInt32(TotaltextBox.Text.ToString());
 
             foreach (DataGridViewRow item in FacturaciondataGridView.Rows)
             {
@@ -261,7 +260,8 @@ namespace ProyectoFinal.UI.Registros
                 FacturaciondataGridView.Columns["ArticuloID"].Visible = false;
                 //FacturaciondataGridView.Columns["Articulos"].Visible = false;
 
-                int subtotal = 0;
+               int subtotal = 0;
+                int total = 0;
                 foreach (var item in detalle)
                 {
                     subtotal += item.Importe;
@@ -269,11 +269,8 @@ namespace ProyectoFinal.UI.Registros
                 }
 
                 SubtotaltextBox.Text = subtotal.ToString();
-
-                int total = 0;
-
-
-                total += Convert.ToInt32(SubtotaltextBox.Text);
+                
+                total += subtotal;
 
                 TotaltextBox.Text = total.ToString();
 
@@ -385,55 +382,50 @@ namespace ProyectoFinal.UI.Registros
         {
             Facturacion facturacion = LlenaClase();
             bool Paso = false;
-            //if (VentacomboBox.SelectedIndex == 1)
-            //{
-            //    MontonumericUpDown.Enabled = false;
-            //    DevueltatextBox.Enabled = false;
-
-            //}
-            //else
-            //{
-            //    if (Validar())
-            //    {
-            //        MessageBox.Show("Favor revisar todos los campos", "Validación",
-            //            MessageBoxButtons.OK, MessageBoxIcon.Error);
-            //        return;
-            //    }
-            //}
-            if (FacturaIDnumericUpDown.Value == 0)
+            if (VentacomboBox.SelectedIndex == 1)
             {
-                Paso = BLL.FacturacionBLL.Guardar(facturacion);
-                FacturacionerrorProvider.Clear();
+                MontonumericUpDown.Enabled = false;
+                DevueltatextBox.Enabled = false;
+
             }
-
-            //if (FacturaIDnumericUpDown.Value == 0)
-            //{
-            //    if (VentacomboBox.SelectedIndex == 1)
-            //    {
-            //        MontonumericUpDown.Enabled = false;
-            //        DevueltatextBox.Enabled = false;
-            //        ClientecomboBox.Enabled = false;
-            //    }
-            //    else
-            //    { ClientecomboBox.Enabled = true;
-            //    }
-
-
-
             else
             {
-                //var M = BLL.FacturacionBLL.Buscar(Convert.ToInt32(FacturaIDnumericUpDown.Value));
+                if (Validar())
+                {
+                    MessageBox.Show("Favor revisar todos los campos", "Validación",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    return;
+                }
+            }
+           
+            if (FacturaIDnumericUpDown.Value == 0)
+            {
+                if (VentacomboBox.SelectedIndex == 1)
+                {
+                    MontonumericUpDown.Enabled = false;
+                    DevueltatextBox.Enabled = false;
+                    ClientecomboBox.Enabled = false;
+                    Paso = BLL.FacturacionBLL.Guardar(facturacion);
+                    FacturacionerrorProvider.Clear();
+                }
+                else
+                {
+                    ClientecomboBox.Enabled = true;
+                }
+            }
+            else
+            {
+                var M = BLL.FacturacionBLL.Buscar(Convert.ToInt32(FacturaIDnumericUpDown.Value));
 
-                //if (M != null)
-                //{
+                if (M != null)
+                {
                     Paso = BLL.FacturacionBLL.Modificar(facturacion);
-                //}
+                }
                 FacturacionerrorProvider.Clear();
             }
 
             if (Paso)
             {
-
                 MessageBox.Show("Guardado!!", "Exito",
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
 
