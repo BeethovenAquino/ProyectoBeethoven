@@ -78,5 +78,12 @@ namespace ProyectoFinal
             RegistroEntradaInversion registro = new RegistroEntradaInversion();
             registro.Show();
         }
+
+        private void cobroAlClienteToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistroPagoCliente registroPago = new RegistroPagoCliente();
+            registroPago.Show();
+
+        }
     }
 }

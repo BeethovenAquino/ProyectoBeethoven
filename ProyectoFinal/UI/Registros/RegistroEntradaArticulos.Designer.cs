@@ -138,7 +138,6 @@
             // 
             // ArticulocomboBox
             // 
-            this.ArticulocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ArticulocomboBox.FormattingEnabled = true;
             this.ArticulocomboBox.Location = new System.Drawing.Point(190, 67);
             this.ArticulocomboBox.Name = "ArticulocomboBox";

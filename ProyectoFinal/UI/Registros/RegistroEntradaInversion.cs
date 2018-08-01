@@ -1,11 +1,8 @@
-﻿using ProyectoFinal.Entidades;
+﻿using BLL;
+using Entidades;
+
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+
 using System.Windows.Forms;
 
 namespace ProyectoFinal.UI.Registros
@@ -78,16 +75,16 @@ namespace ProyectoFinal.UI.Registros
 
                 if (EntradaInversionIDnumericUpDown.Value == 0)
                 {
-                    paso = BLL.EntradaInversionBLL.Guardar(entrada);
+                    paso = EntradaInversionBLL.Guardar(entrada);
                 }
                 else
                 {
                     int id = Convert.ToInt32(EntradaInversionIDnumericUpDown.Value);
-                    var entry = BLL.EntradaInversionBLL.Buscar(id);
+                    var entry = EntradaInversionBLL.Buscar(id);
 
                     if (entry != null)
                     {
-                        paso = BLL.EntradaInversionBLL.Editar(entrada);
+                        paso = EntradaInversionBLL.Editar(entrada);
                     }
                     else
                         MessageBox.Show("Id no existe", "Falló",

@@ -1,11 +1,9 @@
-﻿using ProyectoFinal.Entidades;
-using System;
-using System.Collections.Generic;
+﻿
+using Entidades;
 using System.Data.Entity;
-using System.Linq;
-using System.Text;
 
-namespace ProyectoFinal.DAL
+
+namespace DAL
 {
    public class Contexto :DbContext 
     {

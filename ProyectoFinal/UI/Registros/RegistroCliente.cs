@@ -1,11 +1,8 @@
-﻿using ProyectoFinal.Entidades;
+﻿
+using BLL;
+using Entidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+
 using System.Windows.Forms;
 
 namespace ProyectoFinal.UI.Registros
@@ -25,9 +22,9 @@ namespace ProyectoFinal.UI.Registros
             TotalTextbox.Text = 0.ToString();
             cliente.ClienteID = Convert.ToInt32(ClienteIDnumericUpDown.Value);
             cliente.NombreCliente = NombretextBox.Text;
-            cliente.Cedula = (CedulatextBox.Text);
+            cliente.Cedula = CedulamaskedTextBox.Text;
             cliente.Direccion = (DirecciontextBox.Text);
-            cliente.Telefono = (TelefonotextBox.Text);
+            cliente.Telefono = (TelefonomaskedTextBox.Text);
             cliente.Total = Convert.ToInt32(TotalTextbox.Text);
             
 
@@ -50,9 +47,9 @@ namespace ProyectoFinal.UI.Registros
                 paso = true;
             }
 
-            if (validar == 2 && CedulatextBox.Text == string.Empty)
+            if (validar == 2 && CedulamaskedTextBox.Text == string.Empty)
             {
-                ClienteerrorProvider.SetError(CedulatextBox, "Ingrese la Cedula");
+                ClienteerrorProvider.SetError(CedulamaskedTextBox, "Ingrese la Cedula");
                 paso = true;
             }
 
@@ -62,9 +59,9 @@ namespace ProyectoFinal.UI.Registros
                 paso = true;
             }
 
-            if (validar == 2 && TelefonotextBox.Text == string.Empty)
+            if (validar == 2 && TelefonomaskedTextBox.Text == string.Empty)
             {
-                ClienteerrorProvider.SetError(TelefonotextBox, "Ingrese el Telefono");
+                ClienteerrorProvider.SetError(TelefonomaskedTextBox, "Ingrese el Telefono");
                 paso = true;
             }
 
@@ -92,15 +89,15 @@ namespace ProyectoFinal.UI.Registros
 
                 if (ClienteIDnumericUpDown.Value == 0)
                 {
-                    paso = BLL.ClienteBLL.Guardar(cliente);
+                    paso = ClienteBLL.Guardar(cliente);
                 }
                 else
                 {
-                    var A = BLL.ClienteBLL.Buscar(Convert.ToInt32(ClienteIDnumericUpDown.Value));
+                    var A = ClienteBLL.Buscar(Convert.ToInt32(ClienteIDnumericUpDown.Value));
 
                     if (A != null)
                     {
-                        paso = BLL.ClienteBLL.Modificar(cliente);
+                        paso = ClienteBLL.Modificar(cliente);
                     }
                 }
 
@@ -111,9 +108,9 @@ namespace ProyectoFinal.UI.Registros
                         MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     ClienteIDnumericUpDown.Value = 0;
                     NombretextBox.Clear();
-                    CedulatextBox.Clear();
+                    CedulamaskedTextBox.Clear();
                     DirecciontextBox.Clear();
-                    TelefonotextBox.Clear();
+                    TelefonomaskedTextBox.Clear();
                     TotalTextbox.Clear();
                     
                     ClienteerrorProvider.Clear(); ;
@@ -130,9 +127,9 @@ namespace ProyectoFinal.UI.Registros
         {
             ClienteIDnumericUpDown.Value = 0;
             NombretextBox.Clear();
-            CedulatextBox.Clear();
+            CedulamaskedTextBox.Clear();
             DirecciontextBox.Clear();
-            TelefonotextBox.Clear();
+            TelefonomaskedTextBox.Clear();
             TotalTextbox.Clear();
             
             ClienteerrorProvider.Clear();
@@ -154,9 +151,9 @@ namespace ProyectoFinal.UI.Registros
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ClienteIDnumericUpDown.Value = 0;
                 NombretextBox.Clear();
-                CedulatextBox.Clear();
+                CedulamaskedTextBox.Clear();
                 DirecciontextBox.Clear();
-                TelefonotextBox.Clear();
+                TelefonomaskedTextBox.Clear();
                 TotalTextbox.Clear();
                 
                 ClienteerrorProvider.Clear();
@@ -182,9 +179,9 @@ namespace ProyectoFinal.UI.Registros
             {
 
                 NombretextBox.Text = cliente.NombreCliente;
-                CedulatextBox.Text = cliente.Cedula;
+                CedulamaskedTextBox.Text = cliente.Cedula;
                 DirecciontextBox.Text = cliente.Direccion;
-                TelefonotextBox.Text = cliente.Telefono;
+                TelefonomaskedTextBox.Text = cliente.Telefono;
                 TotalTextbox.Text = cliente.Total.ToString();
                 
 

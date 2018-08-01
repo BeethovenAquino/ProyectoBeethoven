@@ -1,11 +1,9 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
-using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
 
-namespace ProyectoFinal.Entidades
+
+namespace Entidades
 {
     public class Facturacion
     {
@@ -16,7 +14,7 @@ namespace ProyectoFinal.Entidades
         public DateTime Fecha { get; set; }
         public int Subtotal { get; set; }
         public int Total { get; set; }
-        public int Abono { get; set; }
+        public decimal Abono { get; set; }
 
         public virtual ICollection<FacturacionDetalle> Detalle { get; set; }
         
@@ -24,6 +22,7 @@ namespace ProyectoFinal.Entidades
         {
             this.Detalle = new List<FacturacionDetalle>();
             FacturaID = 0;
+            ClienteID = 0;
             InventarioID = 0;
             Fecha = DateTime.Now;
             Subtotal= 0;

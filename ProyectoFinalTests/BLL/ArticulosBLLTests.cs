@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProyectoFinal.BLL;
-using ProyectoFinal.Entidades;
+﻿using BLL;
+using Entidades;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 
 namespace ProyectoFinal.BLL.Tests
 {

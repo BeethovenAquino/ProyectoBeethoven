@@ -1,24 +1,25 @@
-﻿using ProyectoFinal.DAL;
-using ProyectoFinal.Entidades;
+﻿
+using DAL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
 
-namespace ProyectoFinal.BLL
+
+namespace BLL
 {
-    public class ClienteBLL
+   public class ArticulosBLL
     {
-        public static bool Guardar(Cliente cliente)
+        public static bool Guardar(Articulos Articulos)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                if (contexto.Cliente.Add(cliente) != null)
+                if (contexto.Articulos.Add(Articulos) != null)
                 {
                     contexto.SaveChanges();
                     paso = true;
@@ -34,14 +35,14 @@ namespace ProyectoFinal.BLL
 
         }
 
-        public static bool Modificar(Cliente cliente)
+        public static bool Modificar(Articulos Articulos)
         {
             bool paso = false;
             Contexto contexto = new Contexto();
 
             try
             {
-                contexto.Entry(cliente).State = EntityState.Modified;
+                contexto.Entry(Articulos).State = EntityState.Modified;
                 if (contexto.SaveChanges() > 0)
                 {
                     paso = true;
@@ -63,11 +64,11 @@ namespace ProyectoFinal.BLL
             Contexto contexto = new Contexto();
             try
             {
-                Cliente cliente = contexto.Cliente.Find(id);
+                Articulos Articulos = contexto.Articulos.Find(id);
 
-                if (cliente != null)
+                if (Articulos != null)
                 {
-                    contexto.Entry(cliente).State = EntityState.Deleted;
+                    contexto.Entry(Articulos).State = EntityState.Deleted;
                 }
 
                 if (contexto.SaveChanges() > 0)
@@ -85,48 +86,48 @@ namespace ProyectoFinal.BLL
             return paso;
         }
 
-        public static Cliente Buscar(int id)
+        public static Articulos Buscar(int id)
         {
             Contexto contexto = new Contexto();
-            Cliente cliente = new Cliente();
+            Articulos Articulos = new Articulos();
             try
             {
-                cliente = contexto.Cliente.Find(id);
+                Articulos = contexto.Articulos.Find(id);
                 contexto.Dispose();
             }
             catch (Exception)
             {
                 throw;
             }
-            return cliente;
+            return Articulos;
         }
 
-        public static List<Cliente> GetList(Expression<Func<Cliente, bool>> expression)
+        public static List<Articulos> GetList(Expression<Func<Articulos, bool>> expression)
         {
-            List<Cliente> cliente = new List<Cliente>();
+            List<Articulos> articulos = new List<Articulos>();
             Contexto contexto = new Contexto();
             try
             {
-                cliente = contexto.Cliente.Where(expression).ToList();
+                articulos = contexto.Articulos.Where(expression).ToList();
                 contexto.Dispose();
             }
             catch (Exception)
             {
                 throw;
             }
-            return cliente;
+            return articulos;
         }
 
         public static string RetornarNombre(string descripcio)
         {
-            string cliente = string.Empty;
-            var lista = GetList(x => x.NombreCliente.Equals(cliente));
+            string nombre = string.Empty;
+            var lista = GetList(x => x.Nombre.Equals(nombre));
             foreach (var item in lista)
             {
-                cliente = item.NombreCliente;
+                nombre = item.Nombre;
             }
 
-            return cliente;
+            return nombre;
         }
     }
 }

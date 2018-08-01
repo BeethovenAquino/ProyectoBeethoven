@@ -1,13 +1,13 @@
-﻿using ProyectoFinal.Entidades;
+﻿
+using BLL;
+using Entidades;
 using ProyectoFinal.UI.Reportes.Reporte_Clientes;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
+
 using System.Linq;
 using System.Linq.Expressions;
-using System.Text;
+
 using System.Windows.Forms;
 
 namespace ProyectoFinal.UI.Consultas
@@ -92,7 +92,7 @@ namespace ProyectoFinal.UI.Consultas
                     break;
             }
 
-            clientes= BLL.ClienteBLL.GetList(filtrar);
+            clientes= ClienteBLL.GetList(filtrar);
 
             ConsultadataGridView.DataSource = clientes;
         }

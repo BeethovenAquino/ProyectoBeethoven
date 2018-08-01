@@ -1,12 +1,9 @@
-﻿using ProyectoFinal.DAL;
-using ProyectoFinal.Entidades;
+﻿
+using BLL;
+using DAL;
+using Entidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+
 using System.Windows.Forms;
 
 namespace ProyectoFinal.UI.Registros
@@ -24,7 +21,7 @@ namespace ProyectoFinal.UI.Registros
 
             Repositorio<Articulos> repositori = new Repositorio<Articulos>(new Contexto());
 
-            ArticulocomboBox.DataSource = repositori.GetList(c => c.PrecioCompra == 0);
+            ArticulocomboBox.DataSource = repositori.GetList(c =>true /* c.PrecioCompra == 0*/);
             ArticulocomboBox.ValueMember = "ArticuloId";
             ArticulocomboBox.DisplayMember = "NombreArticulo";
         }
@@ -114,15 +111,15 @@ namespace ProyectoFinal.UI.Registros
 
             if (EntradaArticuloIDnumericUpDown.Value == 0)
             {
-                paso = BLL.EntradaArticulosBLL.Guardar(entradaArticulos);
+                paso = EntradaArticulosBLL.Guardar(entradaArticulos);
             }
             else
             {
-                var E = BLL.EntradaArticulosBLL.Buscar(Convert.ToInt32(EntradaArticuloIDnumericUpDown.Value));
+                var E = EntradaArticulosBLL.Buscar(Convert.ToInt32(EntradaArticuloIDnumericUpDown.Value));
 
                 if (E != null)
                 {
-                    paso = BLL.EntradaArticulosBLL.Modificar(entradaArticulos);
+                    paso = EntradaArticulosBLL.Modificar(entradaArticulos);
                 }
             }
 
@@ -190,8 +187,6 @@ namespace ProyectoFinal.UI.Registros
                 PrecioVentanumericUpDown.Value = articulo.PrecioVenta;
                 GanancianumericUpDown.Value = articulo.Ganancia;
                 CantidadArticulonumericUpDown.Value = articulo.Cantidad;
-
-            
 
             }
             else

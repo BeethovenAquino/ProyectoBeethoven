@@ -57,24 +57,6 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="BLL\ArticulosBLL.cs" />
-    <Compile Include="BLL\ClienteBLL.cs" />
-    <Compile Include="BLL\EntradaArticulosBLL.cs" />
-    <Compile Include="BLL\EntradaInversionBLL.cs" />
-    <Compile Include="BLL\FacturacionBLL.cs" />
-    <Compile Include="BLL\InversionBLL.cs" />
-    <Compile Include="BLL\PagosBLL.cs" />
-    <Compile Include="DAL\Contexto.cs" />
-    <Compile Include="DAL\IRepositorio.cs" />
-    <Compile Include="DAL\Repositorio.cs" />
-    <Compile Include="Entidades\Articulos.cs" />
-    <Compile Include="Entidades\Cliente.cs" />
-    <Compile Include="Entidades\EntradaArticulos.cs" />
-    <Compile Include="Entidades\EntradaInversion.cs" />
-    <Compile Include="Entidades\Facturacion.cs" />
-    <Compile Include="Entidades\FacturacionDetalle.cs" />
-    <Compile Include="Entidades\Inversion.cs" />
-    <Compile Include="Entidades\Pagos.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -302,7 +284,20 @@
       <DesignTimeSharedInput>True</DesignTimeSharedInput>
     </Compile>
   </ItemGroup>
-  <ItemGroup />
+  <ItemGroup>
+    <ProjectReference Include="..\BLL\BLL.csproj">
+      <Project>{4D4F9277-9CD7-4881-BEB0-57CDF0A9C337}</Project>
+      <Name>BLL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\DAL\DAL.csproj">
+      <Project>{42EFE4FF-6F22-42E6-A096-5BC6754F6BAB}</Project>
+      <Name>DAL</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Entidades\Entidades.csproj">
+      <Project>{C56FB289-F26D-43E1-B83E-30BA8589A05F}</Project>
+      <Name>Entidades</Name>
+    </ProjectReference>
+  </ItemGroup>
   <ItemGroup>
     <None Include="ImagenesProyecto\Sumar_16.png" />
   </ItemGroup>
@@ -313,7 +308,6 @@
     <Service Include="{C0C07587-41A7-46C8-8FBD-3F9C8EBE2DDC}" />
   </ItemGroup>
   <ItemGroup>
-    <Content Include="DAL\Script\ProyectoFinalScrip.sql" />
     <None Include="ImagenesProyecto\icono_login.png" />
     <None Include="ImagenesProyecto\new_32.png" />
     <None Include="ImagenesProyecto\delete_32.png" />

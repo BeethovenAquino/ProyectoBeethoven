@@ -1,5 +1,6 @@
-﻿using ProyectoFinal.DAL;
-using ProyectoFinal.Entidades;
+﻿
+using DAL;
+using Entidades;
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
@@ -7,7 +8,7 @@ using System.Linq;
 using System.Linq.Expressions;
 using System.Text;
 
-namespace ProyectoFinal.BLL
+namespace BLL
 {
    public class EntradaInversionBLL
     {

@@ -146,7 +146,7 @@
             // Buscarbutton
             // 
             this.Buscarbutton.Image = global::ProyectoFinal.Properties.Resources.search_32;
-            this.Buscarbutton.Location = new System.Drawing.Point(306, 28);
+            this.Buscarbutton.Location = new System.Drawing.Point(297, 28);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(89, 46);
             this.Buscarbutton.TabIndex = 9;

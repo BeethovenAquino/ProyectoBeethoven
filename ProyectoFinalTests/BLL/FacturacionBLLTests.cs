@@ -1,10 +1,9 @@
-﻿using Microsoft.VisualStudio.TestTools.UnitTesting;
-using ProyectoFinal.BLL;
-using ProyectoFinal.Entidades;
+﻿using BLL;
+using Entidades;
+using Microsoft.VisualStudio.TestTools.UnitTesting;
+
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
+
 
 namespace ProyectoFinal.BLL.Tests
 {
@@ -18,7 +17,7 @@ namespace ProyectoFinal.BLL.Tests
             Facturacion facturacion = new Facturacion();
            facturacion.FacturaID = 0;
            facturacion.Fecha = DateTime.Now;
-           facturacion.Subtotal = "300";
+           facturacion.Subtotal = 0;
            facturacion.Total = 900;
            facturacion.ClienteID = 0;
             
@@ -34,7 +33,7 @@ namespace ProyectoFinal.BLL.Tests
             Facturacion facturacion = new Facturacion();
             facturacion.FacturaID = 0;
             facturacion.Fecha = DateTime.Now;
-            facturacion.Subtotal = "300";
+            facturacion.Subtotal = 0;
             facturacion.Total = 900;
             facturacion.ClienteID = 0;
 
@@ -50,7 +49,7 @@ namespace ProyectoFinal.BLL.Tests
             Facturacion facturacion = new Facturacion();
             facturacion.FacturaID = 0;
             facturacion.Fecha = DateTime.Now;
-            facturacion.Subtotal = "300";
+            facturacion.Subtotal = 0;
             facturacion.Total = 900;
             facturacion.ClienteID = 0;
 
@@ -66,7 +65,7 @@ namespace ProyectoFinal.BLL.Tests
             Facturacion facturacion = new Facturacion();
             facturacion.FacturaID = 0;
             facturacion.Fecha = DateTime.Now;
-            facturacion.Subtotal = "300";
+            facturacion.Subtotal = 0;
             facturacion.Total = 900;
             facturacion.ClienteID = 0;
 
@@ -82,7 +81,7 @@ namespace ProyectoFinal.BLL.Tests
             Facturacion facturacion = new Facturacion();
             facturacion.FacturaID = 0;
             facturacion.Fecha = DateTime.Now;
-            facturacion.Subtotal = "300";
+            facturacion.Subtotal = 0;
             facturacion.Total = 900;
             facturacion.ClienteID = 0;
 
@@ -98,7 +97,7 @@ namespace ProyectoFinal.BLL.Tests
             Facturacion facturacion = new Facturacion();
             facturacion.FacturaID = 0;
             facturacion.Fecha = DateTime.Now;
-            facturacion.Subtotal = "300";
+            facturacion.Subtotal = 0;
             facturacion.Total = 900;
             facturacion.ClienteID = 0;
 
@@ -114,7 +113,7 @@ namespace ProyectoFinal.BLL.Tests
             Facturacion facturacion = new Facturacion();
             facturacion.FacturaID = 0;
             facturacion.Fecha = DateTime.Now;
-            facturacion.Subtotal = "300";
+            facturacion.Subtotal = 0;
             facturacion.Total = 900;
             facturacion.ClienteID = 0;
 

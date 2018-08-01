@@ -1,12 +1,13 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
 
-namespace ProyectoFinal.Entidades
+using System.ComponentModel.DataAnnotations;
+
+
+namespace Entidades
 {
    public class Pagos
     {
+        [Key]
         public int PagoID { get; set; }
         public int InversionID { get; set; }
         public int FacturaID { get; set; }

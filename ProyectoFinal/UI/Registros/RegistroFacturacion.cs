@@ -1,12 +1,10 @@
-﻿using ProyectoFinal.DAL;
-using ProyectoFinal.Entidades;
+﻿
+using BLL;
+using DAL;
+using Entidades;
 using System;
 using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
+
 using System.Windows.Forms;
 
 namespace ProyectoFinal.UI.Registros
@@ -14,7 +12,7 @@ namespace ProyectoFinal.UI.Registros
     public partial class RegistroFacturacion : Form
     {
         private List<Articulos> ArticulosStock;
-        private List<Articulos> ArticuloPerdido;
+        
         public RegistroFacturacion()
         {
             InitializeComponent();
@@ -50,6 +48,7 @@ namespace ProyectoFinal.UI.Registros
             FechadateTimePicker.Value = facturacion.Fecha;
             SubtotaltextBox.Text = facturacion.Subtotal.ToString();
             TotaltextBox.Text = facturacion.Total.ToString();
+            
 
 
 
@@ -71,8 +70,8 @@ namespace ProyectoFinal.UI.Registros
             Repositorio<Articulos> repositorio = new Repositorio<Articulos>(new Contexto());
             Repositorio<Cliente> repositori = new Repositorio<Cliente>(new Contexto());
 
-            ArticulosStock = repositorio.GetList(c => c.Vigencia > 0);
-            ArticuloPerdido = repositorio.GetList(x => x.Vigencia < 0);
+            ArticulosStock = repositorio.GetList(c =>true /*c.Vigencia > 0*/);
+            
 
             ArticulocomboBox.DataSource = ArticulosStock;
             ArticulocomboBox.ValueMember = "ArticuloID";
@@ -84,24 +83,24 @@ namespace ProyectoFinal.UI.Registros
             
         }
         
-        private void ActualizarCombobox()
-        {
-            var listadoActualizado = ArticulosStock.Where(art => art.Vigencia > 0).ToList();
+        //private void ActualizarCombobox()
+        //{
+        //    var listadoActualizado = ArticulosStock.Where(art => art.Vigencia > 0).ToList();
 
-            ArticulocomboBox.DataSource = null;
+        //    ArticulocomboBox.DataSource = null;
 
-            if (listadoActualizado != null && listadoActualizado.Count() > 0)
-            {
-                ArticulocomboBox.DataSource = listadoActualizado;
-                ArticulocomboBox.ValueMember = "ArticuloID";
-                ArticulocomboBox.DisplayMember = "Nombre";
-            }
-            else
-            {
-                ArticulocomboBox.DataSource = null;
-            }
+        //    if (listadoActualizado != null && listadoActualizado.Count() > 0)
+        //    {
+        //        ArticulocomboBox.DataSource = listadoActualizado;
+        //        ArticulocomboBox.ValueMember = "ArticuloID";
+        //        ArticulocomboBox.DisplayMember = "Nombre";
+        //    }
+        //    else
+        //    {
+        //        ArticulocomboBox.DataSource = null;
+        //    }
 
-        }
+        //}
         private bool Validar()
         {
             bool paso = false;
@@ -213,7 +212,7 @@ namespace ProyectoFinal.UI.Registros
             else
             {
                 detalle.Add(
-                    new FacturacionDetalle(id: 0,
+                    new FacturacionDetalle(iD: 0,
                     facturaID: (int)Convert.ToInt32(FacturaIDnumericUpDown.Value),
                     venta: (string)VentacomboBox.Text,
                     clienteID: (int)ClientecomboBox.SelectedValue,
@@ -232,10 +231,10 @@ namespace ProyectoFinal.UI.Registros
                 FacturaciondataGridView.DataSource = null;
                 FacturaciondataGridView.DataSource = detalle;
 
-                this.ArticulosStock.Find(art => art.ArticuloID ==
-                    (int)ArticulocomboBox.SelectedValue).Vigencia -= Convert.ToInt32(CantidadnumericUpDown.Value);
+                //this.ArticulosStock.Find(art => art.ArticuloID ==
+                //    (int)ArticulocomboBox.SelectedValue).Vigencia -= Convert.ToInt32(CantidadnumericUpDown.Value);
 
-                ActualizarCombobox();
+                //ActualizarCombobox();
 
                 if (VentacomboBox.SelectedIndex == 0)
                 {
@@ -285,7 +284,7 @@ namespace ProyectoFinal.UI.Registros
             int precio = Convert.ToInt32(PrecionumericUpDown.Value);
 
 
-            ImportetextBox.Text = BLL.FacturacionBLL.CalcularImporte(precio, cantidad).ToString();
+            ImportetextBox.Text = FacturacionBLL.CalcularImporte(precio, cantidad).ToString();
         }
 
         private void PrecionumericUpDown_ValueChanged(object sender, EventArgs e)
@@ -294,7 +293,7 @@ namespace ProyectoFinal.UI.Registros
             int precio = Convert.ToInt32(PrecionumericUpDown.Value);
 
 
-            ImportetextBox.Text = BLL.FacturacionBLL.CalcularImporte(precio, cantidad).ToString();
+            ImportetextBox.Text = FacturacionBLL.CalcularImporte(precio, cantidad).ToString();
         }
 
         private void Removerbutton_Click(object sender, EventArgs e)

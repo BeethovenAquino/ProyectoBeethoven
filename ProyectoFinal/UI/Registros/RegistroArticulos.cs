@@ -1,11 +1,7 @@
-﻿using ProyectoFinal.Entidades;
+﻿
+using BLL;
+using Entidades;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
-using System.Drawing;
-using System.Linq;
-using System.Text;
 using System.Windows.Forms;
 
 namespace ProyectoFinal.UI.Registros
@@ -94,11 +90,11 @@ namespace ProyectoFinal.UI.Registros
 
             if (ArticuloIDnumericUpDown.Value == 0)
             {
-                paso = BLL.ArticulosBLL.Guardar(articulos);
+                paso = ArticulosBLL.Guardar(articulos);
             }
             else
             {
-                var A = BLL.ArticulosBLL.Buscar(Convert.ToInt32(ArticuloIDnumericUpDown.Value));
+                var A = ArticulosBLL.Buscar(Convert.ToInt32(ArticuloIDnumericUpDown.Value));
 
                 if (A != null)
                 {
@@ -138,7 +134,7 @@ namespace ProyectoFinal.UI.Registros
 
             int id = Convert.ToInt32(ArticuloIDnumericUpDown.Value);
 
-            if (BLL.ArticulosBLL.Eliminar(id))
+            if (ArticulosBLL.Eliminar(id))
             {
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ArticuloIDnumericUpDown.Value = 0;
@@ -166,7 +162,7 @@ namespace ProyectoFinal.UI.Registros
             }
 
             int id = Convert.ToInt32(ArticuloIDnumericUpDown.Value);
-            Articulos articulos = BLL.ArticulosBLL.Buscar(id);
+            Articulos articulos = ArticulosBLL.Buscar(id);
 
             if (articulos != null)
             {

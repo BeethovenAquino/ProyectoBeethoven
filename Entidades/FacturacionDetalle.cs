@@ -1,11 +1,8 @@
-﻿using System;
-using System.Collections.Generic;
+﻿
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
-using System.Linq;
-using System.Text;
 
-namespace ProyectoFinal.Entidades
+namespace Entidades
 {
     public class FacturacionDetalle
     {
@@ -33,9 +30,9 @@ namespace ProyectoFinal.Entidades
             FacturaID = 0;
         }
 
-        public FacturacionDetalle(int id, int facturaID, string venta, int clienteID, string cliente, int articuloID, string articulo, int cantidad, int precio, int importe, int monto, string devuelta)
+        public FacturacionDetalle(int iD, int facturaID, string venta, int clienteID, string cliente, int articuloID, string articulo, int cantidad, int precio, int importe, int monto, string devuelta)
         {
-            ID = id;
+            ID = iD;
             FacturaID = facturaID;
             Venta = venta;
             ClienteID = clienteID;
@@ -48,6 +45,10 @@ namespace ProyectoFinal.Entidades
             Monto = monto;
             Devuelta = devuelta;
         }
+
+
+
+
 
         //public FacturacionDetalle(int facturaID, int articuloID, string articulo, int cantidad, int precio)
         //{
