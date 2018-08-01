@@ -113,7 +113,6 @@
             this.CodigoArticulotextBox.Name = "CodigoArticulotextBox";
             this.CodigoArticulotextBox.Size = new System.Drawing.Size(120, 20);
             this.CodigoArticulotextBox.TabIndex = 5;
-
             // 
             // MarcatextBox
             // 
@@ -147,7 +146,7 @@
             // Buscarbutton
             // 
             this.Buscarbutton.Image = global::ProyectoFinal.Properties.Resources.search_32;
-            this.Buscarbutton.Location = new System.Drawing.Point(296, 30);
+            this.Buscarbutton.Location = new System.Drawing.Point(306, 28);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(89, 46);
             this.Buscarbutton.TabIndex = 9;

@@ -13,6 +13,8 @@ namespace ProyectoFinal.DAL
         public DbSet<Articulos> Articulos { get; set; }
         public DbSet<Facturacion> Facturacion { get; set; }
         public DbSet<EntradaArticulos> EntradaArticulos { get; set; }
+        public DbSet<EntradaInversion> entradaInversion { get; set; }
+        public DbSet<Inversion> inversion { get; set; }
 
         public Contexto() : base("ConStr") { }
 

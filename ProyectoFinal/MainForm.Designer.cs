@@ -40,12 +40,16 @@
             this.entradaDeArticulosToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.clienteToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.facturacionToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.entradaDeInversionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.inversionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // menuStrip1
             // 
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem1,
             this.archivoToolStripMenuItem,
             this.registroToolStripMenuItem,
             this.consultarToolStripMenuItem});
@@ -57,9 +61,11 @@
             // 
             // archivoToolStripMenuItem
             // 
+            this.archivoToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.inversionToolStripMenuItem});
             this.archivoToolStripMenuItem.Name = "archivoToolStripMenuItem";
-            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(60, 20);
-            this.archivoToolStripMenuItem.Text = "Archivo";
+            this.archivoToolStripMenuItem.Size = new System.Drawing.Size(67, 20);
+            this.archivoToolStripMenuItem.Text = "Inversion";
             // 
             // registroToolStripMenuItem
             // 
@@ -67,7 +73,8 @@
             this.articulosToolStripMenuItem,
             this.entradaArticulosToolStripMenuItem,
             this.clienteToolStripMenuItem,
-            this.facturacionToolStripMenuItem});
+            this.facturacionToolStripMenuItem,
+            this.entradaDeInversionToolStripMenuItem});
             this.registroToolStripMenuItem.Name = "registroToolStripMenuItem";
             this.registroToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.registroToolStripMenuItem.Text = "Registro";
@@ -75,28 +82,28 @@
             // articulosToolStripMenuItem
             // 
             this.articulosToolStripMenuItem.Name = "articulosToolStripMenuItem";
-            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.articulosToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.articulosToolStripMenuItem.Text = "Articulos";
             this.articulosToolStripMenuItem.Click += new System.EventHandler(this.articulosToolStripMenuItem_Click);
             // 
             // entradaArticulosToolStripMenuItem
             // 
             this.entradaArticulosToolStripMenuItem.Name = "entradaArticulosToolStripMenuItem";
-            this.entradaArticulosToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.entradaArticulosToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.entradaArticulosToolStripMenuItem.Text = "Entrada de Articulos";
             this.entradaArticulosToolStripMenuItem.Click += new System.EventHandler(this.entradaArticulosToolStripMenuItem_Click);
             // 
             // clienteToolStripMenuItem
             // 
             this.clienteToolStripMenuItem.Name = "clienteToolStripMenuItem";
-            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.clienteToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.clienteToolStripMenuItem.Text = "Cliente";
             this.clienteToolStripMenuItem.Click += new System.EventHandler(this.clienteToolStripMenuItem_Click);
             // 
             // facturacionToolStripMenuItem
             // 
             this.facturacionToolStripMenuItem.Name = "facturacionToolStripMenuItem";
-            this.facturacionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.facturacionToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
             this.facturacionToolStripMenuItem.Text = "Facturacion";
             this.facturacionToolStripMenuItem.Click += new System.EventHandler(this.facturacionToolStripMenuItem_Click);
             // 
@@ -139,6 +146,26 @@
             this.facturacionToolStripMenuItem1.Text = "Facturacion";
             this.facturacionToolStripMenuItem1.Click += new System.EventHandler(this.facturacionToolStripMenuItem1_Click);
             // 
+            // entradaDeInversionToolStripMenuItem
+            // 
+            this.entradaDeInversionToolStripMenuItem.Name = "entradaDeInversionToolStripMenuItem";
+            this.entradaDeInversionToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.entradaDeInversionToolStripMenuItem.Text = "Entrada de Inversion";
+            this.entradaDeInversionToolStripMenuItem.Click += new System.EventHandler(this.entradaDeInversionToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem1
+            // 
+            this.toolStripMenuItem1.Name = "toolStripMenuItem1";
+            this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 20);
+            this.toolStripMenuItem1.Text = "Archivo";
+            // 
+            // inversionToolStripMenuItem
+            // 
+            this.inversionToolStripMenuItem.Name = "inversionToolStripMenuItem";
+            this.inversionToolStripMenuItem.Size = new System.Drawing.Size(180, 22);
+            this.inversionToolStripMenuItem.Text = "Inversion";
+            this.inversionToolStripMenuItem.Click += new System.EventHandler(this.inversionToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -171,6 +198,9 @@
         private System.Windows.Forms.ToolStripMenuItem entradaDeArticulosToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem clienteToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem facturacionToolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem1;
+        private System.Windows.Forms.ToolStripMenuItem inversionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem entradaDeInversionToolStripMenuItem;
     }
 }
 

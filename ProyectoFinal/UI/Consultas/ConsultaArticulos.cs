@@ -122,8 +122,7 @@ namespace ProyectoFinal.UI.Consultas
             }
             ReporteArticulos abrir = new ReporteArticulos(articulos);
             abrir.ShowDialog();
-            
-           
+         
         }
     }
     

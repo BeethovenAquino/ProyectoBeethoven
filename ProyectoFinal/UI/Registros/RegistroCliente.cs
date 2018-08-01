@@ -29,7 +29,7 @@ namespace ProyectoFinal.UI.Registros
             cliente.Direccion = (DirecciontextBox.Text);
             cliente.Telefono = (TelefonotextBox.Text);
             cliente.Total = Convert.ToInt32(TotalTextbox.Text);
-            cliente.Pago = Convert.ToInt32(PagonumericUpDown.Value);
+            
 
             return cliente;
         }
@@ -115,7 +115,7 @@ namespace ProyectoFinal.UI.Registros
                     DirecciontextBox.Clear();
                     TelefonotextBox.Clear();
                     TotalTextbox.Clear();
-                    PagonumericUpDown.Value = 0;
+                    
                     ClienteerrorProvider.Clear(); ;
 
                     }
@@ -134,7 +134,7 @@ namespace ProyectoFinal.UI.Registros
             DirecciontextBox.Clear();
             TelefonotextBox.Clear();
             TotalTextbox.Clear();
-            PagonumericUpDown.Value = 0;
+            
             ClienteerrorProvider.Clear();
 
         }
@@ -158,7 +158,7 @@ namespace ProyectoFinal.UI.Registros
                 DirecciontextBox.Clear();
                 TelefonotextBox.Clear();
                 TotalTextbox.Clear();
-                PagonumericUpDown.Value = 0;
+                
                 ClienteerrorProvider.Clear();
             }
 
@@ -186,7 +186,7 @@ namespace ProyectoFinal.UI.Registros
                 DirecciontextBox.Text = cliente.Direccion;
                 TelefonotextBox.Text = cliente.Telefono;
                 TotalTextbox.Text = cliente.Total.ToString();
-                PagonumericUpDown.Value = cliente.Pago;
+                
 
                 
             }

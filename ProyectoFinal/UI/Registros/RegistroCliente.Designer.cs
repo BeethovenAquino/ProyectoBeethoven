@@ -45,12 +45,9 @@
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.ClienteerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
             this.TotalTextbox = new System.Windows.Forms.TextBox();
-            this.PagonumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteIDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteerrorProvider)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PagonumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -136,7 +133,7 @@
             // Guardarbutton
             // 
             this.Guardarbutton.Image = global::ProyectoFinal.Properties.Resources.save_32;
-            this.Guardarbutton.Location = new System.Drawing.Point(117, 286);
+            this.Guardarbutton.Location = new System.Drawing.Point(134, 300);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(89, 60);
             this.Guardarbutton.TabIndex = 11;
@@ -160,7 +157,7 @@
             // Eliminarbutton
             // 
             this.Eliminarbutton.Image = global::ProyectoFinal.Properties.Resources.delete_32;
-            this.Eliminarbutton.Location = new System.Drawing.Point(226, 286);
+            this.Eliminarbutton.Location = new System.Drawing.Point(243, 300);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(89, 60);
             this.Eliminarbutton.TabIndex = 13;
@@ -172,7 +169,7 @@
             // Nuevobutton
             // 
             this.Nuevobutton.Image = global::ProyectoFinal.Properties.Resources.new_32;
-            this.Nuevobutton.Location = new System.Drawing.Point(22, 286);
+            this.Nuevobutton.Location = new System.Drawing.Point(39, 300);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(89, 60);
             this.Nuevobutton.TabIndex = 10;
@@ -188,44 +185,26 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(28, 224);
+            this.label6.Location = new System.Drawing.Point(28, 223);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(82, 13);
+            this.label6.Size = new System.Drawing.Size(66, 13);
             this.label6.TabIndex = 14;
-            this.label6.Text = "Total del cliente";
-            // 
-            // label7
-            // 
-            this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(246, 224);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(32, 13);
-            this.label7.TabIndex = 15;
-            this.label7.Text = "Pago";
+            this.label6.Text = "Total Deuda";
             // 
             // TotalTextbox
             // 
-            this.TotalTextbox.Location = new System.Drawing.Point(117, 219);
+            this.TotalTextbox.Location = new System.Drawing.Point(144, 220);
             this.TotalTextbox.Name = "TotalTextbox";
             this.TotalTextbox.Size = new System.Drawing.Size(100, 20);
-            this.TotalTextbox.TabIndex = 16;
-            // 
-            // PagonumericUpDown
-            // 
-            this.PagonumericUpDown.Location = new System.Drawing.Point(313, 220);
-            this.PagonumericUpDown.Name = "PagonumericUpDown";
-            this.PagonumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.PagonumericUpDown.TabIndex = 17;
+            this.TotalTextbox.TabIndex = 15;
             // 
             // RegistroCliente
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoFinal.Properties.Resources.joyeria;
-            this.ClientSize = new System.Drawing.Size(469, 363);
-            this.Controls.Add(this.PagonumericUpDown);
+            this.ClientSize = new System.Drawing.Size(497, 391);
             this.Controls.Add(this.TotalTextbox);
-            this.Controls.Add(this.label7);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Buscarbutton);
@@ -245,7 +224,6 @@
             this.Text = "RegistroCliente";
             ((System.ComponentModel.ISupportInitialize)(this.ClienteIDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteerrorProvider)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.PagonumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -268,9 +246,7 @@
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.Button Nuevobutton;
         private System.Windows.Forms.ErrorProvider ClienteerrorProvider;
-        private System.Windows.Forms.NumericUpDown PagonumericUpDown;
         private System.Windows.Forms.TextBox TotalTextbox;
-        private System.Windows.Forms.Label label7;
         private System.Windows.Forms.Label label6;
     }
 }

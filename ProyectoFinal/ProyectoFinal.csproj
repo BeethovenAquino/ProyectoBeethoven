@@ -60,15 +60,20 @@
     <Compile Include="BLL\ArticulosBLL.cs" />
     <Compile Include="BLL\ClienteBLL.cs" />
     <Compile Include="BLL\EntradaArticulosBLL.cs" />
+    <Compile Include="BLL\EntradaInversionBLL.cs" />
     <Compile Include="BLL\FacturacionBLL.cs" />
+    <Compile Include="BLL\InversionBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="DAL\IRepositorio.cs" />
     <Compile Include="DAL\Repositorio.cs" />
     <Compile Include="Entidades\Articulos.cs" />
     <Compile Include="Entidades\Cliente.cs" />
     <Compile Include="Entidades\EntradaArticulos.cs" />
+    <Compile Include="Entidades\EntradaInversion.cs" />
     <Compile Include="Entidades\Facturacion.cs" />
     <Compile Include="Entidades\FacturacionDetalle.cs" />
+    <Compile Include="Entidades\Inversion.cs" />
+    <Compile Include="Entidades\Pagos.cs" />
     <Compile Include="Login.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -107,6 +112,12 @@
     <Compile Include="UI\Consultas\ConsultaFacturacion.Designer.cs">
       <DependentUpon>ConsultaFacturacion.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Registros\InversionEmpresa.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\InversionEmpresa.Designer.cs">
+      <DependentUpon>InversionEmpresa.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registros\RegistroArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -130,6 +141,12 @@
     </Compile>
     <Compile Include="UI\Registros\RegistroFacturacion.Designer.cs">
       <DependentUpon>RegistroFacturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroEntradaInversion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroEntradaInversion.Designer.cs">
+      <DependentUpon>RegistroEntradaInversion.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\Prueba.cs">
       <AutoGen>True</AutoGen>
@@ -213,6 +230,9 @@
     <EmbeddedResource Include="UI\Consultas\ConsultaFacturacion.resx">
       <DependentUpon>ConsultaFacturacion.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\InversionEmpresa.resx">
+      <DependentUpon>InversionEmpresa.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistroArticulos.resx">
       <DependentUpon>RegistroArticulos.cs</DependentUpon>
     </EmbeddedResource>
@@ -224,6 +244,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistroFacturacion.resx">
       <DependentUpon>RegistroFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\RegistroEntradaInversion.resx">
+      <DependentUpon>RegistroEntradaInversion.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\Prueba.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

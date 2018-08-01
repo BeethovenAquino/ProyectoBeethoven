@@ -66,5 +66,17 @@ namespace ProyectoFinal
             ConsultaFacturacion facturacion = new ConsultaFacturacion();
             facturacion.Show();
         }
+
+        private void inversionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            InversionEmpresa inversion = new InversionEmpresa();
+            inversion.Show();
+        }
+
+        private void entradaDeInversionToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistroEntradaInversion registro = new RegistroEntradaInversion();
+            registro.Show();
+        }
     }
 }

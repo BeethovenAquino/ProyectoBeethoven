@@ -15,9 +15,7 @@ namespace ProyectoFinal.Entidades
         public string Direccion { get; set; }
         public string Telefono { get; set; }
         public int Total { get; set; }
-        public int Pago { get; set; }
-
-
+        
         public Cliente()
         {
             ClienteID = 0;
@@ -26,7 +24,6 @@ namespace ProyectoFinal.Entidades
             Direccion= string.Empty;
             Telefono= string.Empty;
             Total =0;
-            Pago = 0;
         }
     }
 }
