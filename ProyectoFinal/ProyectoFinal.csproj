@@ -63,6 +63,7 @@
     <Compile Include="BLL\EntradaInversionBLL.cs" />
     <Compile Include="BLL\FacturacionBLL.cs" />
     <Compile Include="BLL\InversionBLL.cs" />
+    <Compile Include="BLL\PagosBLL.cs" />
     <Compile Include="DAL\Contexto.cs" />
     <Compile Include="DAL\IRepositorio.cs" />
     <Compile Include="DAL\Repositorio.cs" />
@@ -147,6 +148,12 @@
     </Compile>
     <Compile Include="UI\Registros\RegistroEntradaInversion.Designer.cs">
       <DependentUpon>RegistroEntradaInversion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroPagoCliente.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroPagoCliente.Designer.cs">
+      <DependentUpon>RegistroPagoCliente.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\Prueba.cs">
       <AutoGen>True</AutoGen>
@@ -247,6 +254,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistroEntradaInversion.resx">
       <DependentUpon>RegistroEntradaInversion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\RegistroPagoCliente.resx">
+      <DependentUpon>RegistroPagoCliente.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\Prueba.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

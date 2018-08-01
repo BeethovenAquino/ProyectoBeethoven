@@ -164,6 +164,9 @@ namespace ProyectoFinal.UI.Registros
             facturacion.Fecha = FechadateTimePicker.Value;
             facturacion.Subtotal = Convert.ToInt32(SubtotaltextBox.Text.ToString());
             facturacion.Total =Convert.ToInt32(TotaltextBox.Text.ToString());
+            facturacion.InventarioID = 1;
+            facturacion.Abono = 0;
+            
 
             foreach (DataGridViewRow item in FacturaciondataGridView.Rows)
             {
@@ -201,8 +204,8 @@ namespace ProyectoFinal.UI.Registros
             {
                 detalle = (List<FacturacionDetalle>)FacturaciondataGridView.DataSource;
             }
-            
 
+           
             if (string.IsNullOrEmpty(ImportetextBox.Text))
             {
                 MessageBox.Show("Importe esta vacio , Llene cantidad", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
@@ -387,6 +390,18 @@ namespace ProyectoFinal.UI.Registros
                 MessageBox.Show("Favor revisar todos los campos", "Validación",
                     MessageBoxButtons.OK, MessageBoxIcon.Error);
                 return;
+            }
+            else
+            {
+                foreach (var item in BLL.InversionBLL.GetList(x => x.InversionID == 1))
+                {
+
+                    if (item.Monto < Convert.ToDecimal(TotaltextBox.Text))
+                    {
+                        MessageBox.Show("Mi empresa no contien Esa Cantidad de dinero ", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                        return;
+                    }
+                }
             }
             
             if (FacturaIDnumericUpDown.Value == 0)
