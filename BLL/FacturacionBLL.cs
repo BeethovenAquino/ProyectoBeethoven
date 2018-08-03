@@ -138,7 +138,7 @@ namespace BLL
             try
             {
                 facturacion = contexto.Facturacion.Where(expression).ToList();
-                contexto.Dispose();
+                //contexto.Dispose();
             }
             catch (Exception)
             {

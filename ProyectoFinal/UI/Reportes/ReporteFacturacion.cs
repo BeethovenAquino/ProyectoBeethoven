@@ -10,10 +10,10 @@ namespace ProyectoFinal.UI.Reportes.Reporte_Facturacion
     public partial class ReporteFacturacion : Form
     {
         List<Facturacion> facturacion =null;
-        public ReporteFacturacion(List<Facturacion> factura)
+        public ReporteFacturacion(List<Facturacion> facturar)
         {
             InitializeComponent();
-            this.facturacion = factura;
+            this.facturacion = facturar;
         }
 
         private void FacturacioncrystalReportViewer_Load(object sender, EventArgs e)
