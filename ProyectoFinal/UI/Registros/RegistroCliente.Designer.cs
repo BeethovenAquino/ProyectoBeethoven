@@ -224,6 +224,7 @@
             this.Controls.Add(this.label1);
             this.Name = "RegistroCliente";
             this.Text = "RegistroCliente";
+            this.Load += new System.EventHandler(this.RegistroCliente_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ClienteIDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ClienteerrorProvider)).EndInit();
             this.ResumeLayout(false);

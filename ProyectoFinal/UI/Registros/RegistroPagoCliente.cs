@@ -13,83 +13,65 @@ namespace ProyectoFinal.UI.Registros
 {
     public partial class RegistroPagoCliente : Form
     {
-        List<Cliente> clientes = new List<Cliente>();
+      
         public RegistroPagoCliente()
         {
             InitializeComponent();
         }
-        Expression<Func<Cliente, bool>> filtrar = x => true;
-
         private void Consultabutton_Click(object sender, EventArgs e)
         {
-            int id;
+
+            Expression<Func<Cliente, bool>> filtrar = x => true;
+
             switch (FiltrarcomboBox.SelectedIndex)
             {
-                //ID
-                case 0:
-                    LimpiarError();
-                    if (SetError(1))
-                    {
-                        MessageBox.Show("Introduce un numero");
-                        return;
 
-                    }
-                    id = int.Parse(CriteriotextBox.Text);
-                    filtrar = t => t.ClienteID == id;
-                    break;
-                //Nombre
-                case 1:
-                    LimpiarError();
-                    if (SetError(2))
+                case 0://ClienteID
+
+                    if (Validar(1))
                     {
-                        MessageBox.Show("Introduce un caracter");
+                        MessageBox.Show("Favor Llenar Casilla ", "Fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    filtrar = t => t.NombreCliente.Contains(CriteriotextBox.Text);
-                    break;
-
-                //Direccion
-                case 2:
-                    LimpiarError();
-                    if (SetError(2))
+                    if (Validar(2))
                     {
-                        MessageBox.Show("Introduce un caracter");
+                        MessageBox.Show("Debe Digitar un Numero!", "Fallido", MessageBoxButtons.OK, MessageBoxIcon.Error);
                         return;
                     }
-                    filtrar = t => t.Direccion == CriteriotextBox.Text;
-                    break;
-                //Cedula
-                case 3:
-                    LimpiarError();
-                    if (SetError(1))
+                    else
                     {
-                        MessageBox.Show("Introduce un numero");
-                        return;
+                        if (BLL.ClienteBLL.GetList(filtrar).Count() == 0)
+                        {
+                            MessageBox.Show(" No Existe", "Aviso", MessageBoxButtons.OK, MessageBoxIcon.Information);
 
+                            return;
+                        }
                     }
-                    filtrar = t => t.Cedula == CriteriotextBox.Text;
-                    break;
-                //Telefono
-                case 4:
-                    LimpiarError();
-                    if (SetError(1))
-                    {
-                        MessageBox.Show("Introduce un numero");
-                        return;
 
-                    }
-                    filtrar = t => t.Telefono == CriteriotextBox.Text;
                     break;
-                //Listar Todo
-                case 5:
 
-                    filtrar = t => true;
-                    break;
             }
 
-            clientes = ClienteBLL.GetList(filtrar);
+            if (FiltrarcomboBox.SelectedItem != null)
+            {
+                ConsultadataGridView.DataSource = ClienteBLL.GetList(filtrar);
 
-            ConsultadataGridView.DataSource = clientes;
+                if (FiltrarcomboBox.SelectedIndex == 0)
+                {
+                    foreach (var item in ClienteBLL.GetList(filtrar))
+                    {
+
+                        DeudanumericUpDown.Value = item.Total - AbonadonumericUpDown.Value;
+                        AbonadonumericUpDown.Text = item.Total.ToString();
+                        
+                    }
+                }
+                
+                CriteriotextBox.Clear();
+                ClienteerrorProvider.Clear();
+                //ConsultadataGridView.Columns["InversionID"].Visible = false;
+
+            }
         }
 
         private bool SetError(int error)
@@ -118,16 +100,17 @@ namespace ProyectoFinal.UI.Registros
         private Pagos Llenaclase()
         {
             Pagos pagos = new Pagos();
-            List<Facturacion> detalle = (List<Facturacion>)ConsultadataGridView.DataSource;
+            List<Cliente> detalle = (List<Cliente>)ConsultadataGridView.DataSource;
 
-            int id = detalle.ElementAt(ConsultadataGridView.CurrentRow.Index).FacturaID;
+            int id = detalle.ElementAt(ConsultadataGridView.CurrentRow.Index).ClienteID;
 
-
+            
             pagos.PagoID = Convert.ToInt32(PagoIDnumericUpDown.Value);
             pagos.InversionID = 1;
             pagos.Fecha = FechadateTimePicker.Value;
-            pagos.Abono = Convert.ToDecimal(AbonadotextBox.Text);
-            pagos.FacturaID = Convert.ToInt32(id);
+            pagos.Abono = Convert.ToInt32(AbonadonumericUpDown.Value);
+            pagos.ClienteID = Convert.ToInt32(id);
+            pagos.Deuda = Convert.ToInt32(AbonadonumericUpDown.Value);
 
 
             return pagos;
@@ -160,12 +143,7 @@ namespace ProyectoFinal.UI.Registros
                 ClienteerrorProvider.SetError(PagoIDnumericUpDown, "Llenar Pago Id ");
                 paso = true;
             }
-
-            if (error == 5 && int.TryParse(AbonadotextBox.Text, out num) == false)
-            {
-                ClienteerrorProvider.SetError(AbonadotextBox, "Debe Digitar numeros");
-                paso = true;
-            }
+            
             return paso;
         }
 
@@ -177,8 +155,9 @@ namespace ProyectoFinal.UI.Registros
             CriteriotextBox.Clear();
             DesdedateTimePicker.Value = DateTime.Now;
             HastadateTimePicker.Value = DateTime.Now;
-            AbonadotextBox.Clear();
-            DeudatextBox.Clear();
+            AbonadonumericUpDown.Value = 0;
+            DeudanumericUpDown.Value = 0;
+
         }
 
         private void Eliminarbutton_Click(object sender, EventArgs e)
@@ -200,8 +179,8 @@ namespace ProyectoFinal.UI.Registros
                     CriteriotextBox.Clear();
                     DesdedateTimePicker.Value = DateTime.Now;
                     HastadateTimePicker.Value = DateTime.Now;
-                    AbonadotextBox.Clear();
-                    DeudatextBox.Clear();
+                    AbonadonumericUpDown.Value = 0;
+                    DeudanumericUpDown.Value = 0;
                 }
                 else
                 {
@@ -239,8 +218,8 @@ namespace ProyectoFinal.UI.Registros
                     CriteriotextBox.Clear();
                     DesdedateTimePicker.Value = DateTime.Now;
                     HastadateTimePicker.Value = DateTime.Now;
-                    AbonadotextBox.Clear();
-                    DeudatextBox.Clear();
+                    AbonadonumericUpDown.Value = 0;
+                    DeudanumericUpDown.Value = 0;
                 }
                 ClienteerrorProvider.Clear();
             }
@@ -250,9 +229,9 @@ namespace ProyectoFinal.UI.Registros
         {
 
             PagoIDnumericUpDown.Value = cobros.PagoID;
-            AbonadotextBox.Text = cobros.Abono.ToString();
+            AbonadonumericUpDown.Value = cobros.Abono;
 
-           ConsultadataGridView.DataSource = BLL.FacturacionBLL.GetList(x => x.FacturaID == cobros.FacturaID);
+           ConsultadataGridView.DataSource = BLL.ClienteBLL.GetList(x => x.ClienteID == cobros.ClienteID);
 
             //foreach (var item in BLL.FacturacionBLL.GetList(x => x.ReciboId == cobros.ReciboId))
             //{
@@ -281,14 +260,65 @@ namespace ProyectoFinal.UI.Registros
 
 
 
-            ConsultadataGridView.Columns["InversionID"].Visible = false;
+            //ConsultadataGridView.Columns["InversionID"].Visible = false;
             //ConsultadataGridView.Columns["Detalle"].Visible = false;
 
         }
 
+        private void Guardarbutton_Click(object sender, EventArgs e)
+        {
+            if (Validar(5))
+            {
+                MessageBox.Show("Debe de Dijitar un Monto!", "Validacion", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
+            else
+            {
+                Pagos cobros = Llenaclase();
+                bool paso = false;
+                if (PagoIDnumericUpDown.Value == 0)
+                {
+                    paso = BLL.PagosBLL.Guardar(Llenaclase());
+                }
+                else
+                {
+                    int id = Convert.ToInt32(PagoIDnumericUpDown.Value);
+                    var entry = BLL.PagosBLL.Buscar(id);
 
+                    if (entry != null)
+                    {
+                        paso = BLL.PagosBLL.Editar(Llenaclase());
+                    }
+                    else
+                    {
+                        MessageBox.Show("Id no existe", "Falló",
+                           MessageBoxButtons.OK, MessageBoxIcon.Error);
+                    }
+                }
 
+                PagoIDnumericUpDown.Value = 0;
+                FiltrarcomboBox.SelectedItem = null;
+                ConsultadataGridView.DataSource = null;
+                CriteriotextBox.Clear();
+                DesdedateTimePicker.Value = DateTime.Now;
+                HastadateTimePicker.Value = DateTime.Now;
+                AbonadonumericUpDown.Value = 0;
+                DeudanumericUpDown.Value = 0;
+                ClienteerrorProvider.Clear();
+                if (paso)
+                {
+                    MessageBox.Show("Guardado!", "Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                }
+                else
+                {
+                    MessageBox.Show("No pudo Guardar!", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                }
+            }
+        }
 
+        private void AbonadonumericUpDown_ValueChanged(object sender, EventArgs e)
+        {
+            
+        }
     }
 
 }

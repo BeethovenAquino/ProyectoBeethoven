@@ -17,18 +17,34 @@ namespace ProyectoFinal.UI.Registros
         private bool validar(int error)
         {
             bool errores = false;
+            decimal num = 0;
             if (error == 1 && EntradaInversionIDnumericUpDown.Value == 0)
             {
                 InversionerrorProvider.SetError(EntradaInversionIDnumericUpDown, "Llenar el campo");
                 errores = true;
             }
-            
-            if (error == 2 && MontonumericUpDown.Value==0)
+
+            if (error == 2 && string.IsNullOrWhiteSpace(MontotextBox.Text))
             {
-                InversionerrorProvider.SetError(MontonumericUpDown, "Debe Digitar un monto");
+                InversionerrorProvider.SetError(MontotextBox, "Llene contraseña");
                 errores = true;
             }
-            
+
+
+
+
+            if (error == 3 && decimal.TryParse(MontotextBox.Text, out num) == false)
+            {
+                InversionerrorProvider.SetError(MontotextBox, "Debe Digitar un monto");
+                errores = true;
+            }
+
+            if (error == 4 && Convert.ToDecimal(MontotextBox.Text) == 0)
+            {
+                InversionerrorProvider.SetError(MontotextBox, "Debe Digitar un monto");
+                errores = true;
+            }
+
             return errores;
 
         }
@@ -40,9 +56,8 @@ namespace ProyectoFinal.UI.Registros
             entradaInversion.EntradaInversionID = Convert.ToInt32(EntradaInversionIDnumericUpDown.Value);
             entradaInversion.InversionID = 1;
             entradaInversion.Fecha = FechadateTimePicker.Value;
-            entradaInversion.Monto = Convert.ToDecimal(MontonumericUpDown.Value);
-
-
+            entradaInversion.Monto = Convert.ToDecimal(MontotextBox.Text);
+            
             return entradaInversion;
         }
 
@@ -94,14 +109,14 @@ namespace ProyectoFinal.UI.Registros
 
                 EntradaInversionIDnumericUpDown.Value = 0;
                 FechadateTimePicker.Value = DateTime.Now;
-                MontonumericUpDown.Value = 0;
+                MontotextBox.Clear();
                 InversionerrorProvider.Clear();
                 if (paso)
                 {
                     MessageBox.Show("Guardado!", "Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     EntradaInversionIDnumericUpDown.Value = 0;
                     FechadateTimePicker.Value = DateTime.Now;
-                    MontonumericUpDown.Value = 0;
+                    MontotextBox.Clear();
                     InversionerrorProvider.Clear();
                 }
                 else
@@ -115,7 +130,7 @@ namespace ProyectoFinal.UI.Registros
         {
             EntradaInversionIDnumericUpDown.Value = 0;
             FechadateTimePicker.Value = DateTime.Now;
-            MontonumericUpDown.Value = 0;
+            MontotextBox.Clear();
             InversionerrorProvider.Clear();
         }
 
@@ -134,7 +149,7 @@ namespace ProyectoFinal.UI.Registros
                     MessageBox.Show("Eliminado!", "Exitoso", MessageBoxButtons.OK, MessageBoxIcon.Information);
                     EntradaInversionIDnumericUpDown.Value = 0;
                     FechadateTimePicker.Value = DateTime.Now;
-                    MontonumericUpDown.Value = 0;
+                    MontotextBox.Clear();
                     InversionerrorProvider.Clear();
                 }
                 else
@@ -160,7 +175,7 @@ namespace ProyectoFinal.UI.Registros
                 {
                     EntradaInversionIDnumericUpDown.Value = entrada.EntradaInversionID;
                     FechadateTimePicker.Value = entrada.Fecha;
-                    MontonumericUpDown.Value = entrada.Monto;
+                    MontotextBox.Text = entrada.Monto.ToString();
 
                 }
                 else

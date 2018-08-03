@@ -19,7 +19,7 @@ namespace ProyectoFinal.UI.Registros
         {
 
             Cliente cliente = new Cliente();
-            TotalTextbox.Text = 0.ToString();
+            
             cliente.ClienteID = Convert.ToInt32(ClienteIDnumericUpDown.Value);
             cliente.NombreCliente = NombretextBox.Text;
             cliente.Cedula = CedulamaskedTextBox.Text;
@@ -47,7 +47,7 @@ namespace ProyectoFinal.UI.Registros
                 paso = true;
             }
 
-            if (validar == 2 && CedulamaskedTextBox.Text == string.Empty)
+            if (validar == 2 && string.IsNullOrWhiteSpace(CedulamaskedTextBox.Text))
             {
                 ClienteerrorProvider.SetError(CedulamaskedTextBox, "Ingrese la Cedula");
                 paso = true;
@@ -189,6 +189,11 @@ namespace ProyectoFinal.UI.Registros
             }
             else
                 MessageBox.Show("No se encontro", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
+        private void RegistroCliente_Load(object sender, EventArgs e)
+        {
+            TotalTextbox.Text = 0.ToString();
         }
     }
 }

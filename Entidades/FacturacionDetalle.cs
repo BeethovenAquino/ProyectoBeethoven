@@ -17,8 +17,7 @@ namespace Entidades
         public int Cantidad { get; set; }
         public int Precio { get; set; }
         public int Importe { get; set; }
-        public int Monto { get; set; }
-        public string Devuelta { get; set; }
+       
 
         [ForeignKey("ArticuloID")]
         public virtual Articulos Articulos { get; set; }
@@ -28,9 +27,10 @@ namespace Entidades
         {
             ID = 0;
             FacturaID = 0;
+            
         }
 
-        public FacturacionDetalle(int iD, int facturaID, string venta, int clienteID, string cliente, int articuloID, string articulo, int cantidad, int precio, int importe, int monto, string devuelta)
+        public FacturacionDetalle(int iD, int facturaID, string venta, int clienteID, string cliente, int articuloID, string articulo, int cantidad, int precio, int importe)
         {
             ID = iD;
             FacturaID = facturaID;
@@ -42,8 +42,6 @@ namespace Entidades
             Cantidad = cantidad;
             Precio = precio;
             Importe = importe;
-            Monto = monto;
-            Devuelta = devuelta;
         }
 
 

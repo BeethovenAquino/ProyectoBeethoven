@@ -72,7 +72,6 @@
             this.TipocomboBox.FormattingEnabled = true;
             this.TipocomboBox.Items.AddRange(new object[] {
             "ID",
-            "Codigo del Articulo",
             "Nombre del Articulo",
             "Marca del Articulo",
             "Fecha",

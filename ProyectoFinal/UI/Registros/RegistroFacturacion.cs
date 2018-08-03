@@ -38,7 +38,7 @@ namespace ProyectoFinal.UI.Registros
             PrecionumericUpDown.Value = 0;
             ImportetextBox.Clear();
             MontonumericUpDown.Value = 0;
-            DevueltatextBox.Clear();
+            DevueltanumericUpDown.Value=0;
             SubtotaltextBox.Clear();
             TotaltextBox.Clear();
 
@@ -48,6 +48,7 @@ namespace ProyectoFinal.UI.Registros
             FechadateTimePicker.Value = facturacion.Fecha;
             SubtotaltextBox.Text = facturacion.Subtotal.ToString();
             TotaltextBox.Text = facturacion.Total.ToString();
+           
             
 
 
@@ -158,20 +159,22 @@ namespace ProyectoFinal.UI.Registros
         private Facturacion LlenaClase()
         {
             Facturacion facturacion = new Facturacion();
-            
+            FacturacionDetalle detalle = new FacturacionDetalle();
             facturacion.FacturaID = Convert.ToInt32(FacturaIDnumericUpDown.Value);
+            facturacion.ClienteID = Convert.ToInt32(ClientecomboBox.SelectedValue);
             facturacion.Fecha = FechadateTimePicker.Value;
             facturacion.Subtotal = Convert.ToInt32(SubtotaltextBox.Text.ToString());
             facturacion.Total =Convert.ToInt32(TotaltextBox.Text.ToString());
             facturacion.InventarioID = 1;
-            facturacion.Abono = 0;
-            
+            facturacion.Abono = MontonumericUpDown.Value-DevueltanumericUpDown.Value;
+            facturacion.Monto = Convert.ToInt32(MontonumericUpDown.Value);
+            facturacion.Devuelta = Convert.ToInt32(DevueltanumericUpDown.Value);
 
             foreach (DataGridViewRow item in FacturaciondataGridView.Rows)
             {
 
                 facturacion.AgregarDetalle
-                    (ToInt(item.Cells["id"].Value),
+                    (ToInt(item.Cells["ID"].Value),
                     //facturacion.FacturaID,
                     Convert.ToInt32(item.Cells["FacturaID"].Value),
                     Convert.ToString(item.Cells["Venta"].Value),
@@ -181,10 +184,7 @@ namespace ProyectoFinal.UI.Registros
                     Convert.ToString(item.Cells["Articulo"].Value),
                     Convert.ToInt32(item.Cells["cantidad"].Value),
                     Convert.ToInt32(item.Cells["precio"].Value),
-                    Convert.ToInt32(item.Cells["importe"].Value),
-                    Convert.ToInt32(item.Cells["monto"].Value),
-                    Convert.ToString(item.Cells["devuelta"].Value)
-
+                    Convert.ToInt32(item.Cells["importe"].Value)
                   );
             }
         
@@ -222,9 +222,7 @@ namespace ProyectoFinal.UI.Registros
 
                         cantidad: Convert.ToInt32(CantidadnumericUpDown.Value),
                         precio: Convert.ToInt32(PrecionumericUpDown.Value),
-                        importe: Convert.ToInt32(ImportetextBox.Text),
-                        monto: Convert.ToInt32(MontonumericUpDown.Value),
-                        devuelta: DevueltatextBox.Text
+                        importe: Convert.ToInt32(ImportetextBox.Text)
                     ));
 
 
@@ -243,15 +241,15 @@ namespace ProyectoFinal.UI.Registros
                     FacturaciondataGridView.DataSource = detalle;
 
                     FacturaciondataGridView.Columns["Cliente"].Visible = false;
-                    FacturaciondataGridView.Columns["Monto"].Visible = true;
-                    FacturaciondataGridView.Columns["Devuelta"].Visible = true;
+                    //FacturaciondataGridView.Columns["Monto"].Visible = true;
+                    //FacturaciondataGridView.Columns["Devuelta"].Visible = true;
                 }
                 else
                 if (VentacomboBox.SelectedIndex == 1)
                 {
                     FacturaciondataGridView.Columns["Cliente"].Visible = true;
-                    FacturaciondataGridView.Columns["Monto"].Visible = false;
-                    FacturaciondataGridView.Columns["Devuelta"].Visible = false;
+                    //FacturaciondataGridView.Columns["Monto"].Visible = false;
+                    //FacturaciondataGridView.Columns["Devuelta"].Visible = false;
                 }
 
 
@@ -259,7 +257,7 @@ namespace ProyectoFinal.UI.Registros
                 FacturaciondataGridView.Columns["FacturaID"].Visible = false;
                 FacturaciondataGridView.Columns["ClienteID"].Visible = false;
                 FacturaciondataGridView.Columns["ArticuloID"].Visible = false;
-                //FacturaciondataGridView.Columns["Articulos"].Visible = false;
+                FacturaciondataGridView.Columns["Articulos"].Visible = false;
 
                int subtotal = 0;
                 int total = 0;
@@ -349,7 +347,7 @@ namespace ProyectoFinal.UI.Registros
 
         private void MontonumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            int precio = Convert.ToInt32(PrecionumericUpDown.Value);
+            int precio = Convert.ToInt32(TotaltextBox.Text);
             int monto = Convert.ToInt32(MontonumericUpDown.Value);
 
             if (monto < precio)
@@ -358,7 +356,7 @@ namespace ProyectoFinal.UI.Registros
             }
             else
             {
-                DevueltatextBox.Text = BLL.FacturacionBLL.CalcularDevuelta(monto, precio).ToString();
+                DevueltanumericUpDown.Value = BLL.FacturacionBLL.CalcularDevuelta(monto, precio);
             }
 
 
@@ -372,7 +370,7 @@ namespace ProyectoFinal.UI.Registros
             PrecionumericUpDown.Value = 0;
             ImportetextBox.Clear();
             MontonumericUpDown.Value = 0;
-            DevueltatextBox.Clear();
+            DevueltanumericUpDown.Value = 0;
             SubtotaltextBox.Clear();
             TotaltextBox.Clear();
             FacturacionerrorProvider.Clear();
@@ -382,6 +380,11 @@ namespace ProyectoFinal.UI.Registros
         private void Guardarbutton_Click(object sender, EventArgs e)
         {
             Facturacion facturacion = LlenaClase();
+            Contexto contexto = new Contexto();
+            Inversion inversion = new Inversion();
+            Cliente cliente = new Cliente();
+
+            Facturacion Facturacion = new Facturacion();
             bool Paso = false;
 
             if (Validar())
@@ -402,13 +405,27 @@ namespace ProyectoFinal.UI.Registros
                     }
                 }
             }
+
+            if (VentacomboBox.SelectedIndex == 0)
+            {
+               
+                inversion.Monto += Facturacion.Total;
+            }
+            else
+            {
+                
+                    Facturacion.Total += cliente.Total;
+                
+
+            }
+                  
             
             if (FacturaIDnumericUpDown.Value == 0)
             {
                 if (VentacomboBox.SelectedIndex == 1)
             {
                 MontonumericUpDown.Enabled = false;
-                DevueltatextBox.Enabled = false;
+                DevueltanumericUpDown.Enabled = false;
             }
                 Paso = BLL.FacturacionBLL.Guardar(facturacion);
                 FacturacionerrorProvider.Clear();
@@ -436,7 +453,7 @@ namespace ProyectoFinal.UI.Registros
                 PrecionumericUpDown.Value = 0;
                 ImportetextBox.Clear();
                 MontonumericUpDown.Value = 0;
-                DevueltatextBox.Clear();
+                DevueltanumericUpDown.Value = 0;
                 SubtotaltextBox.Clear();
                 TotaltextBox.Clear();
                 FacturacionerrorProvider.Clear();
@@ -467,7 +484,7 @@ namespace ProyectoFinal.UI.Registros
                     PrecionumericUpDown.Value = 0;
                     ImportetextBox.Clear();
                     MontonumericUpDown.Value = 0;
-                    DevueltatextBox.Clear();
+                    DevueltanumericUpDown.Value = 0;
                     SubtotaltextBox.Clear();
                     TotaltextBox.Clear();
                     FacturacionerrorProvider.Clear();
@@ -498,13 +515,13 @@ namespace ProyectoFinal.UI.Registros
             if (VentacomboBox.SelectedIndex == 0)
             {
                 MontonumericUpDown.Enabled = true;
-                DevueltatextBox.Enabled = true;
+                DevueltanumericUpDown.Enabled = true;
                 ClientecomboBox.Enabled = false;
             }
             else {
                 ClientecomboBox.Enabled = true;
                 MontonumericUpDown.Enabled = false;
-                DevueltatextBox.Enabled = false;
+                DevueltanumericUpDown.Enabled = false;
                 
                }
         }

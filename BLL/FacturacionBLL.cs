@@ -16,21 +16,36 @@ namespace BLL
         {
             bool paso = false;
             Contexto contexto = new Contexto();
+            Cliente cliente = new Cliente();
             
             try
             {
                 if (contexto.Facturacion.Add(facturacion) != null)
                 {
-
                     foreach (var item in facturacion.Detalle)
                     {
                         contexto.Articulos.Find(item.ArticuloID).Vigencia -= item.Cantidad;
                     }
+                    
 
-                    //contexto.Cliente.Find(facturacion.ClienteID).Total += facturacion.Total;
 
-                    contexto.SaveChanges();
-                    paso = true;
+                    var inversion = contexto.inversion.Find(facturacion.InventarioID);
+
+                    //Este bloque de codigo afecta la inversion de forma positiva cuando la facturacion es saldada en el mismo momento que se genera
+                    if (facturacion.Total == facturacion.Abono)
+                    {
+                        inversion.Monto += facturacion.Total;
+                        contexto.Entry(inversion).State = EntityState.Modified;
+                    }
+                    else
+                    {
+                        contexto.Cliente.Find(facturacion.ClienteID).Total += facturacion.Total;
+                        inversion.Monto -= facturacion.Total;
+                    }
+
+                    //SaveChanges retorna un entero que indica la cantidad de filas que han sido afectadas,es decir que si es mayor que cero todo salio bien.
+                    paso = contexto.SaveChanges() > 0;
+                    
                 }
                 contexto.Dispose();
             }
@@ -45,16 +60,26 @@ namespace BLL
             Contexto contexto = new Contexto();
             try
             {
+                
                 Facturacion facturacion = contexto.Facturacion.Find(id);
 
-                foreach (var item in facturacion.Detalle)
+                if (facturacion != null)
                 {
-                    var articulo = contexto.Articulos.Find(item.ArticuloID);
-                    articulo.Vigencia += item.Cantidad;
-                }
-                
-                contexto.Facturacion.Remove(facturacion);
+                    
+                    foreach (var item in facturacion.Detalle)
+                    {
+                        var articulo = contexto.Articulos.Find(item.ArticuloID);
+                        articulo.Vigencia += item.Cantidad;
+                    }
 
+                    contexto.Cliente.Find(facturacion.ClienteID).Total -= facturacion.Total;
+
+                    contexto.inversion.Find(facturacion.InventarioID).Monto -= facturacion.Total;
+                    facturacion.Detalle.Count();
+
+
+                    contexto.Facturacion.Remove(facturacion);
+                }
                 if (contexto.SaveChanges() > 0)
                 {
                     paso = true;
@@ -142,7 +167,7 @@ namespace BLL
                     if (!facturacion.Detalle.ToList().Exists(v => v.ID == item.ID))
                     {
                         //   contexto.Articulos.Find(item.ArticulosID).Inventario -= item.Cantidad;
-                        item.Articulo = null; //quitar la ciudad para que EF no intente hacerle nada
+                        item.Articulos = null; //quitar la ciudad para que EF no intente hacerle nada
                         contexto.Entry(item).State = EntityState.Deleted;
                     }
                 }
@@ -158,18 +183,18 @@ namespace BLL
                     contexto.Entry(item).State = estado;
                 }
 
-                Facturacion EntradaAnterior = BLL.FacturacionBLL.Buscar(facturacion.FacturaID);
+                Cliente EntradaAnterior = BLL.ClienteBLL.Buscar(facturacion.ClienteID);
 
 
-                ////identificar la diferencia ya sea restada o sumada
-                //decimal diferencia;
+                //identificar la diferencia ya sea restada o sumada
+                int diferencia;
 
-                //diferencia = mantenimiento.Total - EntradaAnterior.Total;
+                diferencia = facturacion.Total - EntradaAnterior.Total;
 
-                ////aplicar diferencia al inventario
-                //Vehiculos vehiculos = BLL.VehiculosBLL.Buscar(mantenimiento.VehiculoID);
-                //vehiculos.TotalMantenimiento += diferencia;
-                //BLL.VehiculosBLL.Modificar(vehiculos);
+                //aplicar diferencia al inventario
+                Cliente cliente = BLL.ClienteBLL.Buscar(facturacion.ClienteID);
+                cliente.Total += diferencia;
+                ClienteBLL.Modificar(cliente);
 
 
                 //Idicar que se esta modificando el encabezado

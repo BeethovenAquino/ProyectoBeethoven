@@ -9,7 +9,6 @@ namespace Entidades
     {
         [Key]
         public int ArticuloID { get; set; }
-        public string CodigoArticulo { get; set; }
         public string Nombre { get; set; }
         public string Marca { get; set; }
         public DateTime Fecha { get; set; }
@@ -21,7 +20,6 @@ namespace Entidades
         public Articulos()
         {
             ArticuloID = 0;
-            CodigoArticulo = string.Empty;
             Nombre = string.Empty;
             Marca = string.Empty;
             Fecha = DateTime.Now;

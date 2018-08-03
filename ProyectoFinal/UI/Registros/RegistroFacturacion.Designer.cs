@@ -57,16 +57,17 @@
             this.label10 = new System.Windows.Forms.Label();
             this.MontonumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.label11 = new System.Windows.Forms.Label();
-            this.DevueltatextBox = new System.Windows.Forms.TextBox();
             this.FacturacionerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
             this.label12 = new System.Windows.Forms.Label();
             this.ImportetextBox = new System.Windows.Forms.TextBox();
+            this.DevueltanumericUpDown = new System.Windows.Forms.NumericUpDown();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaIDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecionumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaciondataGridView)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.MontonumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturacionerrorProvider)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DevueltanumericUpDown)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -348,15 +349,6 @@
             this.label11.TabIndex = 90;
             this.label11.Text = "Devuelta";
             // 
-            // DevueltatextBox
-            // 
-            this.DevueltatextBox.Location = new System.Drawing.Point(247, 375);
-            this.DevueltatextBox.Name = "DevueltatextBox";
-            this.DevueltatextBox.ReadOnly = true;
-            this.DevueltatextBox.Size = new System.Drawing.Size(100, 20);
-            this.DevueltatextBox.TabIndex = 91;
-            this.DevueltatextBox.TextChanged += new System.EventHandler(this.DevueltatextBox_TextChanged);
-            // 
             // FacturacionerrorProvider
             // 
             this.FacturacionerrorProvider.ContainerControl = this;
@@ -378,15 +370,28 @@
             this.ImportetextBox.Size = new System.Drawing.Size(100, 20);
             this.ImportetextBox.TabIndex = 93;
             // 
+            // DevueltanumericUpDown
+            // 
+            this.DevueltanumericUpDown.Location = new System.Drawing.Point(247, 375);
+            this.DevueltanumericUpDown.Maximum = new decimal(new int[] {
+            999999,
+            0,
+            0,
+            0});
+            this.DevueltanumericUpDown.Name = "DevueltanumericUpDown";
+            this.DevueltanumericUpDown.ReadOnly = true;
+            this.DevueltanumericUpDown.Size = new System.Drawing.Size(120, 20);
+            this.DevueltanumericUpDown.TabIndex = 94;
+            // 
             // RegistroFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoFinal.Properties.Resources.joyeria;
             this.ClientSize = new System.Drawing.Size(847, 530);
+            this.Controls.Add(this.DevueltanumericUpDown);
             this.Controls.Add(this.ImportetextBox);
             this.Controls.Add(this.label12);
-            this.Controls.Add(this.DevueltatextBox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.MontonumericUpDown);
             this.Controls.Add(this.label10);
@@ -424,6 +429,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.FacturaciondataGridView)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.MontonumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.FacturacionerrorProvider)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.DevueltanumericUpDown)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -459,9 +465,9 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.NumericUpDown MontonumericUpDown;
         private System.Windows.Forms.Label label11;
-        private System.Windows.Forms.TextBox DevueltatextBox;
         private System.Windows.Forms.ErrorProvider FacturacionerrorProvider;
         private System.Windows.Forms.TextBox ImportetextBox;
         private System.Windows.Forms.Label label12;
+        private System.Windows.Forms.NumericUpDown DevueltanumericUpDown;
     }
 }

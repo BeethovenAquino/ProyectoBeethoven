@@ -20,16 +20,11 @@ namespace BLL
 
             try
             {
-   ;
+   
                 if (contexto.pagos.Add(pagos) != null)
                 {
 
-                    contexto.Facturacion.Find(pagos.FacturaID).Abono += pagos.Abono;
-
-                    //foreach (var item in BLL.FacturacionBLL.GetList(x => x.FacturaID == cobro.ReciboId))
-                    //{
-                    //    contexto.recibos.Find(cobro.ReciboId).UltimaFechadeVigencia = item.UltimaFechadeVigencia.AddDays(AumentoDias(cobro.Abono,item.MontoTotal));
-                    //}
+                    contexto.Cliente.Find(pagos.ClienteID).Total -= pagos.Abono;
                     
                     contexto.inversion.Find(pagos.InversionID).Monto += pagos.Abono;
 
@@ -57,16 +52,8 @@ namespace BLL
 
                 if (pagos != null)
                 {
-                    contexto.Facturacion.Find(pagos.FacturaID).Abono -= pagos.Abono;
-
-
-
-                    //foreach (var item in BLL.ReciboBLL.GetList(x => x.ReciboId == cobro.ReciboId))
-                    //{
-                    //    contexto.recibos.Find(cobro.ReciboId).UltimaFechadeVigencia = item.UltimaFechadeVigencia.AddDays(-AumentoDias(cobro.Abono, item.MontoTotal));
-                    //}
-
-
+                    contexto.Cliente.Find(pagos.ClienteID).Total += pagos.Abono;
+                    
                     contexto.inversion.Find(pagos.InversionID).Monto -= pagos.Abono;
                     contexto.Entry(pagos).State = EntityState.Deleted;
                  
@@ -100,7 +87,7 @@ namespace BLL
                 Pagos Anterior = BLL.PagosBLL.Buscar(pagos.PagoID);
              
 
-                decimal diferencia;
+                int diferencia;
        
 
                 
@@ -109,8 +96,8 @@ namespace BLL
                 decimal otradif = Anterior.Abono - pagos.Abono;
 
 
-                Facturacion facturacion = BLL.FacturacionBLL.Buscar(pagos.FacturaID);
-              facturacion.Abono = Math.Abs(facturacion.Abono-diferencia);
+                Cliente cliente = ClienteBLL.Buscar(pagos.ClienteID);
+              cliente.Total = Math.Abs(cliente.Total-diferencia);
 
                 Inversion negocio = BLL.InversionBLL.Buscar(pagos.InversionID);
                 if (Anterior.Abono < pagos.Abono)
@@ -123,13 +110,8 @@ namespace BLL
                     
                     negocio.Monto = negocio.Monto - otradif;
                 }
-
-
-               //recibos.UltimaFechadeVigencia = recibos.UltimaFechadeVigencia.AddDays(-AumentoDias(Anterior.Abono, recibos.MontoTotal));
-               // recibos.UltimaFechadeVigencia = recibos.UltimaFechadeVigencia.AddDays(AumentoDias(cobro.Abono, recibos.MontoTotal));
-
-                //BLL.FacturacionBLL.ModEspecial(recibos);
-                //BLL.ActivodeNegocioBLL.Editar(negocio);
+                
+                BLL.InversionBLL.Modificar(negocio);
 
                 contexto.Entry(pagos).State = EntityState.Modified;
 
@@ -144,9 +126,6 @@ namespace BLL
 
             return paso;
         }
-
-
-
         public static Pagos Buscar(int id)
         {
 

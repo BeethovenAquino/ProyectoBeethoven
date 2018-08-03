@@ -41,19 +41,8 @@ namespace ProyectoFinal.UI.Consultas
                     id = int.Parse(CriteriotextBox.Text);
                     filtrar = t => t.ArticuloID == id;
                     break;
-                //Codigo Articulo
+               
                 case 1:
-                    LimpiarError();
-                    if (SetError(1))
-                    {
-                        MessageBox.Show("Introduce un numero");
-                        return;
-                    }
-                    filtrar = t => t.CodigoArticulo.Contains(CriteriotextBox.Text);
-                    break;
-
-                //Nombre
-                case 2:
                     LimpiarError();
                     if (SetError(2))
                     {
@@ -63,7 +52,7 @@ namespace ProyectoFinal.UI.Consultas
                     filtrar = t => t.Nombre == CriteriotextBox.Text;
                     break;
                 //Marca
-                case 3:
+                case 2:
                     LimpiarError();
                     if (SetError(2))
                     {
@@ -74,13 +63,13 @@ namespace ProyectoFinal.UI.Consultas
                     filtrar = t => t.Marca == CriteriotextBox.Text;
                     break;
                 //Fecha
-                case 4:
+                case 3:
                     filtrar = t => t.Fecha.Equals(CriteriotextBox.Text) && (t.Fecha.Day >= DesdedateTimePicker.Value.Day) && (t.Fecha.Month >= DesdedateTimePicker.Value.Month) && (t.Fecha.Year >= DesdedateTimePicker.Value.Year)
                     && (t.Fecha.Day <= HastadateTimePicker.Value.Day) && (t.Fecha.Month <= HastadateTimePicker.Value.Month) && (t.Fecha.Year <= HastadateTimePicker.Value.Year);
 
                     break;
                 //Listar Todo
-                case 5:
+                case 4:
 
                     filtrar = t => true;
                     break;

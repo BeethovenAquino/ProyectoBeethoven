@@ -21,7 +21,6 @@ namespace ProyectoFinal.UI.Registros
             VigenciatextBox.Text = 0.ToString();
             PrecioCompratextBox.Text = 0.ToString();
             PrecioVentatextBox.Text = 0.ToString();
-            articulos.CodigoArticulo = CodigoArticulotextBox.Text;
             articulos.Nombre = NombretextBox.Text;
             articulos.Marca = MarcatextBox.Text;
             articulos.Fecha = FechaEntradadateTimePicker.Value = DateTime.Now;
@@ -34,7 +33,7 @@ namespace ProyectoFinal.UI.Registros
 
         private bool Validar(int validar)
         {
-            int ejem;
+            
             bool paso = false;
             if (validar == 1 && ArticuloIDnumericUpDown.Value == 0)
             {
@@ -42,21 +41,7 @@ namespace ProyectoFinal.UI.Registros
                 paso = true;
 
             }
-
-            if (validar == 1 && int.TryParse(CodigoArticulotextBox.Text, out ejem) == false)
-            {
-                ArticuloerrorProvider.SetError(CodigoArticulotextBox, "Debe de introducir un numero");
-                paso = true;
-            }
-            else {
-                if (validar == 2 && CodigoArticulotextBox.Text == string.Empty)
-                {
-                    ArticuloerrorProvider.SetError(CodigoArticulotextBox, "Ingrese el Codigo Del Articulo");
-                    paso = true;
-                }
-            }
-           
-
+            
             if (validar == 2 && NombretextBox.Text == string.Empty)
             {
                 ArticuloerrorProvider.SetError(NombretextBox, "Ingrese el Nombre");
@@ -106,12 +91,13 @@ namespace ProyectoFinal.UI.Registros
 
                 MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ArticuloIDnumericUpDown.Value = 0;
-                CodigoArticulotextBox.Clear();
+               
                 NombretextBox.Clear();
                 MarcatextBox.Clear();
                 FechaEntradadateTimePicker.Value = DateTime.Now;
                 PrecioCompratextBox.Clear();
                 PrecioVentatextBox.Clear();
+                GananciatextBox.Clear();
                 VigenciatextBox.Clear();
                 ArticuloerrorProvider.Clear();
 
@@ -138,12 +124,12 @@ namespace ProyectoFinal.UI.Registros
             {
                 MessageBox.Show("Eliminado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
                 ArticuloIDnumericUpDown.Value = 0;
-                CodigoArticulotextBox.Clear();
                 NombretextBox.Clear();
                 MarcatextBox.Clear();
                 FechaEntradadateTimePicker.Value = DateTime.Now;
                 PrecioCompratextBox.Clear();
                 PrecioVentatextBox.Clear();
+                GananciatextBox.Clear();
                 VigenciatextBox.Clear();
                 ArticuloerrorProvider.Clear();
             }
@@ -166,7 +152,6 @@ namespace ProyectoFinal.UI.Registros
 
             if (articulos != null)
             {
-                CodigoArticulotextBox.Text = articulos.CodigoArticulo;
                 NombretextBox.Text = articulos.Nombre;
                 MarcatextBox.Text = articulos.Marca;
                 FechaEntradadateTimePicker.Value = articulos.Fecha;
@@ -183,12 +168,12 @@ namespace ProyectoFinal.UI.Registros
         private void Nuevobutton_Click_1(object sender, EventArgs e)
         {
             ArticuloIDnumericUpDown.Value = 0;
-            CodigoArticulotextBox.Clear();
             NombretextBox.Clear();
             MarcatextBox.Clear();
             FechaEntradadateTimePicker.Value = DateTime.Now;
             PrecioCompratextBox.Clear();
             PrecioVentatextBox.Clear();
+            GananciatextBox.Clear();
             VigenciatextBox.Clear();
             ArticuloerrorProvider.Clear();
         }

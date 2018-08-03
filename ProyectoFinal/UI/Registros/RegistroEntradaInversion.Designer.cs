@@ -34,14 +34,13 @@
             this.label3 = new System.Windows.Forms.Label();
             this.EntradaInversionIDnumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.FechadateTimePicker = new System.Windows.Forms.DateTimePicker();
-            this.MontonumericUpDown = new System.Windows.Forms.NumericUpDown();
             this.Nuevobutton = new System.Windows.Forms.Button();
             this.Guardarbutton = new System.Windows.Forms.Button();
             this.Buscarbutton = new System.Windows.Forms.Button();
             this.Eliminarbutton = new System.Windows.Forms.Button();
             this.InversionerrorProvider = new System.Windows.Forms.ErrorProvider(this.components);
+            this.MontotextBox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.EntradaInversionIDnumericUpDown)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MontonumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.InversionerrorProvider)).BeginInit();
             this.SuspendLayout();
             // 
@@ -86,18 +85,6 @@
             this.FechadateTimePicker.Name = "FechadateTimePicker";
             this.FechadateTimePicker.Size = new System.Drawing.Size(120, 20);
             this.FechadateTimePicker.TabIndex = 4;
-            // 
-            // MontonumericUpDown
-            // 
-            this.MontonumericUpDown.Location = new System.Drawing.Point(142, 102);
-            this.MontonumericUpDown.Maximum = new decimal(new int[] {
-            99999,
-            0,
-            0,
-            0});
-            this.MontonumericUpDown.Name = "MontonumericUpDown";
-            this.MontonumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.MontonumericUpDown.TabIndex = 5;
             // 
             // Nuevobutton
             // 
@@ -151,16 +138,23 @@
             // 
             this.InversionerrorProvider.ContainerControl = this;
             // 
+            // MontotextBox
+            // 
+            this.MontotextBox.Location = new System.Drawing.Point(142, 104);
+            this.MontotextBox.Name = "MontotextBox";
+            this.MontotextBox.Size = new System.Drawing.Size(120, 20);
+            this.MontotextBox.TabIndex = 31;
+            // 
             // RegistroEntradaInversion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(373, 206);
+            this.Controls.Add(this.MontotextBox);
             this.Controls.Add(this.Nuevobutton);
             this.Controls.Add(this.Guardarbutton);
             this.Controls.Add(this.Buscarbutton);
             this.Controls.Add(this.Eliminarbutton);
-            this.Controls.Add(this.MontonumericUpDown);
             this.Controls.Add(this.FechadateTimePicker);
             this.Controls.Add(this.EntradaInversionIDnumericUpDown);
             this.Controls.Add(this.label3);
@@ -169,7 +163,6 @@
             this.Name = "RegistroEntradaInversion";
             this.Text = "RegistroInversion";
             ((System.ComponentModel.ISupportInitialize)(this.EntradaInversionIDnumericUpDown)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.MontonumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.InversionerrorProvider)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -183,11 +176,11 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.NumericUpDown EntradaInversionIDnumericUpDown;
         private System.Windows.Forms.DateTimePicker FechadateTimePicker;
-        private System.Windows.Forms.NumericUpDown MontonumericUpDown;
         private System.Windows.Forms.Button Nuevobutton;
         private System.Windows.Forms.Button Guardarbutton;
         private System.Windows.Forms.Button Buscarbutton;
         private System.Windows.Forms.Button Eliminarbutton;
         private System.Windows.Forms.ErrorProvider InversionerrorProvider;
+        private System.Windows.Forms.TextBox MontotextBox;
     }
 }
