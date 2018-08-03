@@ -181,6 +181,7 @@
             // 
             this.TotalTextbox.Location = new System.Drawing.Point(144, 220);
             this.TotalTextbox.Name = "TotalTextbox";
+            this.TotalTextbox.ReadOnly = true;
             this.TotalTextbox.Size = new System.Drawing.Size(100, 20);
             this.TotalTextbox.TabIndex = 15;
             // 

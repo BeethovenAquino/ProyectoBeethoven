@@ -279,6 +279,7 @@
             this.Controls.Add(this.label1);
             this.Name = "RegistroArticulos";
             this.Text = "RegistroArticulos";
+            this.Load += new System.EventHandler(this.RegistroArticulos_Load);
             ((System.ComponentModel.ISupportInitialize)(this.ArticuloIDnumericUpDown)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.ArticuloerrorProvider)).EndInit();
             this.ResumeLayout(false);

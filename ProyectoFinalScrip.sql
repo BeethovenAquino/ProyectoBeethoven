@@ -6,7 +6,7 @@ select* from Articulos
 select* from Facturacions
 select* from FacturacionDetalles
 select* from Inversions
-drop table Clientes
+select* from  Clientes
 
 insert into Inversions(Monto) values (0);
 

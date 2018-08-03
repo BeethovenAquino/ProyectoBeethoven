@@ -107,10 +107,13 @@ namespace ProyectoFinal.UI.Consultas
         {
             if (articulos.Count() == 0)
             {
-                MessageBox.Show("No existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBox.Show("el grid esta vacio", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
             }
-            ReporteArticulos abrir = new ReporteArticulos(articulos);
-            abrir.ShowDialog();
+            else {
+                    ReporteArticulos abrir = new ReporteArticulos(articulos);
+                           abrir.ShowDialog();
+            }
+            
          
         }
     }

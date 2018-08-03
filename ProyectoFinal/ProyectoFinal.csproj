@@ -83,6 +83,12 @@
     <Compile Include="UI\Consultas\ConsultaClientes.Designer.cs">
       <DependentUpon>ConsultaClientes.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consultas\ConsultaEntradaInversion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaEntradaInversion.Designer.cs">
+      <DependentUpon>ConsultaEntradaInversion.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Consultas\ConsultaEntradaArticulos.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -94,6 +100,12 @@
     </Compile>
     <Compile Include="UI\Consultas\ConsultaFacturacion.Designer.cs">
       <DependentUpon>ConsultaFacturacion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaPago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaPago.Designer.cs">
+      <DependentUpon>ConsultaPago.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\InversionEmpresa.cs">
       <SubType>Form</SubType>
@@ -137,6 +149,18 @@
     <Compile Include="UI\Registros\RegistroPagoCliente.Designer.cs">
       <DependentUpon>RegistroPagoCliente.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Reportes\EntradaInver.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>EntradaInver.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\PagoCliente.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>PagoCliente.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\Reportes\Prueba.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -154,6 +178,18 @@
     </Compile>
     <Compile Include="UI\Reportes\ReporteArticulos.Designer.cs">
       <DependentUpon>ReporteArticulos.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteEntradaInversion.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReporteEntradaInversion.Designer.cs">
+      <DependentUpon>ReporteEntradaInversion.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Reportes\ReportePago.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Reportes\ReportePago.Designer.cs">
+      <DependentUpon>ReportePago.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Reportes\ReportesCliente.cs">
       <AutoGen>True</AutoGen>
@@ -213,11 +249,17 @@
     <EmbeddedResource Include="UI\Consultas\ConsultaClientes.resx">
       <DependentUpon>ConsultaClientes.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\ConsultaEntradaInversion.resx">
+      <DependentUpon>ConsultaEntradaInversion.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\ConsultaEntradaArticulos.resx">
       <DependentUpon>ConsultaEntradaArticulos.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Consultas\ConsultaFacturacion.resx">
       <DependentUpon>ConsultaFacturacion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\ConsultaPago.resx">
+      <DependentUpon>ConsultaPago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\InversionEmpresa.resx">
       <DependentUpon>InversionEmpresa.cs</DependentUpon>
@@ -240,6 +282,14 @@
     <EmbeddedResource Include="UI\Registros\RegistroPagoCliente.resx">
       <DependentUpon>RegistroPagoCliente.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\EntradaInver.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>EntradaInver.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\PagoCliente.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>PagoCliente.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\Prueba.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>Prueba.cs</LastGenOutput>
@@ -250,6 +300,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ReporteArticulos.resx">
       <DependentUpon>ReporteArticulos.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ReporteEntradaInversion.resx">
+      <DependentUpon>ReporteEntradaInversion.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\ReportePago.resx">
+      <DependentUpon>ReportePago.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ReportesCliente.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>

@@ -27,13 +27,12 @@ namespace ProyectoFinal.UI.Registros
             cliente.Telefono = (TelefonomaskedTextBox.Text);
             cliente.Total = Convert.ToInt32(TotalTextbox.Text);
             
-
             return cliente;
         }
 
         private bool Validar(int validar)
         {
-
+            int num = 0;
             bool paso = false;
             if (validar == 1 && ClienteIDnumericUpDown.Value == 0)
             {
@@ -47,11 +46,16 @@ namespace ProyectoFinal.UI.Registros
                 paso = true;
             }
 
-            if (validar == 2 && string.IsNullOrWhiteSpace(CedulamaskedTextBox.Text))
+            if (validar == 2 && !CedulamaskedTextBox.MaskFull)
             {
                 ClienteerrorProvider.SetError(CedulamaskedTextBox, "Ingrese la Cedula");
                 paso = true;
             }
+            //if (validar == 4 && int.TryParse(CedulamaskedTextBox.Text, out num) == false)
+            //{
+            //    ClienteerrorProvider.SetError(CedulamaskedTextBox, "Debe de introducir un numero");
+            //    paso = true;
+            //}
 
             if (validar == 2 && DirecciontextBox.Text == string.Empty)
             {
@@ -59,15 +63,28 @@ namespace ProyectoFinal.UI.Registros
                 paso = true;
             }
 
-            if (validar == 2 && TelefonomaskedTextBox.Text == string.Empty)
+            if (validar == 2 && !TelefonomaskedTextBox.MaskFull )
             {
                 ClienteerrorProvider.SetError(TelefonomaskedTextBox, "Ingrese el Telefono");
                 paso = true;
             }
 
+            //if (validar == 4 && int.TryParse(TelefonomaskedTextBox.Text, out num) == false)
+            //{
+            //    ClienteerrorProvider.SetError(TelefonomaskedTextBox, "Debe de introducir un numero");
+            //    paso = true;
+            //}
 
-
-
+            if (validar == 3 && int.TryParse(NombretextBox.Text, out num) == true)
+            {
+                ClienteerrorProvider.SetError(NombretextBox, "Debe Digitar Caracteres");
+                paso = true;
+            }
+            if (validar == 3 && int.TryParse(DirecciontextBox.Text, out num) == true)
+            {
+                ClienteerrorProvider.SetError(DirecciontextBox, "Debe Digitar Caracteres");
+                paso = true;
+            }
             return paso;
 
         }
@@ -82,11 +99,21 @@ namespace ProyectoFinal.UI.Registros
                 MessageBox.Show("Llenar todos los campos marcados");
                 return;
             }
+            if (Validar(3))
+            {
+
+                MessageBox.Show("Debe introducir carateres");
+                return;
+            }
+            if (Validar(4))
+            {
+
+                MessageBox.Show("Debe introducir numeros");
+                return;
+            }
             else
             {
                 ClienteerrorProvider.Clear();
-
-
                 if (ClienteIDnumericUpDown.Value == 0)
                 {
                     paso = ClienteBLL.Guardar(cliente);
@@ -98,29 +125,34 @@ namespace ProyectoFinal.UI.Registros
                     if (A != null)
                     {
                         paso = ClienteBLL.Modificar(cliente);
+                        MessageBox.Show("Modificado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
+                        ClienteIDnumericUpDown.Value = 0;
+                        NombretextBox.Clear();
+                        CedulamaskedTextBox.Clear();
+                        DirecciontextBox.Clear();
+                        TelefonomaskedTextBox.Clear();
+                        TotalTextbox.Clear();
+                        ClienteerrorProvider.Clear(); ;
                     }
                 }
 
                     if (paso)
                     {
                     
-
                         MessageBox.Show("Guardado", "Exito", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ClienteIDnumericUpDown.Value = 0;
-                    NombretextBox.Clear();
-                    CedulamaskedTextBox.Clear();
-                    DirecciontextBox.Clear();
-                    TelefonomaskedTextBox.Clear();
-                    TotalTextbox.Clear();
-                    
-                    ClienteerrorProvider.Clear(); ;
+                            ClienteIDnumericUpDown.Value = 0;
+                            NombretextBox.Clear();
+                            CedulamaskedTextBox.Clear();
+                            DirecciontextBox.Clear();
+                            TelefonomaskedTextBox.Clear();
+                            TotalTextbox.Clear();
+                            ClienteerrorProvider.Clear(); ;
 
                     }
                     else{ MessageBox.Show("No se pudo guardar", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error); }
                         
                 }
-           
-            
+              
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -131,7 +163,6 @@ namespace ProyectoFinal.UI.Registros
             DirecciontextBox.Clear();
             TelefonomaskedTextBox.Clear();
             TotalTextbox.Clear();
-            
             ClienteerrorProvider.Clear();
 
         }
@@ -183,9 +214,6 @@ namespace ProyectoFinal.UI.Registros
                 DirecciontextBox.Text = cliente.Direccion;
                 TelefonomaskedTextBox.Text = cliente.Telefono;
                 TotalTextbox.Text = cliente.Total.ToString();
-                
-
-                
             }
             else
                 MessageBox.Show("No se encontro", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);

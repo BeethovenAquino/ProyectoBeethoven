@@ -87,7 +87,6 @@ namespace ProyectoFinal.UI.Consultas
                     break;
                 //Listar Todo
                 case 5:
-
                     filtrar = t => true;
                     break;
             }

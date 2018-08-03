@@ -18,9 +18,6 @@ namespace ProyectoFinal.UI.Registros
             Articulos articulos = new Articulos();
 
             articulos.ArticuloID = Convert.ToInt32(ArticuloIDnumericUpDown.Value);
-            VigenciatextBox.Text = 0.ToString();
-            PrecioCompratextBox.Text = 0.ToString();
-            PrecioVentatextBox.Text = 0.ToString();
             articulos.Nombre = NombretextBox.Text;
             articulos.Marca = MarcatextBox.Text;
             articulos.Fecha = FechaEntradadateTimePicker.Value = DateTime.Now;
@@ -35,6 +32,7 @@ namespace ProyectoFinal.UI.Registros
         {
             
             bool paso = false;
+            int num = 0;
             if (validar == 1 && ArticuloIDnumericUpDown.Value == 0)
             {
                 ArticuloerrorProvider.SetError(ArticuloIDnumericUpDown, "Ingrese un ID");
@@ -54,6 +52,18 @@ namespace ProyectoFinal.UI.Registros
                 paso = true;
             }
 
+            if (validar == 3 && int.TryParse(NombretextBox.Text, out num) == true)
+            {
+                ArticuloerrorProvider.SetError(NombretextBox, "Debe Digitar Caracteres");
+                paso = true;
+            }
+
+            if (validar == 3 && int.TryParse(MarcatextBox.Text, out num) == true)
+            {
+                ArticuloerrorProvider.SetError(MarcatextBox, "Debe Digitar Caracteres");
+                paso = true;
+            }
+
 
             return paso;
 
@@ -67,6 +77,12 @@ namespace ProyectoFinal.UI.Registros
             {
 
                 MessageBox.Show("Llenar todos los campos marcados");
+                return;
+            }
+            if (Validar(3))
+            {
+
+                MessageBox.Show("Digite un caracter no un numero");
                 return;
             }
 
@@ -178,6 +194,12 @@ namespace ProyectoFinal.UI.Registros
             ArticuloerrorProvider.Clear();
         }
 
-     
+        private void RegistroArticulos_Load(object sender, EventArgs e)
+        {
+            VigenciatextBox.Text = 0.ToString();
+            PrecioCompratextBox.Text = 0.ToString();
+            PrecioVentatextBox.Text = 0.ToString();
+            GananciatextBox.Text = 0.ToString();
+        }
     }
 }

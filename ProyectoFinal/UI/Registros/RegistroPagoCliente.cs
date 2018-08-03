@@ -21,6 +21,13 @@ namespace ProyectoFinal.UI.Registros
         private void Consultabutton_Click(object sender, EventArgs e)
         {
 
+            if (SetError(4))
+            {
+                MessageBox.Show("Debe introducir porque filtro va a consultar", "Falló",
+                        MessageBoxButtons.OK, MessageBoxIcon.Error);
+
+            }
+
             Expression<Func<Cliente, bool>> filtrar = x => true;
 
             switch (FiltrarcomboBox.SelectedIndex)
@@ -87,6 +94,11 @@ namespace ProyectoFinal.UI.Registros
             {
                 ClienteerrorProvider.SetError(CriteriotextBox, "Debe de introducir un caracter");
                 paso = true;
+            }
+
+            if (error == 4 && FiltrarcomboBox.SelectedIndex == 0)
+            {
+                ClienteerrorProvider.SetError(FiltrarcomboBox, "Debe introducir porque filtro va a consultar");
             }
 
             return paso;

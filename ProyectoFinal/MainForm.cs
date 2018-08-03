@@ -85,5 +85,17 @@ namespace ProyectoFinal
             registroPago.Show();
 
         }
+
+        private void entradaDeInversionToolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+            ConsultaEntradaInversion inversion = new ConsultaEntradaInversion();
+            inversion.Show();
+        }
+
+        private void toolStripMenuItem2_Click(object sender, EventArgs e)
+        {
+            ConsultaPago pago = new ConsultaPago();
+            pago.Show();
+        }
     }
 }

@@ -63,7 +63,7 @@ namespace ProyectoFinal.UI.Registros
             FacturaciondataGridView.Columns["FacturaID"].Visible = false;
             FacturaciondataGridView.Columns["ClienteID"].Visible = false;
             FacturaciondataGridView.Columns["ArticuloID"].Visible = false;
-            //FacturaciondataGridView.Columns["Articulos"].Visible = false;
+            FacturaciondataGridView.Columns["Articulos"].Visible = false;
         }
 
         private void LlenarComboBox()
@@ -335,7 +335,7 @@ namespace ProyectoFinal.UI.Registros
                 FacturaciondataGridView.Columns["FacturaID"].Visible = false;
                 FacturaciondataGridView.Columns["ClienteID"].Visible = false;
                 FacturaciondataGridView.Columns["ArticuloID"].Visible = false;
-                //FacturaciondataGridView.Columns["Articulos"].Visible = false;
+                FacturaciondataGridView.Columns["Articulos"].Visible = false;
              
             }
         }
@@ -416,7 +416,6 @@ namespace ProyectoFinal.UI.Registros
                 
                     Facturacion.Total += cliente.Total;
                 
-
             }
                   
             

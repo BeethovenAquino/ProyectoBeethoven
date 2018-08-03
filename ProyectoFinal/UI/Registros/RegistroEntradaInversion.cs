@@ -26,7 +26,7 @@ namespace ProyectoFinal.UI.Registros
 
             if (error == 2 && string.IsNullOrWhiteSpace(MontotextBox.Text))
             {
-                InversionerrorProvider.SetError(MontotextBox, "Llene contraseña");
+                InversionerrorProvider.SetError(MontotextBox, "Digite el monto");
                 errores = true;
             }
 
