@@ -33,8 +33,10 @@ namespace ProyectoFinal.UI.Consultas
                         return;
 
                     }
-                    id = int.Parse(CriteriotextBox.Text);
-                    filtrar = t=>t.EntradaInversionID == id;
+                    id = Convert.ToInt32(CriteriotextBox.Text);
+                    filtrar = t=>t.EntradaInversionID == id && (t.Fecha.Day >= DesdedateTimePicker.Value.Day) && (t.Fecha.Month >= DesdedateTimePicker.Value.Month) && (t.Fecha.Year >= DesdedateTimePicker.Value.Year)
+                    && (t.Fecha.Day <= HastadateTimePicker.Value.Day) && (t.Fecha.Month <= HastadateTimePicker.Value.Month) && (t.Fecha.Year <= HastadateTimePicker.Value.Year);
+                    ;
                     break;
                     
                

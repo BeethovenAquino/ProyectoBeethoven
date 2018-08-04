@@ -29,7 +29,7 @@ namespace BLL
                     
 
 
-                    var inversion = contexto.inversion.Find(facturacion.InventarioID);
+                    var inversion = contexto.inversion.Find(facturacion.InversionID);
 
                     //Este bloque de codigo afecta la inversion de forma positiva cuando la facturacion es saldada en el mismo momento que se genera
                     if (facturacion.Total == facturacion.Abono)
@@ -74,7 +74,7 @@ namespace BLL
 
                     contexto.Cliente.Find(facturacion.ClienteID).Total -= facturacion.Total;
 
-                    contexto.inversion.Find(facturacion.InventarioID).Monto -= facturacion.Total;
+                    contexto.inversion.Find(facturacion.InversionID).Monto -= facturacion.Total;
                     facturacion.Detalle.Count();
 
 
@@ -173,14 +173,11 @@ namespace BLL
                         contexto.Entry(item).State = EntityState.Deleted;
                     }
                 }
-                var inversion = contexto.inversion.Find(facturacion.InventarioID);
+                var inversion = contexto.inversion.Find(facturacion.InversionID);
+
                 if (facturacion.Total == facturacion.Abono)
                 {
                     inversion.Monto += facturacion.Total;
-
-
-                  
-
                     contexto.Entry(inversion).State = EntityState.Modified;
                 }
                 else
@@ -190,8 +187,6 @@ namespace BLL
 
 
                     Cliente EntradaAnterior = BLL.ClienteBLL.Buscar(facturacion.ClienteID);
-
-
                     //identificar la diferencia ya sea restada o sumada
                     int diferencia;
 
@@ -203,8 +198,24 @@ namespace BLL
                     ClienteBLL.Modificar(cliente);
 
 
+
+                    Facturacion EntradaAnteri = BLL.FacturacionBLL.Buscar(facturacion.FacturaID);
+
+
+                    //identificar la diferencia ya sea restada o sumada
+                    int diferenc;
+
+                    diferenc = facturacion.Total - EntradaAnteri.Total;
+
+                    //aplicar diferencia al inventario
+                    Inversion fact = BLL.InversionBLL.Buscar(facturacion.InversionID);
+                    fact.Monto += diferenc;
+                    InversionBLL.Modificar(fact);
+
+
                 }
                 //recorrer el detalle
+
                 foreach (var item in facturacion.Detalle)
                 {
                     //Sumar todas las visitas
@@ -226,7 +237,7 @@ namespace BLL
                 diferenci = facturacion.Total - EntradaAnterio.Total;
 
                 //aplicar diferencia al inventario
-                Inversion factu = BLL.InversionBLL.Buscar(facturacion.InventarioID);
+                Inversion factu = BLL.InversionBLL.Buscar(facturacion.InversionID);
                 factu.Monto += diferenci;
                 InversionBLL.Modificar(factu);
 

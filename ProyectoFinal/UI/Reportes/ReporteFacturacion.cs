@@ -9,7 +9,7 @@ namespace ProyectoFinal.UI.Reportes.Reporte_Facturacion
 {
     public partial class ReporteFacturacion : Form
     {
-        List<Facturacion> facturacion =null;
+        List<Facturacion> facturacion =new List<Facturacion>();
         public ReporteFacturacion(List<Facturacion> facturar)
         {
             InitializeComponent();

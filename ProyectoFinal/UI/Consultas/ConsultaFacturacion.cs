@@ -1,6 +1,7 @@
 ﻿
 using BLL;
 using Entidades;
+using ProyectoFinal.UI.Reportes;
 using ProyectoFinal.UI.Reportes.Reporte_Facturacion;
 using System;
 using System.Collections.Generic;
@@ -14,7 +15,7 @@ namespace ProyectoFinal.UI.Consultas
 {
     public partial class ConsultaFacturacion : Form
     {
-        List<Facturacion> facturacion = new List<Facturacion>();
+        
         public ConsultaFacturacion()
         {
             InitializeComponent();
@@ -55,8 +56,8 @@ namespace ProyectoFinal.UI.Consultas
                     break;
             }
 
-            facturacion = FacturacionBLL.GetList(filtrar);
-            ConsultadataGridView.DataSource = facturacion;
+            
+            ConsultadataGridView.DataSource = FacturacionBLL.GetList(filtrar);
             ConsultadataGridView.Columns["Detalle"].Visible = false;
         }
 
@@ -86,12 +87,20 @@ namespace ProyectoFinal.UI.Consultas
 
         private void ReporteButton_Click(object sender, EventArgs e)
         {
-            if (facturacion.Count() == 0)
+            Facturacion facturacionn = new Facturacion();
+            if (ConsultadataGridView.Rows.Count > 0 && ConsultadataGridView.CurrentRow != null)
+            {
+                List<Facturacion> Detalle = (List<Facturacion>)ConsultadataGridView.DataSource;
+                int id = Detalle.ElementAt(ConsultadataGridView.CurrentRow.Index).FacturaID;
+
+                ReporteFacturacion abrir = new ReporteFacturacion(FacturacionBLL.GetList(x => x.FacturaID == id));
+                abrir.Show();
+            }
+            else
             {
                 MessageBox.Show("No existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
             }
-            ReporteFacturacion abrir = new ReporteFacturacion(facturacion);
-            abrir.ShowDialog();
 
         }
     }

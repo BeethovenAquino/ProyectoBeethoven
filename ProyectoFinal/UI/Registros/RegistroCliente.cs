@@ -19,13 +19,13 @@ namespace ProyectoFinal.UI.Registros
         {
 
             Cliente cliente = new Cliente();
-            
+           
             cliente.ClienteID = Convert.ToInt32(ClienteIDnumericUpDown.Value);
             cliente.NombreCliente = NombretextBox.Text;
             cliente.Cedula = CedulamaskedTextBox.Text;
             cliente.Direccion = (DirecciontextBox.Text);
             cliente.Telefono = (TelefonomaskedTextBox.Text);
-            cliente.Total = Convert.ToInt32(TotalTextbox.Text);
+            cliente.Total = Convert.ToInt32(TotalTextbox.Text.ToString());
             
             return cliente;
         }

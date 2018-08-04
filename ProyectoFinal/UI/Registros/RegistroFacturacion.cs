@@ -2,9 +2,10 @@
 using BLL;
 using DAL;
 using Entidades;
+using ProyectoFinal.UI.Reportes.Reporte_Facturacion;
 using System;
 using System.Collections.Generic;
-
+using System.Linq;
 using System.Windows.Forms;
 
 namespace ProyectoFinal.UI.Registros
@@ -165,7 +166,7 @@ namespace ProyectoFinal.UI.Registros
             facturacion.Fecha = FechadateTimePicker.Value;
             facturacion.Subtotal = Convert.ToInt32(SubtotaltextBox.Text.ToString());
             facturacion.Total =Convert.ToInt32(TotaltextBox.Text.ToString());
-            facturacion.InventarioID = 1;
+            facturacion.InversionID = 1;
             facturacion.Abono = MontonumericUpDown.Value-DevueltanumericUpDown.Value;
             facturacion.Monto = Convert.ToInt32(MontonumericUpDown.Value);
             facturacion.Devuelta = Convert.ToInt32(DevueltanumericUpDown.Value);
@@ -539,6 +540,24 @@ namespace ProyectoFinal.UI.Registros
         {
             TotaltextBox.Text = 0.ToString();
             SubtotaltextBox.Text = 0.ToString();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            Facturacion facturacionn = new Facturacion();
+            if (FacturaciondataGridView.Rows.Count > 0 && FacturaciondataGridView.CurrentRow != null)
+            {
+                List<Facturacion> Detalle = (List<Facturacion>)FacturaciondataGridView.DataSource;
+                int id = Detalle.ElementAt(FacturaciondataGridView.CurrentRow.Index).FacturaID;
+
+                ReporteFacturacion abrir = new ReporteFacturacion(FacturacionBLL.GetList(x => x.FacturaID == id));
+                abrir.Show();
+            }
+            else
+            {
+                MessageBox.Show("No existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
         }
     }
 }

@@ -11,6 +11,7 @@ namespace Entidades
         public int FacturaID { get; set; }
         
         public int InventarioID { get; set; }
+        public int InversionID { get; set; }
         public int ClienteID { get; set; }
         public DateTime Fecha { get; set; }
         public int Subtotal { get; set; }
@@ -24,6 +25,7 @@ namespace Entidades
         public Facturacion()
         {
             this.Detalle = new List<FacturacionDetalle>();
+            InversionID = 0;
             FacturaID = 0;
             InventarioID = 0;
             ClienteID = 0;

@@ -61,6 +61,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.ImportetextBox = new System.Windows.Forms.TextBox();
             this.DevueltanumericUpDown = new System.Windows.Forms.NumericUpDown();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.FacturaIDnumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.PrecionumericUpDown)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.CantidadnumericUpDown)).BeginInit();
@@ -209,7 +210,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(531, 375);
+            this.label8.Location = new System.Drawing.Point(490, 374);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(46, 13);
             this.label8.TabIndex = 77;
@@ -217,7 +218,7 @@
             // 
             // SubtotaltextBox
             // 
-            this.SubtotaltextBox.Location = new System.Drawing.Point(583, 372);
+            this.SubtotaltextBox.Location = new System.Drawing.Point(542, 371);
             this.SubtotaltextBox.Name = "SubtotaltextBox";
             this.SubtotaltextBox.ReadOnly = true;
             this.SubtotaltextBox.Size = new System.Drawing.Size(118, 20);
@@ -226,7 +227,7 @@
             // Removerbutton
             // 
             this.Removerbutton.Image = global::ProyectoFinal.Properties.Resources.restar_16;
-            this.Removerbutton.Location = new System.Drawing.Point(772, 153);
+            this.Removerbutton.Location = new System.Drawing.Point(595, 154);
             this.Removerbutton.Name = "Removerbutton";
             this.Removerbutton.Size = new System.Drawing.Size(74, 30);
             this.Removerbutton.TabIndex = 80;
@@ -237,7 +238,7 @@
             // Agregarbutton
             // 
             this.Agregarbutton.Image = global::ProyectoFinal.Properties.Resources.Sumar_16;
-            this.Agregarbutton.Location = new System.Drawing.Point(772, 122);
+            this.Agregarbutton.Location = new System.Drawing.Point(595, 123);
             this.Agregarbutton.Name = "Agregarbutton";
             this.Agregarbutton.Size = new System.Drawing.Size(74, 30);
             this.Agregarbutton.TabIndex = 79;
@@ -250,13 +251,13 @@
             this.FacturaciondataGridView.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.FacturaciondataGridView.Location = new System.Drawing.Point(2, 186);
             this.FacturaciondataGridView.Name = "FacturaciondataGridView";
-            this.FacturaciondataGridView.Size = new System.Drawing.Size(833, 180);
+            this.FacturaciondataGridView.Size = new System.Drawing.Size(667, 180);
             this.FacturaciondataGridView.TabIndex = 81;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(531, 414);
+            this.label9.Location = new System.Drawing.Point(490, 413);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(31, 13);
             this.label9.TabIndex = 82;
@@ -264,7 +265,7 @@
             // 
             // TotaltextBox
             // 
-            this.TotaltextBox.Location = new System.Drawing.Point(583, 411);
+            this.TotaltextBox.Location = new System.Drawing.Point(542, 410);
             this.TotaltextBox.Name = "TotaltextBox";
             this.TotaltextBox.ReadOnly = true;
             this.TotaltextBox.Size = new System.Drawing.Size(100, 20);
@@ -383,12 +384,23 @@
             this.DevueltanumericUpDown.Size = new System.Drawing.Size(120, 20);
             this.DevueltanumericUpDown.TabIndex = 94;
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(574, 464);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(95, 54);
+            this.button1.TabIndex = 95;
+            this.button1.Text = "Recibo ";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // RegistroFacturacion
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoFinal.Properties.Resources.joyeria;
-            this.ClientSize = new System.Drawing.Size(847, 530);
+            this.ClientSize = new System.Drawing.Size(698, 530);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.DevueltanumericUpDown);
             this.Controls.Add(this.ImportetextBox);
             this.Controls.Add(this.label12);
@@ -469,5 +481,6 @@
         private System.Windows.Forms.TextBox ImportetextBox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.NumericUpDown DevueltanumericUpDown;
+        private System.Windows.Forms.Button button1;
     }
 }

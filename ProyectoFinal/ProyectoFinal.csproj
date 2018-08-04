@@ -155,6 +155,12 @@
       <DependentUpon>EntradaInver.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
+    <Compile Include="UI\Reportes\Factura.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Factura.rpt</DependentUpon>
+      <SubType>Component</SubType>
+    </Compile>
     <Compile Include="UI\Reportes\PagoCliente.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
@@ -214,12 +220,6 @@
     </Compile>
     <Compile Include="UI\Reportes\ReporteEntrada.Designer.cs">
       <DependentUpon>ReporteEntrada.cs</DependentUpon>
-    </Compile>
-    <Compile Include="UI\Reportes\Factura.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Factura.rpt</DependentUpon>
-      <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Reportes\ReporteFacturacion.cs">
       <SubType>Form</SubType>
@@ -286,6 +286,10 @@
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>EntradaInver.cs</LastGenOutput>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Reportes\Factura.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>Factura.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\PagoCliente.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PagoCliente.cs</LastGenOutput>
@@ -320,10 +324,6 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ReporteEntrada.resx">
       <DependentUpon>ReporteEntrada.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\Factura.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Factura.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ReporteFacturacion.resx">
       <DependentUpon>ReporteFacturacion.cs</DependentUpon>
