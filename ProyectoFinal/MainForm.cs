@@ -97,5 +97,16 @@ namespace ProyectoFinal
             ConsultaPago pago = new ConsultaPago();
             pago.Show();
         }
+
+        private void toolStripMenuItem1_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void registroDeUsuarioToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            RegistroDeUsuarios registro = new RegistroDeUsuarios();
+            registro.Show();
+        }
     }
 }

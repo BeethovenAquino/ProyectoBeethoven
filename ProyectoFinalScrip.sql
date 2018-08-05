@@ -1,4 +1,4 @@
-create DATABASE ProyectoFinal
+create  DATABASE ProyectoFinal
 
 
 select* from EntradaArticulos
@@ -8,5 +8,7 @@ select* from FacturacionDetalles
 select* from Inversions
 select* from  Clientes
 
+
+truncate table Facturacions
 insert into Inversions(Monto) values (0);
 

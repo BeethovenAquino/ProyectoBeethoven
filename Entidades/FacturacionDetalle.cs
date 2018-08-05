@@ -9,10 +9,10 @@ namespace Entidades
         [Key]
         public int ID { get; set; }
         public int FacturaID { get; set; }
-        public string  Venta { get; set; }
         public int ClienteID { get; set; }
-        public string Cliente { get; set;}
         public int ArticuloID { get; set; }
+        public string  Venta { get; set; } 
+        public string Cliente { get; set;}        
         public string Articulo { get; set; }
         public int Cantidad { get; set; }
         public int Precio { get; set; }
@@ -30,14 +30,14 @@ namespace Entidades
             
         }
 
-        public FacturacionDetalle(int iD, int facturaID, string venta, int clienteID, string cliente, int articuloID, string articulo, int cantidad, int precio, int importe)
+        public FacturacionDetalle(int iD, int facturaID, int clienteID, int articuloID, string venta, string cliente, string articulo, int cantidad, int precio, int importe)
         {
             ID = iD;
             FacturaID = facturaID;
-            Venta = venta;
             ClienteID = clienteID;
-            Cliente = cliente;
             ArticuloID = articuloID;
+            Venta = venta;            
+            Cliente = cliente;            
             Articulo = articulo;
             Cantidad = cantidad;
             Precio = precio;

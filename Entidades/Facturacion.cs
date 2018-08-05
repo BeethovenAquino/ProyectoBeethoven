@@ -8,8 +8,7 @@ namespace Entidades
     public class Facturacion
     {
         [Key]
-        public int FacturaID { get; set; }
-        
+        public int FacturaID { get; set; }        
         public int InventarioID { get; set; }
         public int InversionID { get; set; }
         public int ClienteID { get; set; }
@@ -37,9 +36,9 @@ namespace Entidades
             Devuelta = 0;
         }
 
-        public void AgregarDetalle(int id, int FacturaID, string Venta, int ClienteID, string Cliente, int ArticuloID,string Articulo,int cantidad, int precio,int importe)
+        public void AgregarDetalle(int id, int FacturaID, int ClienteID, int ArticuloID, string Venta, string Cliente,string Articulo,int cantidad, int precio,int importe)
         {
-            this.Detalle.Add(new FacturacionDetalle(id,FacturaID,Venta,ClienteID,Cliente,ArticuloID,Articulo,cantidad,precio,importe));
+            this.Detalle.Add(new FacturacionDetalle(id,FacturaID,ClienteID,ArticuloID,Venta,Cliente, Articulo, cantidad,precio,importe));
         }
     }
 

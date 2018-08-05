@@ -100,7 +100,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImage = global::ProyectoFinal.Properties.Resources.icono_login;
-            this.ClientSize = new System.Drawing.Size(385, 235);
+            this.ClientSize = new System.Drawing.Size(345, 197);
             this.Controls.Add(this.Salirbutton);
             this.Controls.Add(this.Loginbutton);
             this.Controls.Add(this.ContraseñatextBox);

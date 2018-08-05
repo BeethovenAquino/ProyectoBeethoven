@@ -163,10 +163,10 @@ namespace ProyectoFinal.UI.Registros
             FacturacionDetalle detalle = new FacturacionDetalle();
             facturacion.FacturaID = Convert.ToInt32(FacturaIDnumericUpDown.Value);
             facturacion.ClienteID = Convert.ToInt32(ClientecomboBox.SelectedValue);
+            facturacion.InversionID = 1;
             facturacion.Fecha = FechadateTimePicker.Value;
             facturacion.Subtotal = Convert.ToInt32(SubtotaltextBox.Text.ToString());
             facturacion.Total =Convert.ToInt32(TotaltextBox.Text.ToString());
-            facturacion.InversionID = 1;
             facturacion.Abono = MontonumericUpDown.Value-DevueltanumericUpDown.Value;
             facturacion.Monto = Convert.ToInt32(MontonumericUpDown.Value);
             facturacion.Devuelta = Convert.ToInt32(DevueltanumericUpDown.Value);
@@ -178,10 +178,10 @@ namespace ProyectoFinal.UI.Registros
                     (ToInt(item.Cells["ID"].Value),
                     //facturacion.FacturaID,
                     Convert.ToInt32(item.Cells["FacturaID"].Value),
-                    Convert.ToString(item.Cells["Venta"].Value),
                     Convert.ToInt32(item.Cells["ClienteID"].Value),
-                    Convert.ToString(item.Cells["Cliente"].Value),
                     Convert.ToInt32(item.Cells["ArticuloID"].Value),
+                    Convert.ToString(item.Cells["Venta"].Value),
+                    Convert.ToString(item.Cells["Cliente"].Value),
                     Convert.ToString(item.Cells["Articulo"].Value),
                     Convert.ToInt32(item.Cells["cantidad"].Value),
                     Convert.ToInt32(item.Cells["precio"].Value),
@@ -357,7 +357,7 @@ namespace ProyectoFinal.UI.Registros
             }
             else
             {
-                DevueltanumericUpDown.Value = BLL.FacturacionBLL.CalcularDevuelta(monto, precio);
+                DevueltanumericUpDown.Value = FacturacionBLL.CalcularDevuelta(monto, precio);
             }
 
 

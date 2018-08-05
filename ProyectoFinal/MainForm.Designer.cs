@@ -47,6 +47,7 @@
             this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.cobroDelClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.cobroAlClienteToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.registroDeUsuarioToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -69,6 +70,7 @@
             this.toolStripMenuItem1.Name = "toolStripMenuItem1";
             this.toolStripMenuItem1.Size = new System.Drawing.Size(60, 20);
             this.toolStripMenuItem1.Text = "Archivo";
+            this.toolStripMenuItem1.Click += new System.EventHandler(this.toolStripMenuItem1_Click);
             // 
             // archivoToolStripMenuItem
             // 
@@ -92,7 +94,8 @@
             this.entradaArticulosToolStripMenuItem,
             this.clienteToolStripMenuItem,
             this.facturacionToolStripMenuItem,
-            this.entradaDeInversionToolStripMenuItem});
+            this.entradaDeInversionToolStripMenuItem,
+            this.registroDeUsuarioToolStripMenuItem});
             this.registroToolStripMenuItem.Name = "registroToolStripMenuItem";
             this.registroToolStripMenuItem.Size = new System.Drawing.Size(62, 20);
             this.registroToolStripMenuItem.Text = "Registro";
@@ -202,6 +205,13 @@
             this.cobroAlClienteToolStripMenuItem.Text = "Cobro al cliente";
             this.cobroAlClienteToolStripMenuItem.Click += new System.EventHandler(this.cobroAlClienteToolStripMenuItem_Click);
             // 
+            // registroDeUsuarioToolStripMenuItem
+            // 
+            this.registroDeUsuarioToolStripMenuItem.Name = "registroDeUsuarioToolStripMenuItem";
+            this.registroDeUsuarioToolStripMenuItem.Size = new System.Drawing.Size(181, 22);
+            this.registroDeUsuarioToolStripMenuItem.Text = "Registro de Usuario";
+            this.registroDeUsuarioToolStripMenuItem.Click += new System.EventHandler(this.registroDeUsuarioToolStripMenuItem_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -241,6 +251,7 @@
         private System.Windows.Forms.ToolStripMenuItem cobroAlClienteToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem entradaDeInversionToolStripMenuItem1;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem registroDeUsuarioToolStripMenuItem;
     }
 }
 

@@ -107,6 +107,12 @@
     <Compile Include="UI\Consultas\ConsultaPago.Designer.cs">
       <DependentUpon>ConsultaPago.cs</DependentUpon>
     </Compile>
+    <Compile Include="UI\Consultas\ConsultaUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Consultas\ConsultaUsuarios.Designer.cs">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
+    </Compile>
     <Compile Include="UI\Registros\InversionEmpresa.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -124,6 +130,12 @@
     </Compile>
     <Compile Include="UI\Registros\RegistroCliente.Designer.cs">
       <DependentUpon>RegistroCliente.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroDeUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="UI\Registros\RegistroDeUsuarios.Designer.cs">
+      <DependentUpon>RegistroDeUsuarios.cs</DependentUpon>
     </Compile>
     <Compile Include="UI\Registros\RegistroEntradaArticulos.cs">
       <SubType>Form</SubType>
@@ -165,12 +177,6 @@
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
       <DependentUpon>PagoCliente.rpt</DependentUpon>
-      <SubType>Component</SubType>
-    </Compile>
-    <Compile Include="UI\Reportes\Prueba.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>Prueba.rpt</DependentUpon>
       <SubType>Component</SubType>
     </Compile>
     <Compile Include="UI\Reportes\ReporteArticulo.cs">
@@ -261,6 +267,9 @@
     <EmbeddedResource Include="UI\Consultas\ConsultaPago.resx">
       <DependentUpon>ConsultaPago.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="UI\Consultas\ConsultaUsuarios.resx">
+      <DependentUpon>ConsultaUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\InversionEmpresa.resx">
       <DependentUpon>InversionEmpresa.cs</DependentUpon>
     </EmbeddedResource>
@@ -269,6 +278,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistroCliente.resx">
       <DependentUpon>RegistroCliente.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\Registros\RegistroDeUsuarios.resx">
+      <DependentUpon>RegistroDeUsuarios.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Registros\RegistroEntradaArticulos.resx">
       <DependentUpon>RegistroEntradaArticulos.cs</DependentUpon>
@@ -293,10 +305,6 @@
     <EmbeddedResource Include="UI\Reportes\PagoCliente.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>PagoCliente.cs</LastGenOutput>
-    </EmbeddedResource>
-    <EmbeddedResource Include="UI\Reportes\Prueba.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>Prueba.cs</LastGenOutput>
     </EmbeddedResource>
     <EmbeddedResource Include="UI\Reportes\ReporteArticulo.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
