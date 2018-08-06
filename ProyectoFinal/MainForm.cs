@@ -108,5 +108,11 @@ namespace ProyectoFinal
             RegistroDeUsuarios registro = new RegistroDeUsuarios();
             registro.Show();
         }
+
+        private void usuariosToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            ConsultaUsuarios usuarios = new ConsultaUsuarios();
+            usuarios.Show();
+        }
     }
 }

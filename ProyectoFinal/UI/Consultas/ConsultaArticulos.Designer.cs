@@ -74,7 +74,6 @@
             "ID",
             "Nombre del Articulo",
             "Marca del Articulo",
-            "Fecha",
             "Listar Todo"});
             this.TipocomboBox.Location = new System.Drawing.Point(64, 32);
             this.TipocomboBox.Name = "TipocomboBox";

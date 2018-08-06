@@ -16,7 +16,7 @@ namespace ProyectoFinal.BLL.Tests
             bool paso;
             Articulos articulo = new Articulos();
             articulo.ArticuloID = 0;
-            articulo.CodigoArticulo ="001";
+          
             articulo.Nombre = "Aretes";
             articulo.Marca = "GUCCI";
             articulo.Fecha = DateTime.Now;
@@ -34,7 +34,7 @@ namespace ProyectoFinal.BLL.Tests
             bool paso;
             Articulos articulo = new Articulos();
             articulo.ArticuloID = 0;
-            articulo.CodigoArticulo = "001";
+            
             articulo.Nombre = "Aretes";
             articulo.Marca = "GUCCI";
             articulo.Fecha = DateTime.Now;
@@ -52,7 +52,7 @@ namespace ProyectoFinal.BLL.Tests
             bool paso;
             Articulos articulo = new Articulos();
             articulo.ArticuloID = 0;
-            articulo.CodigoArticulo = "001";
+            
             articulo.Nombre = "Aretes";
             articulo.Marca = "GUCCI";
             articulo.Fecha = DateTime.Now;
@@ -70,7 +70,7 @@ namespace ProyectoFinal.BLL.Tests
             bool paso;
             Articulos articulo = new Articulos();
             articulo.ArticuloID = 0;
-            articulo.CodigoArticulo = "001";
+          
             articulo.Nombre = "Aretes";
             articulo.Marca = "GUCCI";
             articulo.Fecha = DateTime.Now;
@@ -88,7 +88,7 @@ namespace ProyectoFinal.BLL.Tests
             bool paso;
             Articulos articulo = new Articulos();
             articulo.ArticuloID = 0;
-            articulo.CodigoArticulo = "001";
+           
             articulo.Nombre = "Aretes";
             articulo.Marca = "GUCCI";
             articulo.Fecha = DateTime.Now;
@@ -106,7 +106,7 @@ namespace ProyectoFinal.BLL.Tests
             bool paso;
             Articulos articulo = new Articulos();
             articulo.ArticuloID = 0;
-            articulo.CodigoArticulo = "001";
+        
             articulo.Nombre = "Aretes";
             articulo.Marca = "GUCCI";
             articulo.Fecha = DateTime.Now;

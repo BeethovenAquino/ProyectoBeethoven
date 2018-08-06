@@ -1,4 +1,6 @@
-﻿using Entidades;
+﻿using BLL;
+using Entidades;
+using ProyectoFinal.UI.Reportes;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -13,6 +15,7 @@ namespace ProyectoFinal.UI.Consultas
 {
     public partial class ConsultaUsuarios : Form
     {
+        List<Usuarios> usuarios = new List<Usuarios>();
         public ConsultaUsuarios()
         {
             InitializeComponent();
@@ -175,6 +178,23 @@ namespace ProyectoFinal.UI.Consultas
             return paso;
         }
 
+        private void ReporteButton_Click(object sender, EventArgs e)
+        {
+            Usuarios usuarios = new Usuarios();
+            if (ConsultadataGridView.Rows.Count > 0 && ConsultadataGridView.CurrentRow != null)
+            {
+                List<Usuarios> Detalle = (List<Usuarios>)ConsultadataGridView.DataSource;
+                int id = Detalle.ElementAt(ConsultadataGridView.CurrentRow.Index).UsuariosId;
+
+                ReporteUsuarios abrir = new ReporteUsuarios(UsusariosBLL.GetList(x => x.UsuariosId == id));
+                abrir.Show();
+            }
+            else
+            {
+                MessageBox.Show("No existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
+                return;
+            }
+        }
     }
 }
 

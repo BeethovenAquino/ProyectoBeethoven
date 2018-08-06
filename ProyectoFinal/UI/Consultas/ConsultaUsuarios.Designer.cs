@@ -50,6 +50,7 @@
             this.ReporteButton.TabIndex = 61;
             this.ReporteButton.Text = "Reporte";
             this.ReporteButton.UseVisualStyleBackColor = true;
+            this.ReporteButton.Click += new System.EventHandler(this.ReporteButton_Click);
             // 
             // Consultabutton
             // 
@@ -67,7 +68,9 @@
             this.TipocomboBox.FormattingEnabled = true;
             this.TipocomboBox.Items.AddRange(new object[] {
             "ID",
-            "Articulo",
+            "Nombre",
+            "Usuario",
+            "Contraseña",
             "Listar Todo"});
             this.TipocomboBox.Location = new System.Drawing.Point(36, 36);
             this.TipocomboBox.Name = "TipocomboBox";

@@ -106,7 +106,6 @@
             this.TipocomboBox.FormattingEnabled = true;
             this.TipocomboBox.Items.AddRange(new object[] {
             "ID",
-            "Fecha",
             "Listar Todo"});
             this.TipocomboBox.Location = new System.Drawing.Point(67, 25);
             this.TipocomboBox.Name = "TipocomboBox";

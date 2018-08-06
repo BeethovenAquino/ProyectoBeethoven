@@ -39,7 +39,8 @@ namespace ProyectoFinal.UI.Consultas
 
                     }
                     id = int.Parse(CriteriotextBox.Text);
-                    filtrar = t => t.ArticuloID == id;
+                    filtrar = t => t.ArticuloID == id&& (t.Fecha.Day >= DesdedateTimePicker.Value.Day) && (t.Fecha.Month >= DesdedateTimePicker.Value.Month) && (t.Fecha.Year >= DesdedateTimePicker.Value.Year)
+                    && (t.Fecha.Day <= HastadateTimePicker.Value.Day) && (t.Fecha.Month <= HastadateTimePicker.Value.Month) && (t.Fecha.Year <= HastadateTimePicker.Value.Year);
                     break;
                
                 case 1:
@@ -49,7 +50,8 @@ namespace ProyectoFinal.UI.Consultas
                         MessageBox.Show("Introduce un caracter");
                         return;
                     }
-                    filtrar = t => t.Nombre == CriteriotextBox.Text;
+                    filtrar = t => t.Nombre == CriteriotextBox.Text && (t.Fecha.Day >= DesdedateTimePicker.Value.Day) && (t.Fecha.Month >= DesdedateTimePicker.Value.Month) && (t.Fecha.Year >= DesdedateTimePicker.Value.Year)
+                    && (t.Fecha.Day <= HastadateTimePicker.Value.Day) && (t.Fecha.Month <= HastadateTimePicker.Value.Month) && (t.Fecha.Year <= HastadateTimePicker.Value.Year); 
                     break;
                 //Marca
                 case 2:
@@ -60,14 +62,10 @@ namespace ProyectoFinal.UI.Consultas
                         return;
 
                     }
-                    filtrar = t => t.Marca == CriteriotextBox.Text;
-                    break;
-                //Fecha
-                case 3:
-                    filtrar = t => t.Fecha.Equals(CriteriotextBox.Text) && (t.Fecha.Day >= DesdedateTimePicker.Value.Day) && (t.Fecha.Month >= DesdedateTimePicker.Value.Month) && (t.Fecha.Year >= DesdedateTimePicker.Value.Year)
+                    filtrar = t => t.Marca == CriteriotextBox.Text && (t.Fecha.Day >= DesdedateTimePicker.Value.Day) && (t.Fecha.Month >= DesdedateTimePicker.Value.Month) && (t.Fecha.Year >= DesdedateTimePicker.Value.Year)
                     && (t.Fecha.Day <= HastadateTimePicker.Value.Day) && (t.Fecha.Month <= HastadateTimePicker.Value.Month) && (t.Fecha.Year <= HastadateTimePicker.Value.Year);
-
                     break;
+                
                 //Listar Todo
                 case 4:
 
