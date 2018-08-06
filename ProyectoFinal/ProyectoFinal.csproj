@@ -399,5 +399,8 @@
     <None Include="ImagenesProyecto\joyeria.jpg" />
     <None Include="ImagenesProyecto\Logo.jpeg" />
   </ItemGroup>
+  <ItemGroup>
+    <None Include="ImagenesProyecto\Print_32.png" />
+  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -72,7 +72,18 @@ namespace BLL
                         articulo.Vigencia += item.Cantidad;
                     }
 
-                    contexto.Cliente.Find(facturacion.ClienteID).Total -= facturacion.Total;
+                    int totalactual = Convert.ToInt32(facturacion.Total);
+                    int totalanterior = Convert.ToInt32(contexto.Cliente.Find(facturacion.ClienteID).Total);
+                    if (totalactual > totalanterior)
+                    {
+                        contexto.Cliente.Find(facturacion.ClienteID).Total = 0;
+
+                    }
+                    else
+                    {
+                        contexto.Cliente.Find(facturacion.ClienteID).Total -= facturacion.Total;
+
+                    }
 
                     contexto.inversion.Find(facturacion.InversionID).Monto -= facturacion.Total;
                     facturacion.Detalle.Count();

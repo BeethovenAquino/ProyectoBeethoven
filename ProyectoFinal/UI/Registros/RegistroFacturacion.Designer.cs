@@ -114,7 +114,7 @@
             this.ClientecomboBox.Location = new System.Drawing.Point(84, 102);
             this.ClientecomboBox.Name = "ClientecomboBox";
             this.ClientecomboBox.Size = new System.Drawing.Size(121, 21);
-            this.ClientecomboBox.TabIndex = 4;
+            this.ClientecomboBox.TabIndex = 2;
             // 
             // FechadateTimePicker
             // 
@@ -129,7 +129,7 @@
             this.FacturaIDnumericUpDown.Location = new System.Drawing.Point(84, 13);
             this.FacturaIDnumericUpDown.Name = "FacturaIDnumericUpDown";
             this.FacturaIDnumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.FacturaIDnumericUpDown.TabIndex = 6;
+            this.FacturaIDnumericUpDown.TabIndex = 0;
             // 
             // VentacomboBox
             // 
@@ -140,7 +140,7 @@
             this.VentacomboBox.Location = new System.Drawing.Point(84, 56);
             this.VentacomboBox.Name = "VentacomboBox";
             this.VentacomboBox.Size = new System.Drawing.Size(121, 21);
-            this.VentacomboBox.TabIndex = 7;
+            this.VentacomboBox.TabIndex = 1;
             this.VentacomboBox.SelectedIndexChanged += new System.EventHandler(this.VentacomboBox_SelectedIndexChanged);
             // 
             // ArticulocomboBox
@@ -150,7 +150,7 @@
             this.ArticulocomboBox.Location = new System.Drawing.Point(2, 155);
             this.ArticulocomboBox.Name = "ArticulocomboBox";
             this.ArticulocomboBox.Size = new System.Drawing.Size(121, 21);
-            this.ArticulocomboBox.TabIndex = 8;
+            this.ArticulocomboBox.TabIndex = 3;
             this.ArticulocomboBox.SelectedIndexChanged += new System.EventHandler(this.ArticulocomboBox_SelectedIndexChanged);
             // 
             // label5
@@ -173,7 +173,7 @@
             this.PrecionumericUpDown.Name = "PrecionumericUpDown";
             this.PrecionumericUpDown.ReadOnly = true;
             this.PrecionumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.PrecionumericUpDown.TabIndex = 76;
+            this.PrecionumericUpDown.TabIndex = 5;
             this.PrecionumericUpDown.ValueChanged += new System.EventHandler(this.PrecionumericUpDown_ValueChanged);
             // 
             // CantidadnumericUpDown
@@ -186,7 +186,7 @@
             0});
             this.CantidadnumericUpDown.Name = "CantidadnumericUpDown";
             this.CantidadnumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.CantidadnumericUpDown.TabIndex = 75;
+            this.CantidadnumericUpDown.TabIndex = 4;
             this.CantidadnumericUpDown.ValueChanged += new System.EventHandler(this.CantidadnumericUpDown_ValueChanged);
             // 
             // label6
@@ -230,7 +230,7 @@
             this.Removerbutton.Location = new System.Drawing.Point(595, 154);
             this.Removerbutton.Name = "Removerbutton";
             this.Removerbutton.Size = new System.Drawing.Size(74, 30);
-            this.Removerbutton.TabIndex = 80;
+            this.Removerbutton.TabIndex = 8;
             this.Removerbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Removerbutton.UseVisualStyleBackColor = true;
             this.Removerbutton.Click += new System.EventHandler(this.Removerbutton_Click);
@@ -241,7 +241,7 @@
             this.Agregarbutton.Location = new System.Drawing.Point(595, 123);
             this.Agregarbutton.Name = "Agregarbutton";
             this.Agregarbutton.Size = new System.Drawing.Size(74, 30);
-            this.Agregarbutton.TabIndex = 79;
+            this.Agregarbutton.TabIndex = 7;
             this.Agregarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Agregarbutton.UseVisualStyleBackColor = true;
             this.Agregarbutton.Click += new System.EventHandler(this.Agregarbutton_Click);
@@ -369,7 +369,7 @@
             this.ImportetextBox.Name = "ImportetextBox";
             this.ImportetextBox.ReadOnly = true;
             this.ImportetextBox.Size = new System.Drawing.Size(100, 20);
-            this.ImportetextBox.TabIndex = 93;
+            this.ImportetextBox.TabIndex = 6;
             // 
             // DevueltanumericUpDown
             // 
@@ -386,11 +386,13 @@
             // 
             // button1
             // 
+            this.button1.Image = global::ProyectoFinal.Properties.Resources.Print_32;
             this.button1.Location = new System.Drawing.Point(574, 464);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(95, 54);
             this.button1.TabIndex = 95;
             this.button1.Text = "Recibo ";
+            this.button1.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 

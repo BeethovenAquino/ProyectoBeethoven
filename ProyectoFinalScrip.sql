@@ -1,4 +1,4 @@
-create  DATABASE ProyectoFinal
+create DATABASE ProyectoFinal
 
 
 select* from EntradaArticulos

@@ -50,7 +50,7 @@
             this.label1.Location = new System.Drawing.Point(38, 30);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(98, 13);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 7;
             this.label1.Text = "EntradaInversionID";
             // 
             // label2
@@ -59,7 +59,7 @@
             this.label2.Location = new System.Drawing.Point(38, 68);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(37, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 8;
             this.label2.Text = "Fecha";
             // 
             // label3
@@ -68,7 +68,7 @@
             this.label3.Location = new System.Drawing.Point(38, 104);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(37, 13);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 9;
             this.label3.Text = "Monto";
             // 
             // EntradaInversionIDnumericUpDown
@@ -76,7 +76,7 @@
             this.EntradaInversionIDnumericUpDown.Location = new System.Drawing.Point(142, 28);
             this.EntradaInversionIDnumericUpDown.Name = "EntradaInversionIDnumericUpDown";
             this.EntradaInversionIDnumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.EntradaInversionIDnumericUpDown.TabIndex = 3;
+            this.EntradaInversionIDnumericUpDown.TabIndex = 0;
             // 
             // FechadateTimePicker
             // 
@@ -84,7 +84,7 @@
             this.FechadateTimePicker.Location = new System.Drawing.Point(142, 68);
             this.FechadateTimePicker.Name = "FechadateTimePicker";
             this.FechadateTimePicker.Size = new System.Drawing.Size(120, 20);
-            this.FechadateTimePicker.TabIndex = 4;
+            this.FechadateTimePicker.TabIndex = 1;
             // 
             // Nuevobutton
             // 
@@ -92,7 +92,7 @@
             this.Nuevobutton.Location = new System.Drawing.Point(26, 151);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(90, 53);
-            this.Nuevobutton.TabIndex = 30;
+            this.Nuevobutton.TabIndex = 4;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Nuevobutton.UseVisualStyleBackColor = true;
@@ -104,7 +104,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(122, 151);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(89, 53);
-            this.Guardarbutton.TabIndex = 27;
+            this.Guardarbutton.TabIndex = 3;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -116,7 +116,7 @@
             this.Buscarbutton.Location = new System.Drawing.Point(272, -1);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(89, 51);
-            this.Buscarbutton.TabIndex = 28;
+            this.Buscarbutton.TabIndex = 6;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Buscarbutton.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(231, 151);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(89, 53);
-            this.Eliminarbutton.TabIndex = 29;
+            this.Eliminarbutton.TabIndex = 5;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
@@ -143,7 +143,7 @@
             this.MontotextBox.Location = new System.Drawing.Point(142, 104);
             this.MontotextBox.Name = "MontotextBox";
             this.MontotextBox.Size = new System.Drawing.Size(120, 20);
-            this.MontotextBox.TabIndex = 31;
+            this.MontotextBox.TabIndex = 2;
             // 
             // RegistroEntradaInversion
             // 

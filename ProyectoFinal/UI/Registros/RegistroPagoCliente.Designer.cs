@@ -100,7 +100,7 @@
             this.Consultabutton.Location = new System.Drawing.Point(388, 70);
             this.Consultabutton.Name = "Consultabutton";
             this.Consultabutton.Size = new System.Drawing.Size(108, 49);
-            this.Consultabutton.TabIndex = 71;
+            this.Consultabutton.TabIndex = 4;
             this.Consultabutton.Text = "Consultar";
             this.Consultabutton.UseVisualStyleBackColor = true;
             this.Consultabutton.Click += new System.EventHandler(this.Consultabutton_Click);
@@ -118,14 +118,14 @@
             this.FiltrarcomboBox.Location = new System.Drawing.Point(55, 85);
             this.FiltrarcomboBox.Name = "FiltrarcomboBox";
             this.FiltrarcomboBox.Size = new System.Drawing.Size(121, 21);
-            this.FiltrarcomboBox.TabIndex = 70;
+            this.FiltrarcomboBox.TabIndex = 2;
             // 
             // CriteriotextBox
             // 
             this.CriteriotextBox.Location = new System.Drawing.Point(254, 86);
             this.CriteriotextBox.Name = "CriteriotextBox";
             this.CriteriotextBox.Size = new System.Drawing.Size(128, 20);
-            this.CriteriotextBox.TabIndex = 69;
+            this.CriteriotextBox.TabIndex = 3;
             // 
             // label2
             // 
@@ -185,7 +185,7 @@
             this.PagoIDnumericUpDown.Location = new System.Drawing.Point(86, 13);
             this.PagoIDnumericUpDown.Name = "PagoIDnumericUpDown";
             this.PagoIDnumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.PagoIDnumericUpDown.TabIndex = 81;
+            this.PagoIDnumericUpDown.TabIndex = 0;
             // 
             // Buscarbutton
             // 
@@ -245,7 +245,7 @@
             this.FechadateTimePicker.Location = new System.Drawing.Point(81, 50);
             this.FechadateTimePicker.Name = "FechadateTimePicker";
             this.FechadateTimePicker.Size = new System.Drawing.Size(125, 20);
-            this.FechadateTimePicker.TabIndex = 89;
+            this.FechadateTimePicker.TabIndex = 1;
             // 
             // label6
             // 

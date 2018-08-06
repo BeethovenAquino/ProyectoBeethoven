@@ -56,7 +56,7 @@
             this.label1.Location = new System.Drawing.Point(25, 13);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(50, 13);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 10;
             this.label1.Text = "ClienteID";
             // 
             // label2
@@ -65,7 +65,7 @@
             this.label2.Location = new System.Drawing.Point(25, 48);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(98, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 11;
             this.label2.Text = "Nombre Del Cliente";
             // 
             // label3
@@ -74,7 +74,7 @@
             this.label3.Location = new System.Drawing.Point(25, 88);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(40, 13);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 12;
             this.label3.Text = "Cedula";
             // 
             // label4
@@ -83,7 +83,7 @@
             this.label4.Location = new System.Drawing.Point(25, 130);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(52, 13);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 13;
             this.label4.Text = "Direccion";
             // 
             // label5
@@ -92,7 +92,7 @@
             this.label5.Location = new System.Drawing.Point(25, 176);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(49, 13);
-            this.label5.TabIndex = 4;
+            this.label5.TabIndex = 14;
             this.label5.Text = "Telefono";
             // 
             // ClienteIDnumericUpDown
@@ -100,21 +100,21 @@
             this.ClienteIDnumericUpDown.Location = new System.Drawing.Point(144, 13);
             this.ClienteIDnumericUpDown.Name = "ClienteIDnumericUpDown";
             this.ClienteIDnumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.ClienteIDnumericUpDown.TabIndex = 5;
+            this.ClienteIDnumericUpDown.TabIndex = 0;
             // 
             // NombretextBox
             // 
             this.NombretextBox.Location = new System.Drawing.Point(144, 48);
             this.NombretextBox.Name = "NombretextBox";
             this.NombretextBox.Size = new System.Drawing.Size(211, 20);
-            this.NombretextBox.TabIndex = 6;
+            this.NombretextBox.TabIndex = 1;
             // 
             // DirecciontextBox
             // 
             this.DirecciontextBox.Location = new System.Drawing.Point(144, 130);
             this.DirecciontextBox.Name = "DirecciontextBox";
             this.DirecciontextBox.Size = new System.Drawing.Size(211, 20);
-            this.DirecciontextBox.TabIndex = 8;
+            this.DirecciontextBox.TabIndex = 3;
             // 
             // Guardarbutton
             // 
@@ -122,7 +122,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(134, 300);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(89, 60);
-            this.Guardarbutton.TabIndex = 11;
+            this.Guardarbutton.TabIndex = 6;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -134,7 +134,7 @@
             this.Buscarbutton.Location = new System.Drawing.Point(284, -2);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(89, 46);
-            this.Buscarbutton.TabIndex = 12;
+            this.Buscarbutton.TabIndex = 9;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Buscarbutton.UseVisualStyleBackColor = true;
@@ -146,7 +146,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(243, 300);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(89, 60);
-            this.Eliminarbutton.TabIndex = 13;
+            this.Eliminarbutton.TabIndex = 8;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
@@ -158,7 +158,7 @@
             this.Nuevobutton.Location = new System.Drawing.Point(39, 300);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(89, 60);
-            this.Nuevobutton.TabIndex = 10;
+            this.Nuevobutton.TabIndex = 7;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Nuevobutton.UseVisualStyleBackColor = true;
@@ -174,7 +174,7 @@
             this.label6.Location = new System.Drawing.Point(28, 223);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(66, 13);
-            this.label6.TabIndex = 14;
+            this.label6.TabIndex = 15;
             this.label6.Text = "Total Deuda";
             // 
             // TotalTextbox
@@ -183,7 +183,7 @@
             this.TotalTextbox.Name = "TotalTextbox";
             this.TotalTextbox.ReadOnly = true;
             this.TotalTextbox.Size = new System.Drawing.Size(100, 20);
-            this.TotalTextbox.TabIndex = 15;
+            this.TotalTextbox.TabIndex = 5;
             // 
             // CedulamaskedTextBox
             // 
@@ -191,7 +191,7 @@
             this.CedulamaskedTextBox.Mask = "000-0000000-0";
             this.CedulamaskedTextBox.Name = "CedulamaskedTextBox";
             this.CedulamaskedTextBox.Size = new System.Drawing.Size(100, 20);
-            this.CedulamaskedTextBox.TabIndex = 16;
+            this.CedulamaskedTextBox.TabIndex = 2;
             // 
             // TelefonomaskedTextBox
             // 
@@ -199,7 +199,7 @@
             this.TelefonomaskedTextBox.Mask = "(999)000-0000";
             this.TelefonomaskedTextBox.Name = "TelefonomaskedTextBox";
             this.TelefonomaskedTextBox.Size = new System.Drawing.Size(149, 20);
-            this.TelefonomaskedTextBox.TabIndex = 17;
+            this.TelefonomaskedTextBox.TabIndex = 4;
             // 
             // RegistroCliente
             // 

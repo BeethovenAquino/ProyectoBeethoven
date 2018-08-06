@@ -22,8 +22,8 @@ namespace ProyectoFinal.UI.Registros
             Repositorio<Articulos> repositori = new Repositorio<Articulos>(new Contexto());
 
             ArticulocomboBox.DataSource = repositori.GetList(c =>true /* c.PrecioCompra == 0*/);
-            ArticulocomboBox.ValueMember = "ArticuloId";
-            ArticulocomboBox.DisplayMember = "NombreArticulo";
+            ArticulocomboBox.ValueMember = "ArticuloID";
+            ArticulocomboBox.DisplayMember = "Nombre";
         }
         private EntradaArticulos LlenarClase()
         {
@@ -182,7 +182,7 @@ namespace ProyectoFinal.UI.Registros
 
             if (articulo != null)
             {
-                ArticulocomboBox.SelectedValue = articulo.Articulo;
+                ArticulocomboBox.Text = articulo.Articulo;
                 PrecioCompranumericUpDown.Value = articulo.PrecioCompra;
                 PrecioVentanumericUpDown.Value = articulo.PrecioVenta;
                 GanancianumericUpDown.Value = articulo.Ganancia;

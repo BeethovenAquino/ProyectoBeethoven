@@ -348,19 +348,18 @@ namespace ProyectoFinal.UI.Registros
 
         private void MontonumericUpDown_ValueChanged(object sender, EventArgs e)
         {
-            int precio = Convert.ToInt32(TotaltextBox.Text);
+            int total = Convert.ToInt32(TotaltextBox.Text);
             int monto = Convert.ToInt32(MontonumericUpDown.Value);
 
-            if (monto < precio)
+            if (monto < total)
             {
                 MessageBox.Show("le falta dinero para pagar el ariculo", "Page", MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
-            else
+            else if(monto >= total)
             {
-                DevueltanumericUpDown.Value = FacturacionBLL.CalcularDevuelta(monto, precio);
+                DevueltanumericUpDown.Value = FacturacionBLL.CalcularDevuelta(monto, total);
             }
-            
-
+           
         }
 
         private void Nuevobutton_Click(object sender, EventArgs e)
@@ -544,20 +543,14 @@ namespace ProyectoFinal.UI.Registros
 
         private void button1_Click(object sender, EventArgs e)
         {
-            Facturacion facturacionn = new Facturacion();
-            if (FacturaciondataGridView.Rows.Count > 0 && FacturaciondataGridView.CurrentRow != null)
-            {
-                List<Facturacion> Detalle = (List<Facturacion>)FacturaciondataGridView.DataSource;
-                int id = Detalle.ElementAt(FacturaciondataGridView.CurrentRow.Index).FacturaID;
+            List<Facturacion> list = BLL.FacturacionBLL.GetList(X => true);
 
-                ReporteFacturacion abrir = new ReporteFacturacion(FacturacionBLL.GetList(x => x.FacturaID == id));
-                abrir.Show();
-            }
-            else
-            {
-                MessageBox.Show("No existe", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Error);
-                return;
-            }
+            List<Facturacion> nuevo = new List<Facturacion>();
+
+            nuevo.Add(list.Last());
+
+            ReporteFacturacion abrir = new ReporteFacturacion(nuevo);
+            abrir.Show();
         }
     }
 }

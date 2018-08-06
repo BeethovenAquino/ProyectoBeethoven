@@ -42,7 +42,7 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(173, 44);
+            this.label1.Location = new System.Drawing.Point(138, 33);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(43, 13);
             this.label1.TabIndex = 0;
@@ -50,7 +50,7 @@
             // 
             // UsusariotextBox
             // 
-            this.UsusariotextBox.Location = new System.Drawing.Point(124, 60);
+            this.UsusariotextBox.Location = new System.Drawing.Point(89, 49);
             this.UsusariotextBox.Name = "UsusariotextBox";
             this.UsusariotextBox.Size = new System.Drawing.Size(149, 20);
             this.UsusariotextBox.TabIndex = 1;
@@ -58,7 +58,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(173, 87);
+            this.label2.Location = new System.Drawing.Point(138, 76);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(61, 13);
             this.label2.TabIndex = 2;
@@ -66,14 +66,15 @@
             // 
             // ContraseñatextBox
             // 
-            this.ContraseñatextBox.Location = new System.Drawing.Point(124, 103);
+            this.ContraseñatextBox.Location = new System.Drawing.Point(89, 92);
             this.ContraseñatextBox.Name = "ContraseñatextBox";
+            this.ContraseñatextBox.PasswordChar = '*';
             this.ContraseñatextBox.Size = new System.Drawing.Size(149, 20);
             this.ContraseñatextBox.TabIndex = 3;
             // 
             // Loginbutton
             // 
-            this.Loginbutton.Location = new System.Drawing.Point(98, 129);
+            this.Loginbutton.Location = new System.Drawing.Point(63, 118);
             this.Loginbutton.Name = "Loginbutton";
             this.Loginbutton.Size = new System.Drawing.Size(75, 23);
             this.Loginbutton.TabIndex = 4;
@@ -83,7 +84,7 @@
             // 
             // Salirbutton
             // 
-            this.Salirbutton.Location = new System.Drawing.Point(198, 129);
+            this.Salirbutton.Location = new System.Drawing.Point(163, 118);
             this.Salirbutton.Name = "Salirbutton";
             this.Salirbutton.Size = new System.Drawing.Size(75, 23);
             this.Salirbutton.TabIndex = 5;

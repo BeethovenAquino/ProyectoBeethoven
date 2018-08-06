@@ -59,8 +59,44 @@
             label1.Location = new System.Drawing.Point(13, 210);
             label1.Name = "label1";
             label1.Size = new System.Drawing.Size(114, 13);
-            label1.TabIndex = 33;
+            label1.TabIndex = 13;
             label1.Text = "Confirmar Contraseña :";
+            // 
+            // contraseñaLabel
+            // 
+            contraseñaLabel.AutoSize = true;
+            contraseñaLabel.Location = new System.Drawing.Point(13, 166);
+            contraseñaLabel.Name = "contraseñaLabel";
+            contraseñaLabel.Size = new System.Drawing.Size(64, 13);
+            contraseñaLabel.TabIndex = 12;
+            contraseñaLabel.Text = "Contraseña:";
+            // 
+            // usuarioLabel
+            // 
+            usuarioLabel.AutoSize = true;
+            usuarioLabel.Location = new System.Drawing.Point(13, 115);
+            usuarioLabel.Name = "usuarioLabel";
+            usuarioLabel.Size = new System.Drawing.Size(46, 13);
+            usuarioLabel.TabIndex = 11;
+            usuarioLabel.Text = "Usuario:";
+            // 
+            // nombreLabel
+            // 
+            nombreLabel.AutoSize = true;
+            nombreLabel.Location = new System.Drawing.Point(13, 64);
+            nombreLabel.Name = "nombreLabel";
+            nombreLabel.Size = new System.Drawing.Size(47, 13);
+            nombreLabel.TabIndex = 10;
+            nombreLabel.Text = "Nombre:";
+            // 
+            // usuariosIdLabel
+            // 
+            usuariosIdLabel.AutoSize = true;
+            usuariosIdLabel.Location = new System.Drawing.Point(13, 21);
+            usuariosIdLabel.Name = "usuariosIdLabel";
+            usuariosIdLabel.Size = new System.Drawing.Size(63, 13);
+            usuariosIdLabel.TabIndex = 9;
+            usuariosIdLabel.Text = "Usuarios Id:";
             // 
             // ConfirmartextBox
             // 
@@ -69,16 +105,7 @@
             this.ConfirmartextBox.Name = "ConfirmartextBox";
             this.ConfirmartextBox.PasswordChar = '*';
             this.ConfirmartextBox.Size = new System.Drawing.Size(120, 20);
-            this.ConfirmartextBox.TabIndex = 34;
-            // 
-            // contraseñaLabel
-            // 
-            contraseñaLabel.AutoSize = true;
-            contraseñaLabel.Location = new System.Drawing.Point(13, 166);
-            contraseñaLabel.Name = "contraseñaLabel";
-            contraseñaLabel.Size = new System.Drawing.Size(64, 13);
-            contraseñaLabel.TabIndex = 31;
-            contraseñaLabel.Text = "Contraseña:";
+            this.ConfirmartextBox.TabIndex = 4;
             // 
             // contraseñaTextBox
             // 
@@ -87,48 +114,21 @@
             this.contraseñaTextBox.Name = "contraseñaTextBox";
             this.contraseñaTextBox.PasswordChar = '*';
             this.contraseñaTextBox.Size = new System.Drawing.Size(120, 20);
-            this.contraseñaTextBox.TabIndex = 32;
-            // 
-            // usuarioLabel
-            // 
-            usuarioLabel.AutoSize = true;
-            usuarioLabel.Location = new System.Drawing.Point(13, 115);
-            usuarioLabel.Name = "usuarioLabel";
-            usuarioLabel.Size = new System.Drawing.Size(46, 13);
-            usuarioLabel.TabIndex = 29;
-            usuarioLabel.Text = "Usuario:";
+            this.contraseñaTextBox.TabIndex = 3;
             // 
             // usuarioTextBox
             // 
             this.usuarioTextBox.Location = new System.Drawing.Point(102, 111);
             this.usuarioTextBox.Name = "usuarioTextBox";
             this.usuarioTextBox.Size = new System.Drawing.Size(120, 20);
-            this.usuarioTextBox.TabIndex = 30;
-            // 
-            // nombreLabel
-            // 
-            nombreLabel.AutoSize = true;
-            nombreLabel.Location = new System.Drawing.Point(13, 64);
-            nombreLabel.Name = "nombreLabel";
-            nombreLabel.Size = new System.Drawing.Size(47, 13);
-            nombreLabel.TabIndex = 27;
-            nombreLabel.Text = "Nombre:";
+            this.usuarioTextBox.TabIndex = 2;
             // 
             // nombreTextBox
             // 
             this.nombreTextBox.Location = new System.Drawing.Point(102, 60);
             this.nombreTextBox.Name = "nombreTextBox";
             this.nombreTextBox.Size = new System.Drawing.Size(120, 20);
-            this.nombreTextBox.TabIndex = 28;
-            // 
-            // usuariosIdLabel
-            // 
-            usuariosIdLabel.AutoSize = true;
-            usuariosIdLabel.Location = new System.Drawing.Point(13, 21);
-            usuariosIdLabel.Name = "usuariosIdLabel";
-            usuariosIdLabel.Size = new System.Drawing.Size(63, 13);
-            usuariosIdLabel.TabIndex = 25;
-            usuariosIdLabel.Text = "Usuarios Id:";
+            this.nombreTextBox.TabIndex = 1;
             // 
             // usuariosIdNumericUpDown
             // 
@@ -140,7 +140,7 @@
             0});
             this.usuariosIdNumericUpDown.Name = "usuariosIdNumericUpDown";
             this.usuariosIdNumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.usuariosIdNumericUpDown.TabIndex = 26;
+            this.usuariosIdNumericUpDown.TabIndex = 0;
             // 
             // Nuevobutton
             // 
@@ -148,7 +148,7 @@
             this.Nuevobutton.Location = new System.Drawing.Point(6, 247);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(90, 53);
-            this.Nuevobutton.TabIndex = 38;
+            this.Nuevobutton.TabIndex = 6;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Nuevobutton.UseVisualStyleBackColor = true;
@@ -160,7 +160,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(102, 247);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(89, 53);
-            this.Guardarbutton.TabIndex = 35;
+            this.Guardarbutton.TabIndex = 5;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -172,7 +172,7 @@
             this.Buscarbutton.Location = new System.Drawing.Point(245, 2);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(89, 46);
-            this.Buscarbutton.TabIndex = 36;
+            this.Buscarbutton.TabIndex = 8;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Buscarbutton.UseVisualStyleBackColor = true;
@@ -184,7 +184,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(211, 247);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(89, 53);
-            this.Eliminarbutton.TabIndex = 37;
+            this.Eliminarbutton.TabIndex = 7;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Eliminarbutton.UseVisualStyleBackColor = true;

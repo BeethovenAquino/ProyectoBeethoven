@@ -63,7 +63,7 @@
             this.label1.Location = new System.Drawing.Point(59, 45);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(55, 15);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 10;
             this.label1.Text = "ArticuloID";
             // 
             // label3
@@ -73,7 +73,7 @@
             this.label3.Location = new System.Drawing.Point(59, 121);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(96, 15);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 16;
             this.label3.Text = "Marca Del Articulo";
             // 
             // label4
@@ -83,7 +83,7 @@
             this.label4.Location = new System.Drawing.Point(59, 160);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(96, 15);
-            this.label4.TabIndex = 3;
+            this.label4.TabIndex = 17;
             this.label4.Text = "Fecha De Entrada";
             // 
             // ArticuloIDnumericUpDown
@@ -91,14 +91,14 @@
             this.ArticuloIDnumericUpDown.Location = new System.Drawing.Point(162, 45);
             this.ArticuloIDnumericUpDown.Name = "ArticuloIDnumericUpDown";
             this.ArticuloIDnumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.ArticuloIDnumericUpDown.TabIndex = 4;
+            this.ArticuloIDnumericUpDown.TabIndex = 0;
             // 
             // MarcatextBox
             // 
             this.MarcatextBox.Location = new System.Drawing.Point(162, 121);
             this.MarcatextBox.Name = "MarcatextBox";
             this.MarcatextBox.Size = new System.Drawing.Size(120, 20);
-            this.MarcatextBox.TabIndex = 6;
+            this.MarcatextBox.TabIndex = 2;
             // 
             // FechaEntradadateTimePicker
             // 
@@ -107,7 +107,7 @@
             this.FechaEntradadateTimePicker.Location = new System.Drawing.Point(162, 160);
             this.FechaEntradadateTimePicker.Name = "FechaEntradadateTimePicker";
             this.FechaEntradadateTimePicker.Size = new System.Drawing.Size(120, 20);
-            this.FechaEntradadateTimePicker.TabIndex = 7;
+            this.FechaEntradadateTimePicker.TabIndex = 3;
             this.FechaEntradadateTimePicker.Value = new System.DateTime(2018, 7, 22, 0, 0, 0, 0);
             // 
             // Eliminarbutton
@@ -116,7 +116,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(243, 395);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(89, 53);
-            this.Eliminarbutton.TabIndex = 9;
+            this.Eliminarbutton.TabIndex = 6;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
@@ -128,7 +128,7 @@
             this.Buscarbutton.Location = new System.Drawing.Point(288, 28);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(89, 46);
-            this.Buscarbutton.TabIndex = 9;
+            this.Buscarbutton.TabIndex = 7;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Buscarbutton.UseVisualStyleBackColor = true;
@@ -140,7 +140,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(134, 395);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(89, 53);
-            this.Guardarbutton.TabIndex = 9;
+            this.Guardarbutton.TabIndex = 4;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -153,7 +153,7 @@
             this.label5.Location = new System.Drawing.Point(59, 83);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(103, 15);
-            this.label5.TabIndex = 10;
+            this.label5.TabIndex = 12;
             this.label5.Text = "Nombre Del Articulo";
             // 
             // NombretextBox
@@ -161,7 +161,7 @@
             this.NombretextBox.Location = new System.Drawing.Point(162, 83);
             this.NombretextBox.Name = "NombretextBox";
             this.NombretextBox.Size = new System.Drawing.Size(120, 20);
-            this.NombretextBox.TabIndex = 11;
+            this.NombretextBox.TabIndex = 1;
             // 
             // VigenciatextBox
             // 
@@ -188,7 +188,7 @@
             this.label6.Location = new System.Drawing.Point(59, 197);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(78, 15);
-            this.label6.TabIndex = 20;
+            this.label6.TabIndex = 18;
             this.label6.Text = "Precio Compra";
             // 
             // label7
@@ -198,7 +198,7 @@
             this.label7.Location = new System.Drawing.Point(59, 232);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(70, 15);
-            this.label7.TabIndex = 21;
+            this.label7.TabIndex = 19;
             this.label7.Text = "Precio Venta";
             // 
             // label8
@@ -208,7 +208,7 @@
             this.label8.Location = new System.Drawing.Point(59, 263);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(55, 15);
-            this.label8.TabIndex = 22;
+            this.label8.TabIndex = 17;
             this.label8.Text = "Ganancia";
             // 
             // PrecioCompratextBox
@@ -245,7 +245,7 @@
             this.Nuevobutton.Location = new System.Drawing.Point(38, 395);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(90, 53);
-            this.Nuevobutton.TabIndex = 26;
+            this.Nuevobutton.TabIndex = 5;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Nuevobutton.UseVisualStyleBackColor = true;

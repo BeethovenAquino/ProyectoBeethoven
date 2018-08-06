@@ -60,7 +60,7 @@
             this.label1.Location = new System.Drawing.Point(36, 26);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(90, 13);
-            this.label1.TabIndex = 0;
+            this.label1.TabIndex = 10;
             this.label1.Text = "EntradaArticuloID";
             // 
             // label2
@@ -69,7 +69,7 @@
             this.label2.Location = new System.Drawing.Point(36, 65);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(42, 13);
-            this.label2.TabIndex = 1;
+            this.label2.TabIndex = 11;
             this.label2.Text = "Articulo";
             // 
             // label3
@@ -78,7 +78,7 @@
             this.label3.Location = new System.Drawing.Point(37, 234);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(106, 13);
-            this.label3.TabIndex = 2;
+            this.label3.TabIndex = 15;
             this.label3.Text = "Cantidad Del Articulo";
             // 
             // Guardarbutton
@@ -87,7 +87,7 @@
             this.Guardarbutton.Location = new System.Drawing.Point(133, 265);
             this.Guardarbutton.Name = "Guardarbutton";
             this.Guardarbutton.Size = new System.Drawing.Size(84, 57);
-            this.Guardarbutton.TabIndex = 11;
+            this.Guardarbutton.TabIndex = 6;
             this.Guardarbutton.Text = "Guardar";
             this.Guardarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Guardarbutton.UseVisualStyleBackColor = true;
@@ -99,7 +99,7 @@
             this.Buscarbutton.Location = new System.Drawing.Point(329, 0);
             this.Buscarbutton.Name = "Buscarbutton";
             this.Buscarbutton.Size = new System.Drawing.Size(84, 46);
-            this.Buscarbutton.TabIndex = 12;
+            this.Buscarbutton.TabIndex = 9;
             this.Buscarbutton.Text = "Buscar";
             this.Buscarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Buscarbutton.UseVisualStyleBackColor = true;
@@ -111,7 +111,7 @@
             this.Eliminarbutton.Location = new System.Drawing.Point(244, 265);
             this.Eliminarbutton.Name = "Eliminarbutton";
             this.Eliminarbutton.Size = new System.Drawing.Size(84, 57);
-            this.Eliminarbutton.TabIndex = 13;
+            this.Eliminarbutton.TabIndex = 8;
             this.Eliminarbutton.Text = "Eliminar";
             this.Eliminarbutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Eliminarbutton.UseVisualStyleBackColor = true;
@@ -123,7 +123,7 @@
             this.Nuevobutton.Location = new System.Drawing.Point(38, 265);
             this.Nuevobutton.Name = "Nuevobutton";
             this.Nuevobutton.Size = new System.Drawing.Size(84, 57);
-            this.Nuevobutton.TabIndex = 10;
+            this.Nuevobutton.TabIndex = 7;
             this.Nuevobutton.Text = "Nuevo";
             this.Nuevobutton.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageAboveText;
             this.Nuevobutton.UseVisualStyleBackColor = true;
@@ -134,15 +134,16 @@
             this.EntradaArticuloIDnumericUpDown.Location = new System.Drawing.Point(190, 26);
             this.EntradaArticuloIDnumericUpDown.Name = "EntradaArticuloIDnumericUpDown";
             this.EntradaArticuloIDnumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.EntradaArticuloIDnumericUpDown.TabIndex = 14;
+            this.EntradaArticuloIDnumericUpDown.TabIndex = 0;
             // 
             // ArticulocomboBox
             // 
+            this.ArticulocomboBox.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.ArticulocomboBox.FormattingEnabled = true;
             this.ArticulocomboBox.Location = new System.Drawing.Point(190, 67);
             this.ArticulocomboBox.Name = "ArticulocomboBox";
             this.ArticulocomboBox.Size = new System.Drawing.Size(121, 21);
-            this.ArticulocomboBox.TabIndex = 15;
+            this.ArticulocomboBox.TabIndex = 1;
             // 
             // CantidadArticulonumericUpDown
             // 
@@ -154,7 +155,7 @@
             0});
             this.CantidadArticulonumericUpDown.Name = "CantidadArticulonumericUpDown";
             this.CantidadArticulonumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.CantidadArticulonumericUpDown.TabIndex = 16;
+            this.CantidadArticulonumericUpDown.TabIndex = 5;
             // 
             // EntradaerrorProvider
             // 
@@ -166,7 +167,7 @@
             this.label6.Location = new System.Drawing.Point(42, 188);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(53, 13);
-            this.label6.TabIndex = 23;
+            this.label6.TabIndex = 14;
             this.label6.Text = "Ganancia";
             // 
             // PrecioVentanumericUpDown
@@ -179,7 +180,7 @@
             0});
             this.PrecioVentanumericUpDown.Name = "PrecioVentanumericUpDown";
             this.PrecioVentanumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.PrecioVentanumericUpDown.TabIndex = 22;
+            this.PrecioVentanumericUpDown.TabIndex = 3;
             this.PrecioVentanumericUpDown.ValueChanged += new System.EventHandler(this.PrecioVentanumericUpDown_ValueChanged);
             // 
             // PrecioCompranumericUpDown
@@ -192,7 +193,7 @@
             0});
             this.PrecioCompranumericUpDown.Name = "PrecioCompranumericUpDown";
             this.PrecioCompranumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.PrecioCompranumericUpDown.TabIndex = 21;
+            this.PrecioCompranumericUpDown.TabIndex = 2;
             this.PrecioCompranumericUpDown.ValueChanged += new System.EventHandler(this.PrecioCompranumericUpDown_ValueChanged);
             // 
             // label4
@@ -201,7 +202,7 @@
             this.label4.Location = new System.Drawing.Point(44, 151);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(83, 13);
-            this.label4.TabIndex = 20;
+            this.label4.TabIndex = 13;
             this.label4.Text = "Precio de Venta";
             // 
             // label5
@@ -210,7 +211,7 @@
             this.label5.Location = new System.Drawing.Point(36, 109);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 13);
-            this.label5.TabIndex = 19;
+            this.label5.TabIndex = 12;
             this.label5.Text = "Precio de Compra";
             // 
             // GanancianumericUpDown
@@ -222,8 +223,9 @@
             0,
             0});
             this.GanancianumericUpDown.Name = "GanancianumericUpDown";
+            this.GanancianumericUpDown.ReadOnly = true;
             this.GanancianumericUpDown.Size = new System.Drawing.Size(120, 20);
-            this.GanancianumericUpDown.TabIndex = 24;
+            this.GanancianumericUpDown.TabIndex = 4;
             // 
             // RegistroEntradaArticulos
             // 

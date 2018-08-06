@@ -26,62 +26,56 @@ namespace ProyectoFinal
 
         private void Loginbutton_Click(object sender, EventArgs e)
         {
+            Repositorio<Usuarios> usuarios = new Repositorio<Usuarios>(new Contexto());
+            //List<Usuarios> 
+            var Lista = usuarios.GetList(x => x.Usuario.Equals(UsusariotextBox.Text) && x.Contraseña.Equals(ContraseñatextBox.Text));
+            Usuarios usuario = (Lista != null && Lista.Count > 0) ? Lista[0] : null;
+
+            if ((UsusariotextBox.Text == "Beethoven") && (ContraseñatextBox.Text == "081514"))
             {
-                Repositorio<Usuarios> usuarios = new Repositorio<Usuarios>(new Contexto());
-                //List<Usuarios> 
-                var Lista = usuarios.GetList(x => x.Usuario.Equals(UsusariotextBox.Text) && x.Contraseña.Equals(ContraseñatextBox.Text));
-                Usuarios usuario = (Lista != null && Lista.Count > 0) ? Lista[0] : null;
+                MainForm ver = new MainForm();
+                ver.Show();
+            }
+            
 
-                if (usuario != null)
-                {
+            if (usuario != null)
+            {
 
-                    this.Hide();
-                    Thread hilo = new Thread(Menu);
-                    hilo.Start();
+                this.Hide();
+                Thread hilo = new Thread(Menu);
+                hilo.Start();
 
-                    return;
-                }
-                else
-                {
-                    MessageBox.Show("Contraseña y/o Usuario Incorrectos", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Information);
-                    ContraseñatextBox.Clear();
-                }
+                return;
+            }
+            //else
+            //{
+            //    MessageBox.Show("Contraseña y/o Usuario Incorrectos", "Fallo", MessageBoxButtons.OK, MessageBoxIcon.Information);
+            //    ContraseñatextBox.Clear();
+            //}
 
-                int paso = 0;
-                //Expression<Func<Usuarios, bool>> filtrar = x => true;
-                //List<Usuarios> user = new List<Usuarios>();
+            int paso = 0;
+            //Expression<Func<Usuarios, bool>> filtrar = x => true;
+            //List<Usuarios> user = new List<Usuarios>();
 
-                LoginerrorProvider.Clear();
-                if (UsusariotextBox.Text == string.Empty)
-                {
-                    paso = 1;
-                    LoginerrorProvider.SetError(UsusariotextBox, "Incorrecto");
-
-                }
-                if (ContraseñatextBox.Text == string.Empty)
-                {
-                    paso = 1;
-                    LoginerrorProvider.SetError(ContraseñatextBox, "Incorrecto");
-
-                }
-                if (paso == 1)
-                {
-                    MessageBox.Show("Campos Vacios!!");
-                    return;
-                }
-                if ((UsusariotextBox.Text == "Beethoven") && (ContraseñatextBox.Text == "081514"))
-                {
-                    MainForm ver = new MainForm();
-                    ver.Show();
-                }
-                else
-                {
-                    MessageBox.Show("Datos Inconrrectos!!", "Fallo",
-                     MessageBoxButtons.OK, MessageBoxIcon.Information);
-                }
+            LoginerrorProvider.Clear();
+            if (UsusariotextBox.Text == string.Empty)
+            {
+                paso = 1;
+                LoginerrorProvider.SetError(UsusariotextBox, "Incorrecto");
 
             }
-           
+            if (ContraseñatextBox.Text == string.Empty)
+            {
+                paso = 1;
+                LoginerrorProvider.SetError(ContraseñatextBox, "Incorrecto");
+
+            }
+            if (paso == 1)
+            {
+                MessageBox.Show("Campos Vacios!!");
+                return;
+            }
+
         }
         private void Menu()
         {
@@ -89,5 +83,8 @@ namespace ProyectoFinal
             Application.Run(new MainForm());
         }
     }
+
 }
+
+
 
